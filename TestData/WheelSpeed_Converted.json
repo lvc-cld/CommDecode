@@ -1,0 +1,5274 @@
+{
+  "trials": [
+    {
+      "reference_value": 159.85,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "87743251D46706D7"
+        },
+        {
+          "timestamp": 0.0475,
+          "message_id": "0x244",
+          "payload": "05DA845AD4C3BB81"
+        },
+        {
+          "timestamp": 0.1089,
+          "message_id": "0x3A0",
+          "payload": "29B62179273C8EB5"
+        },
+        {
+          "timestamp": 0.1525,
+          "message_id": "0x244",
+          "payload": "82575E58D4171AC8"
+        },
+        {
+          "timestamp": 0.1808,
+          "message_id": "0x300",
+          "payload": "6FCE48478DCB74F2"
+        },
+        {
+          "timestamp": 0.2436,
+          "message_id": "0x1A0",
+          "payload": "5D2CCE8038A39D5E"
+        },
+        {
+          "timestamp": 0.2687,
+          "message_id": "0x2C0",
+          "payload": "53964B50AF03B971"
+        },
+        {
+          "timestamp": 0.3058,
+          "message_id": "0x100",
+          "payload": "2F244F58D669CBEE"
+        },
+        {
+          "timestamp": 0.3368,
+          "message_id": "0x244",
+          "payload": "A0770257D4A278F6"
+        },
+        {
+          "timestamp": 0.3888,
+          "message_id": "0x400",
+          "payload": "7FD633DBDDE131CA"
+        },
+        {
+          "timestamp": 0.4538,
+          "message_id": "0x244",
+          "payload": "66E4D55ED4E31027"
+        },
+        {
+          "timestamp": 0.4871,
+          "message_id": "0x200",
+          "payload": "C15C0C8E9DF46961"
+        },
+        {
+          "timestamp": 0.5411,
+          "message_id": "0x300",
+          "payload": "11F5125227C3712D"
+        },
+        {
+          "timestamp": 0.5989,
+          "message_id": "0x300",
+          "payload": "86A78C49EA20E326"
+        },
+        {
+          "timestamp": 0.6492,
+          "message_id": "0x244",
+          "payload": "B27B9559D4348334"
+        },
+        {
+          "timestamp": 0.6879,
+          "message_id": "0x300",
+          "payload": "68F812D810A485ED"
+        },
+        {
+          "timestamp": 0.7409,
+          "message_id": "0x244",
+          "payload": "41B4D459D4B673BD"
+        },
+        {
+          "timestamp": 0.8146,
+          "message_id": "0x200",
+          "payload": "55D05AD7853C1F76"
+        },
+        {
+          "timestamp": 0.8804,
+          "message_id": "0x2C0",
+          "payload": "7706CA828BCA0385"
+        },
+        {
+          "timestamp": 0.9345,
+          "message_id": "0x244",
+          "payload": "3DBAD356D4D06BD2"
+        },
+        {
+          "timestamp": 1.0069,
+          "message_id": "0x300",
+          "payload": "399DAC946DC59C09"
+        },
+        {
+          "timestamp": 1.0462,
+          "message_id": "0x300",
+          "payload": "EEE6F529A2797640"
+        },
+        {
+          "timestamp": 1.0736,
+          "message_id": "0x100",
+          "payload": "ED6CFC7403D75E17"
+        },
+        {
+          "timestamp": 1.1444,
+          "message_id": "0x244",
+          "payload": "4EAEDE5FD478F78E"
+        },
+        {
+          "timestamp": 1.1733,
+          "message_id": "0x244",
+          "payload": "8AA2445CD42DDAED"
+        },
+        {
+          "timestamp": 1.2014,
+          "message_id": "0x3A0",
+          "payload": "0CF0B9CD7F78DF0C"
+        },
+        {
+          "timestamp": 1.2432,
+          "message_id": "0x3A0",
+          "payload": "5E40C02D4E518CA6"
+        },
+        {
+          "timestamp": 1.291,
+          "message_id": "0x3A0",
+          "payload": "8D82F01B72107604"
+        },
+        {
+          "timestamp": 1.3279,
+          "message_id": "0x100",
+          "payload": "6E8B5359309CC627"
+        },
+        {
+          "timestamp": 1.358,
+          "message_id": "0x100",
+          "payload": "1BDB2A0DF3DBE4D5"
+        },
+        {
+          "timestamp": 1.4197,
+          "message_id": "0x2C0",
+          "payload": "FED8A728E7ECA0FA"
+        },
+        {
+          "timestamp": 1.4538,
+          "message_id": "0x244",
+          "payload": "8A880657D47FFE02"
+        },
+        {
+          "timestamp": 1.4935,
+          "message_id": "0x200",
+          "payload": "9BFBDABE898736A3"
+        },
+        {
+          "timestamp": 1.5556,
+          "message_id": "0x1A0",
+          "payload": "66F893697B590481"
+        },
+        {
+          "timestamp": 1.6293,
+          "message_id": "0x1A0",
+          "payload": "F309FFEA518F32CF"
+        },
+        {
+          "timestamp": 1.658,
+          "message_id": "0x244",
+          "payload": "44927357D4E9D913"
+        },
+        {
+          "timestamp": 1.7304,
+          "message_id": "0x244",
+          "payload": "68257555D4EF9179"
+        },
+        {
+          "timestamp": 1.7908,
+          "message_id": "0x400",
+          "payload": "2786D3748421599E"
+        },
+        {
+          "timestamp": 1.822,
+          "message_id": "0x3A0",
+          "payload": "8FE21DA80270815F"
+        },
+        {
+          "timestamp": 1.8729,
+          "message_id": "0x2C0",
+          "payload": "5DF2FBDAA35ADF9C"
+        },
+        {
+          "timestamp": 1.9386,
+          "message_id": "0x400",
+          "payload": "2A8A3C0ED16BFE16"
+        },
+        {
+          "timestamp": 1.977,
+          "message_id": "0x244",
+          "payload": "9EF30759D4273E34"
+        }
+      ]
+    },
+    {
+      "reference_value": 179.15,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x2C0",
+          "payload": "DFF7E4C6428DA809"
+        },
+        {
+          "timestamp": 0.0613,
+          "message_id": "0x400",
+          "payload": "4EFBACEA67C7D1AF"
+        },
+        {
+          "timestamp": 0.1216,
+          "message_id": "0x3A0",
+          "payload": "4F14A3E3E04D42F8"
+        },
+        {
+          "timestamp": 0.1635,
+          "message_id": "0x100",
+          "payload": "ACAF127972D33E59"
+        },
+        {
+          "timestamp": 0.2337,
+          "message_id": "0x244",
+          "payload": "19BBD47DEC52C7F4"
+        },
+        {
+          "timestamp": 0.2703,
+          "message_id": "0x400",
+          "payload": "80E952EB9D8E96CF"
+        },
+        {
+          "timestamp": 0.3006,
+          "message_id": "0x300",
+          "payload": "990C801F97B76843"
+        },
+        {
+          "timestamp": 0.3708,
+          "message_id": "0x2C0",
+          "payload": "E1B429AD564B858F"
+        },
+        {
+          "timestamp": 0.4441,
+          "message_id": "0x244",
+          "payload": "A3E2477BEC083EB8"
+        },
+        {
+          "timestamp": 0.4984,
+          "message_id": "0x300",
+          "payload": "37F0A72E9D34119F"
+        },
+        {
+          "timestamp": 0.5292,
+          "message_id": "0x244",
+          "payload": "4CEBD473EC81B6EE"
+        },
+        {
+          "timestamp": 0.6017,
+          "message_id": "0x100",
+          "payload": "BB1C863E2601A746"
+        },
+        {
+          "timestamp": 0.6301,
+          "message_id": "0x200",
+          "payload": "67A40844853040B7"
+        },
+        {
+          "timestamp": 0.6846,
+          "message_id": "0x244",
+          "payload": "814D327EECE719E0"
+        },
+        {
+          "timestamp": 0.7126,
+          "message_id": "0x3A0",
+          "payload": "D3FE22A4248AC9ED"
+        },
+        {
+          "timestamp": 0.7426,
+          "message_id": "0x410",
+          "payload": "6DE7DAECD3ADA8B4"
+        },
+        {
+          "timestamp": 0.8019,
+          "message_id": "0x100",
+          "payload": "22D3B41A3DBD199B"
+        },
+        {
+          "timestamp": 0.8321,
+          "message_id": "0x1A0",
+          "payload": "F73BB387D080589A"
+        },
+        {
+          "timestamp": 0.8747,
+          "message_id": "0x244",
+          "payload": "4C24027CECA5B9A2"
+        },
+        {
+          "timestamp": 0.9438,
+          "message_id": "0x244",
+          "payload": "128EDF7DEC3BD39F"
+        },
+        {
+          "timestamp": 0.9952,
+          "message_id": "0x200",
+          "payload": "C10696489A30FD54"
+        },
+        {
+          "timestamp": 1.0392,
+          "message_id": "0x410",
+          "payload": "B2C1D0E2ADCD93C0"
+        },
+        {
+          "timestamp": 1.1125,
+          "message_id": "0x244",
+          "payload": "EB2D377CEC9A7A52"
+        },
+        {
+          "timestamp": 1.163,
+          "message_id": "0x244",
+          "payload": "6BB47378EC425FEE"
+        },
+        {
+          "timestamp": 1.2221,
+          "message_id": "0x300",
+          "payload": "A4E2FE981B29EE11"
+        },
+        {
+          "timestamp": 1.2655,
+          "message_id": "0x244",
+          "payload": "2CE1E67FECE3A251"
+        },
+        {
+          "timestamp": 1.3029,
+          "message_id": "0x400",
+          "payload": "5BB9CDA1A2A3C984"
+        },
+        {
+          "timestamp": 1.3446,
+          "message_id": "0x1A0",
+          "payload": "B9C429CA42DB0B95"
+        },
+        {
+          "timestamp": 1.4171,
+          "message_id": "0x400",
+          "payload": "67442931A4C4555E"
+        },
+        {
+          "timestamp": 1.4443,
+          "message_id": "0x200",
+          "payload": "E9E779F6BEE9CD56"
+        },
+        {
+          "timestamp": 1.5094,
+          "message_id": "0x244",
+          "payload": "81FB3372ECE4D27E"
+        },
+        {
+          "timestamp": 1.5786,
+          "message_id": "0x3A0",
+          "payload": "1CB7C2B70A3A4419"
+        },
+        {
+          "timestamp": 1.6495,
+          "message_id": "0x1A0",
+          "payload": "FE020864D3979317"
+        },
+        {
+          "timestamp": 1.6955,
+          "message_id": "0x400",
+          "payload": "23F0749D0B7D52B2"
+        },
+        {
+          "timestamp": 1.7681,
+          "message_id": "0x410",
+          "payload": "0CF1CB80B2B73A41"
+        },
+        {
+          "timestamp": 1.8107,
+          "message_id": "0x1A0",
+          "payload": "EF542E196161A9CF"
+        },
+        {
+          "timestamp": 1.8484,
+          "message_id": "0x200",
+          "payload": "9B1A83BDCECA5FFB"
+        },
+        {
+          "timestamp": 1.9196,
+          "message_id": "0x100",
+          "payload": "D2D59A32A99ED5EB"
+        },
+        {
+          "timestamp": 1.967,
+          "message_id": "0x300",
+          "payload": "D812CB504E1427BB"
+        }
+      ]
+    },
+    {
+      "reference_value": 141.8,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x400",
+          "payload": "BBE24BCA87305FC3"
+        },
+        {
+          "timestamp": 0.0381,
+          "message_id": "0x244",
+          "payload": "E69F63C2BDE2AB29"
+        },
+        {
+          "timestamp": 0.1077,
+          "message_id": "0x1A0",
+          "payload": "B73647F0BBE4229C"
+        },
+        {
+          "timestamp": 0.1826,
+          "message_id": "0x410",
+          "payload": "DD24A2EEB454D134"
+        },
+        {
+          "timestamp": 0.2228,
+          "message_id": "0x244",
+          "payload": "7B9286C4BD545A10"
+        },
+        {
+          "timestamp": 0.2519,
+          "message_id": "0x2C0",
+          "payload": "6D0F99F7C9E215ED"
+        },
+        {
+          "timestamp": 0.3011,
+          "message_id": "0x244",
+          "payload": "4AABC4C3BDE38E74"
+        },
+        {
+          "timestamp": 0.331,
+          "message_id": "0x244",
+          "payload": "CD75AAC5BDF9F02C"
+        },
+        {
+          "timestamp": 0.3812,
+          "message_id": "0x200",
+          "payload": "B119FF903D48BCB1"
+        },
+        {
+          "timestamp": 0.4263,
+          "message_id": "0x200",
+          "payload": "B92CE8343CBAB46C"
+        },
+        {
+          "timestamp": 0.4763,
+          "message_id": "0x244",
+          "payload": "4AFE44CABD9AF9F0"
+        },
+        {
+          "timestamp": 0.5197,
+          "message_id": "0x3A0",
+          "payload": "90F871F5C471360E"
+        },
+        {
+          "timestamp": 0.5604,
+          "message_id": "0x244",
+          "payload": "6DF146CFBD5EAB8F"
+        },
+        {
+          "timestamp": 0.595,
+          "message_id": "0x244",
+          "payload": "97996FCFBD93CCB4"
+        },
+        {
+          "timestamp": 0.6345,
+          "message_id": "0x244",
+          "payload": "2BE8F6C8BD377177"
+        },
+        {
+          "timestamp": 0.6621,
+          "message_id": "0x400",
+          "payload": "3405DFF69A912715"
+        },
+        {
+          "timestamp": 0.708,
+          "message_id": "0x244",
+          "payload": "CF5910C3BDEF4E86"
+        },
+        {
+          "timestamp": 0.7735,
+          "message_id": "0x400",
+          "payload": "850A965CDA2C354F"
+        },
+        {
+          "timestamp": 0.8146,
+          "message_id": "0x244",
+          "payload": "8C7E8AC0BD713E95"
+        },
+        {
+          "timestamp": 0.8599,
+          "message_id": "0x2C0",
+          "payload": "39B774F4EBDF672E"
+        },
+        {
+          "timestamp": 0.9113,
+          "message_id": "0x100",
+          "payload": "1645AE36F2E1E4DE"
+        },
+        {
+          "timestamp": 0.9645,
+          "message_id": "0x2C0",
+          "payload": "0C80621DB212F19D"
+        },
+        {
+          "timestamp": 0.9985,
+          "message_id": "0x244",
+          "payload": "DBCECCC4BD5C4700"
+        },
+        {
+          "timestamp": 1.0724,
+          "message_id": "0x410",
+          "payload": "DC77EB48631D0762"
+        },
+        {
+          "timestamp": 1.1025,
+          "message_id": "0x244",
+          "payload": "171CE7C1BD7AA794"
+        },
+        {
+          "timestamp": 1.1768,
+          "message_id": "0x3A0",
+          "payload": "9815DF1BCADD49C5"
+        },
+        {
+          "timestamp": 1.2395,
+          "message_id": "0x200",
+          "payload": "94E1DD4C786A2EB2"
+        },
+        {
+          "timestamp": 1.2913,
+          "message_id": "0x244",
+          "payload": "8C1266C6BD0663F7"
+        },
+        {
+          "timestamp": 1.3511,
+          "message_id": "0x3A0",
+          "payload": "7A9CEB98BFE3FA6B"
+        },
+        {
+          "timestamp": 1.3917,
+          "message_id": "0x244",
+          "payload": "7408D9C6BDC7FA8F"
+        },
+        {
+          "timestamp": 1.465,
+          "message_id": "0x400",
+          "payload": "E5B54F511210D472"
+        },
+        {
+          "timestamp": 1.5254,
+          "message_id": "0x244",
+          "payload": "EB1FF0CDBD890D53"
+        },
+        {
+          "timestamp": 1.5963,
+          "message_id": "0x200",
+          "payload": "68B8C2BCE779212C"
+        },
+        {
+          "timestamp": 1.6402,
+          "message_id": "0x244",
+          "payload": "052FDAC1BDF81281"
+        },
+        {
+          "timestamp": 1.6742,
+          "message_id": "0x244",
+          "payload": "64C295CCBD42B13D"
+        },
+        {
+          "timestamp": 1.7108,
+          "message_id": "0x244",
+          "payload": "CA08EFCBBD5C2972"
+        },
+        {
+          "timestamp": 1.7399,
+          "message_id": "0x244",
+          "payload": "4CAB32C9BD83425D"
+        },
+        {
+          "timestamp": 1.7874,
+          "message_id": "0x3A0",
+          "payload": "302B2AC09DC275C5"
+        },
+        {
+          "timestamp": 1.8193,
+          "message_id": "0x400",
+          "payload": "425D8D9F2B87F6E3"
+        },
+        {
+          "timestamp": 1.8511,
+          "message_id": "0x244",
+          "payload": "CACAEAC4BD6FA5CA"
+        },
+        {
+          "timestamp": 1.8907,
+          "message_id": "0x400",
+          "payload": "7AC8CB3650E6E92D"
+        },
+        {
+          "timestamp": 1.9493,
+          "message_id": "0x244",
+          "payload": "9784DCCEBDD1B237"
+        }
+      ]
+    },
+    {
+      "reference_value": 88.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "CAD303777BBCE4B0"
+        },
+        {
+          "timestamp": 0.0491,
+          "message_id": "0x244",
+          "payload": "234B9A767BF3EEA2"
+        },
+        {
+          "timestamp": 0.0892,
+          "message_id": "0x100",
+          "payload": "0A35755ADE7C55DC"
+        },
+        {
+          "timestamp": 0.1156,
+          "message_id": "0x200",
+          "payload": "EDC0668235BA6E38"
+        },
+        {
+          "timestamp": 0.1741,
+          "message_id": "0x300",
+          "payload": "CC3BBE5924A37935"
+        },
+        {
+          "timestamp": 0.2178,
+          "message_id": "0x244",
+          "payload": "CD4CD5757B945AE1"
+        },
+        {
+          "timestamp": 0.2861,
+          "message_id": "0x400",
+          "payload": "46CFDFDEF5207918"
+        },
+        {
+          "timestamp": 0.3223,
+          "message_id": "0x244",
+          "payload": "EF338B7E7B3791E8"
+        },
+        {
+          "timestamp": 0.3648,
+          "message_id": "0x400",
+          "payload": "376BD54661B85A99"
+        },
+        {
+          "timestamp": 0.4184,
+          "message_id": "0x410",
+          "payload": "34D184474A7CF48D"
+        },
+        {
+          "timestamp": 0.4622,
+          "message_id": "0x244",
+          "payload": "2C8BEF707BB2C6D6"
+        },
+        {
+          "timestamp": 0.5119,
+          "message_id": "0x2C0",
+          "payload": "A4FA113E035EE0D6"
+        },
+        {
+          "timestamp": 0.5867,
+          "message_id": "0x2C0",
+          "payload": "582B82B51C97D230"
+        },
+        {
+          "timestamp": 0.6223,
+          "message_id": "0x244",
+          "payload": "7E00A3747B7C233A"
+        },
+        {
+          "timestamp": 0.6657,
+          "message_id": "0x244",
+          "payload": "C442057B7BDE6234"
+        },
+        {
+          "timestamp": 0.7283,
+          "message_id": "0x3A0",
+          "payload": "BDA4782790966C91"
+        },
+        {
+          "timestamp": 0.7925,
+          "message_id": "0x200",
+          "payload": "FC37F20BA4CDB5F2"
+        },
+        {
+          "timestamp": 0.8184,
+          "message_id": "0x244",
+          "payload": "8611C97D7B482926"
+        },
+        {
+          "timestamp": 0.8921,
+          "message_id": "0x244",
+          "payload": "AC29D7777B3E1953"
+        },
+        {
+          "timestamp": 0.9177,
+          "message_id": "0x244",
+          "payload": "05FB85747B0AD828"
+        },
+        {
+          "timestamp": 0.9783,
+          "message_id": "0x100",
+          "payload": "FEB1F5B583370107"
+        },
+        {
+          "timestamp": 1.0056,
+          "message_id": "0x1A0",
+          "payload": "51D7A7DA82B31571"
+        },
+        {
+          "timestamp": 1.0783,
+          "message_id": "0x244",
+          "payload": "E99A2E7B7B97EBF6"
+        },
+        {
+          "timestamp": 1.14,
+          "message_id": "0x200",
+          "payload": "40D07B0A0C9367DF"
+        },
+        {
+          "timestamp": 1.213,
+          "message_id": "0x1A0",
+          "payload": "8217DBE234C21D47"
+        },
+        {
+          "timestamp": 1.2526,
+          "message_id": "0x3A0",
+          "payload": "AAE872643435EEAD"
+        },
+        {
+          "timestamp": 1.2836,
+          "message_id": "0x200",
+          "payload": "E9E8325916A427BC"
+        },
+        {
+          "timestamp": 1.3343,
+          "message_id": "0x2C0",
+          "payload": "50CE73E34301746C"
+        },
+        {
+          "timestamp": 1.3779,
+          "message_id": "0x100",
+          "payload": "82026E42A31E15DC"
+        },
+        {
+          "timestamp": 1.4277,
+          "message_id": "0x3A0",
+          "payload": "5B6588E4179FDF12"
+        },
+        {
+          "timestamp": 1.4667,
+          "message_id": "0x244",
+          "payload": "670CBF7B7B850A70"
+        },
+        {
+          "timestamp": 1.5365,
+          "message_id": "0x244",
+          "payload": "FB7537787BCB557A"
+        },
+        {
+          "timestamp": 1.6018,
+          "message_id": "0x244",
+          "payload": "B46F95717B770F0A"
+        },
+        {
+          "timestamp": 1.6727,
+          "message_id": "0x244",
+          "payload": "4A5A10747B2BC3A9"
+        },
+        {
+          "timestamp": 1.7138,
+          "message_id": "0x3A0",
+          "payload": "FA5B75C99450C15A"
+        },
+        {
+          "timestamp": 1.7849,
+          "message_id": "0x200",
+          "payload": "3F4A27BA52AE0867"
+        },
+        {
+          "timestamp": 1.8446,
+          "message_id": "0x100",
+          "payload": "01CED5DFCBC3F75E"
+        },
+        {
+          "timestamp": 1.8732,
+          "message_id": "0x2C0",
+          "payload": "0A832A5C522AF0D5"
+        },
+        {
+          "timestamp": 1.9286,
+          "message_id": "0x244",
+          "payload": "3A66D8797B1CF41B"
+        },
+        {
+          "timestamp": 1.9538,
+          "message_id": "0x244",
+          "payload": "F63065727B9CFF82"
+        }
+      ]
+    },
+    {
+      "reference_value": 96.9,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x3A0",
+          "payload": "B5E18EE8781432BD"
+        },
+        {
+          "timestamp": 0.0735,
+          "message_id": "0x410",
+          "payload": "1CDF7F92C143E556"
+        },
+        {
+          "timestamp": 0.139,
+          "message_id": "0x244",
+          "payload": "D2D648A285CA8E0D"
+        },
+        {
+          "timestamp": 0.1696,
+          "message_id": "0x244",
+          "payload": "3339BDAC85158C4C"
+        },
+        {
+          "timestamp": 0.1965,
+          "message_id": "0x300",
+          "payload": "71F8B0A998F3749E"
+        },
+        {
+          "timestamp": 0.2602,
+          "message_id": "0x3A0",
+          "payload": "26E6DFB1529C4056"
+        },
+        {
+          "timestamp": 0.329,
+          "message_id": "0x244",
+          "payload": "171E1BA885C307BF"
+        },
+        {
+          "timestamp": 0.3837,
+          "message_id": "0x244",
+          "payload": "FBB582A085567768"
+        },
+        {
+          "timestamp": 0.4413,
+          "message_id": "0x244",
+          "payload": "F45078A885BE86E9"
+        },
+        {
+          "timestamp": 0.5001,
+          "message_id": "0x3A0",
+          "payload": "30B993F2A8A88964"
+        },
+        {
+          "timestamp": 0.551,
+          "message_id": "0x244",
+          "payload": "1CA40FA885C16A7F"
+        },
+        {
+          "timestamp": 0.6213,
+          "message_id": "0x410",
+          "payload": "95593F485A27B79D"
+        },
+        {
+          "timestamp": 0.6857,
+          "message_id": "0x2C0",
+          "payload": "9E3F12F63C9D1446"
+        },
+        {
+          "timestamp": 0.7279,
+          "message_id": "0x400",
+          "payload": "4A52FA5A10E8655F"
+        },
+        {
+          "timestamp": 0.7921,
+          "message_id": "0x1A0",
+          "payload": "DDCDFC016B0A6007"
+        },
+        {
+          "timestamp": 0.8284,
+          "message_id": "0x2C0",
+          "payload": "43C952199EAD4AFB"
+        },
+        {
+          "timestamp": 0.8909,
+          "message_id": "0x244",
+          "payload": "C07746A5851C8113"
+        },
+        {
+          "timestamp": 0.9486,
+          "message_id": "0x244",
+          "payload": "3DEC38A4859D384D"
+        },
+        {
+          "timestamp": 1.0151,
+          "message_id": "0x244",
+          "payload": "3933F6A885D951F6"
+        },
+        {
+          "timestamp": 1.0746,
+          "message_id": "0x200",
+          "payload": "0023F422387E98E1"
+        },
+        {
+          "timestamp": 1.1045,
+          "message_id": "0x244",
+          "payload": "19BAD3A1855ABE82"
+        },
+        {
+          "timestamp": 1.1482,
+          "message_id": "0x100",
+          "payload": "CCE8CFD534153DFE"
+        },
+        {
+          "timestamp": 1.1822,
+          "message_id": "0x300",
+          "payload": "04FF3DE128A07A3D"
+        },
+        {
+          "timestamp": 1.2403,
+          "message_id": "0x244",
+          "payload": "BC4105AF85FA7A81"
+        },
+        {
+          "timestamp": 1.2907,
+          "message_id": "0x3A0",
+          "payload": "C72EEE2FEA3F03CD"
+        },
+        {
+          "timestamp": 1.3175,
+          "message_id": "0x100",
+          "payload": "96EAB17EAFBE3370"
+        },
+        {
+          "timestamp": 1.3595,
+          "message_id": "0x2C0",
+          "payload": "B315F4D38663C6E6"
+        },
+        {
+          "timestamp": 1.4204,
+          "message_id": "0x244",
+          "payload": "D13EE4A085F5543C"
+        },
+        {
+          "timestamp": 1.4782,
+          "message_id": "0x300",
+          "payload": "CD78CA9E44D9A666"
+        },
+        {
+          "timestamp": 1.5345,
+          "message_id": "0x244",
+          "payload": "B45A3BAD85030C41"
+        },
+        {
+          "timestamp": 1.593,
+          "message_id": "0x244",
+          "payload": "598419A18537C791"
+        },
+        {
+          "timestamp": 1.6643,
+          "message_id": "0x300",
+          "payload": "1086E7B669E52553"
+        },
+        {
+          "timestamp": 1.7082,
+          "message_id": "0x410",
+          "payload": "84580AE414A19FB2"
+        },
+        {
+          "timestamp": 1.7724,
+          "message_id": "0x200",
+          "payload": "525DC2B76AAB96F0"
+        },
+        {
+          "timestamp": 1.8031,
+          "message_id": "0x200",
+          "payload": "71AC3C890BEF196A"
+        },
+        {
+          "timestamp": 1.8538,
+          "message_id": "0x1A0",
+          "payload": "0266D36D240EA122"
+        },
+        {
+          "timestamp": 1.8815,
+          "message_id": "0x410",
+          "payload": "278DCECDA0C30212"
+        },
+        {
+          "timestamp": 1.9244,
+          "message_id": "0x2C0",
+          "payload": "929ECC0F574C949B"
+        },
+        {
+          "timestamp": 1.9973,
+          "message_id": "0x244",
+          "payload": "4310C2A685D45578"
+        }
+      ]
+    },
+    {
+      "reference_value": 45.35,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "E292833F45473926"
+        },
+        {
+          "timestamp": 0.0409,
+          "message_id": "0x2C0",
+          "payload": "4BAD50A77D8B4AFE"
+        },
+        {
+          "timestamp": 0.0882,
+          "message_id": "0x400",
+          "payload": "35284682200C618F"
+        },
+        {
+          "timestamp": 0.1459,
+          "message_id": "0x244",
+          "payload": "C794E23B4554E554"
+        },
+        {
+          "timestamp": 0.2076,
+          "message_id": "0x300",
+          "payload": "17F728B716BCFE11"
+        },
+        {
+          "timestamp": 0.2817,
+          "message_id": "0x410",
+          "payload": "885CCB28C7CBBFF0"
+        },
+        {
+          "timestamp": 0.3318,
+          "message_id": "0x244",
+          "payload": "57286435457DA3FF"
+        },
+        {
+          "timestamp": 0.3807,
+          "message_id": "0x3A0",
+          "payload": "071454141585C092"
+        },
+        {
+          "timestamp": 0.4166,
+          "message_id": "0x400",
+          "payload": "F57D4585AE27CC43"
+        },
+        {
+          "timestamp": 0.4424,
+          "message_id": "0x410",
+          "payload": "D435F132F40DDB1D"
+        },
+        {
+          "timestamp": 0.4789,
+          "message_id": "0x3A0",
+          "payload": "B3D48F729D860030"
+        },
+        {
+          "timestamp": 0.5226,
+          "message_id": "0x244",
+          "payload": "ADB34D38458C6DF5"
+        },
+        {
+          "timestamp": 0.5661,
+          "message_id": "0x2C0",
+          "payload": "9BC437E536CA15C0"
+        },
+        {
+          "timestamp": 0.6313,
+          "message_id": "0x400",
+          "payload": "D2287B21CC915FE0"
+        },
+        {
+          "timestamp": 0.6664,
+          "message_id": "0x410",
+          "payload": "961751B70528CBCC"
+        },
+        {
+          "timestamp": 0.7207,
+          "message_id": "0x100",
+          "payload": "29BB876EC085D329"
+        },
+        {
+          "timestamp": 0.7627,
+          "message_id": "0x244",
+          "payload": "88ECF73E45F382C7"
+        },
+        {
+          "timestamp": 0.8216,
+          "message_id": "0x244",
+          "payload": "ADB087324525FAB6"
+        },
+        {
+          "timestamp": 0.8913,
+          "message_id": "0x244",
+          "payload": "6F67783745B4332F"
+        },
+        {
+          "timestamp": 0.947,
+          "message_id": "0x410",
+          "payload": "1FBAF8F58C741DF1"
+        },
+        {
+          "timestamp": 0.9971,
+          "message_id": "0x1A0",
+          "payload": "E3EA006C3AB85878"
+        },
+        {
+          "timestamp": 1.0457,
+          "message_id": "0x300",
+          "payload": "5FD6DBBC8E547387"
+        },
+        {
+          "timestamp": 1.0984,
+          "message_id": "0x200",
+          "payload": "44F05DF4AF981C35"
+        },
+        {
+          "timestamp": 1.1264,
+          "message_id": "0x400",
+          "payload": "3EA8BB8B0D3B659B"
+        },
+        {
+          "timestamp": 1.1677,
+          "message_id": "0x400",
+          "payload": "2C9E45ADC225A7AA"
+        },
+        {
+          "timestamp": 1.2253,
+          "message_id": "0x3A0",
+          "payload": "8EBED550478265C3"
+        },
+        {
+          "timestamp": 1.2551,
+          "message_id": "0x400",
+          "payload": "10C23842C9779E44"
+        },
+        {
+          "timestamp": 1.3065,
+          "message_id": "0x244",
+          "payload": "1BAFE83445D9BF72"
+        },
+        {
+          "timestamp": 1.3535,
+          "message_id": "0x2C0",
+          "payload": "49004B9F0FF90D97"
+        },
+        {
+          "timestamp": 1.4184,
+          "message_id": "0x200",
+          "payload": "DDC75CC782D7898D"
+        },
+        {
+          "timestamp": 1.4528,
+          "message_id": "0x244",
+          "payload": "493EE83645410539"
+        },
+        {
+          "timestamp": 1.4912,
+          "message_id": "0x244",
+          "payload": "7240F63D45BE1A24"
+        },
+        {
+          "timestamp": 1.519,
+          "message_id": "0x100",
+          "payload": "F568C037CE716E36"
+        },
+        {
+          "timestamp": 1.5677,
+          "message_id": "0x2C0",
+          "payload": "A5138F96B1637DA0"
+        },
+        {
+          "timestamp": 1.6011,
+          "message_id": "0x244",
+          "payload": "3C701F3B455F2A11"
+        },
+        {
+          "timestamp": 1.6438,
+          "message_id": "0x244",
+          "payload": "34F7AB3645B481FE"
+        },
+        {
+          "timestamp": 1.6968,
+          "message_id": "0x400",
+          "payload": "65BAE8524E98BE0C"
+        },
+        {
+          "timestamp": 1.7585,
+          "message_id": "0x300",
+          "payload": "7A2C6F49ADA33214"
+        },
+        {
+          "timestamp": 1.7924,
+          "message_id": "0x244",
+          "payload": "3F631C38457206F2"
+        },
+        {
+          "timestamp": 1.8408,
+          "message_id": "0x300",
+          "payload": "DB1812926337C667"
+        },
+        {
+          "timestamp": 1.8943,
+          "message_id": "0x410",
+          "payload": "D3BED355CA5EBAAB"
+        },
+        {
+          "timestamp": 1.9399,
+          "message_id": "0x300",
+          "payload": "76C8BEEC01904909"
+        }
+      ]
+    },
+    {
+      "reference_value": 53.7,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x2C0",
+          "payload": "431EB448B77892C6"
+        },
+        {
+          "timestamp": 0.0617,
+          "message_id": "0x400",
+          "payload": "5F391C21ABDD370C"
+        },
+        {
+          "timestamp": 0.0894,
+          "message_id": "0x300",
+          "payload": "4A741CE27D9C44A2"
+        },
+        {
+          "timestamp": 0.1382,
+          "message_id": "0x410",
+          "payload": "C82CD44F6FC67728"
+        },
+        {
+          "timestamp": 0.2021,
+          "message_id": "0x100",
+          "payload": "3DDBB6AB095BE4E1"
+        },
+        {
+          "timestamp": 0.2733,
+          "message_id": "0x244",
+          "payload": "B42317A94F39EF0A"
+        },
+        {
+          "timestamp": 0.3087,
+          "message_id": "0x200",
+          "payload": "8F40C18519681E02"
+        },
+        {
+          "timestamp": 0.3531,
+          "message_id": "0x244",
+          "payload": "B309C7A34F256E01"
+        },
+        {
+          "timestamp": 0.3905,
+          "message_id": "0x300",
+          "payload": "FC50BBB97818C087"
+        },
+        {
+          "timestamp": 0.4231,
+          "message_id": "0x1A0",
+          "payload": "2C7D74D9AE464649"
+        },
+        {
+          "timestamp": 0.4825,
+          "message_id": "0x1A0",
+          "payload": "D45A235A40ADD9E8"
+        },
+        {
+          "timestamp": 0.5151,
+          "message_id": "0x244",
+          "payload": "450877A04FF4FB5C"
+        },
+        {
+          "timestamp": 0.5647,
+          "message_id": "0x244",
+          "payload": "671D08A74F25EFAE"
+        },
+        {
+          "timestamp": 0.6341,
+          "message_id": "0x244",
+          "payload": "CAC13EA14F1C169E"
+        },
+        {
+          "timestamp": 0.679,
+          "message_id": "0x2C0",
+          "payload": "E5D914EE2354CDAE"
+        },
+        {
+          "timestamp": 0.7052,
+          "message_id": "0x200",
+          "payload": "E28A5323EB2C5CC1"
+        },
+        {
+          "timestamp": 0.7686,
+          "message_id": "0x1A0",
+          "payload": "5451D99E95346080"
+        },
+        {
+          "timestamp": 0.8166,
+          "message_id": "0x410",
+          "payload": "0F76FEDE20786154"
+        },
+        {
+          "timestamp": 0.8443,
+          "message_id": "0x1A0",
+          "payload": "19A213D5595EB129"
+        },
+        {
+          "timestamp": 0.8855,
+          "message_id": "0x100",
+          "payload": "D29F438AD66132F9"
+        },
+        {
+          "timestamp": 0.9318,
+          "message_id": "0x2C0",
+          "payload": "B4FFF5796030E36D"
+        },
+        {
+          "timestamp": 0.9775,
+          "message_id": "0x410",
+          "payload": "60698299A03AAC05"
+        },
+        {
+          "timestamp": 1.0122,
+          "message_id": "0x400",
+          "payload": "F14F4EAED19A06AB"
+        },
+        {
+          "timestamp": 1.0405,
+          "message_id": "0x244",
+          "payload": "0AC5C5A94F8D2F7B"
+        },
+        {
+          "timestamp": 1.0881,
+          "message_id": "0x200",
+          "payload": "953B162E0F46AF9A"
+        },
+        {
+          "timestamp": 1.1203,
+          "message_id": "0x410",
+          "payload": "461EC30912AE1390"
+        },
+        {
+          "timestamp": 1.1742,
+          "message_id": "0x200",
+          "payload": "A6698AE384583036"
+        },
+        {
+          "timestamp": 1.2263,
+          "message_id": "0x2C0",
+          "payload": "497529AE140F13C1"
+        },
+        {
+          "timestamp": 1.2556,
+          "message_id": "0x400",
+          "payload": "B9A62E42E3E9EF77"
+        },
+        {
+          "timestamp": 1.2878,
+          "message_id": "0x2C0",
+          "payload": "BC5AAEF02F3BFE59"
+        },
+        {
+          "timestamp": 1.3512,
+          "message_id": "0x1A0",
+          "payload": "3C3A29ECD775FC2A"
+        },
+        {
+          "timestamp": 1.3866,
+          "message_id": "0x3A0",
+          "payload": "DA752F3EA3E59C23"
+        },
+        {
+          "timestamp": 1.4459,
+          "message_id": "0x3A0",
+          "payload": "AF1264044E9CE66A"
+        },
+        {
+          "timestamp": 1.4859,
+          "message_id": "0x2C0",
+          "payload": "DB20C491B10B3907"
+        },
+        {
+          "timestamp": 1.5324,
+          "message_id": "0x300",
+          "payload": "CCCD65F46CBD4944"
+        },
+        {
+          "timestamp": 1.558,
+          "message_id": "0x1A0",
+          "payload": "FD424DED5EDECB75"
+        },
+        {
+          "timestamp": 1.6043,
+          "message_id": "0x244",
+          "payload": "F78DB1AF4FF248E2"
+        },
+        {
+          "timestamp": 1.6554,
+          "message_id": "0x200",
+          "payload": "F291A0FEFADB9951"
+        },
+        {
+          "timestamp": 1.7152,
+          "message_id": "0x2C0",
+          "payload": "81F51909F2428848"
+        },
+        {
+          "timestamp": 1.7539,
+          "message_id": "0x244",
+          "payload": "354EB5A74F1A244F"
+        },
+        {
+          "timestamp": 1.8166,
+          "message_id": "0x3A0",
+          "payload": "7E56B18315ECF9F7"
+        },
+        {
+          "timestamp": 1.8606,
+          "message_id": "0x400",
+          "payload": "84D09ECA13BD8A88"
+        },
+        {
+          "timestamp": 1.9257,
+          "message_id": "0x244",
+          "payload": "CE76A5A04F0D33EB"
+        },
+        {
+          "timestamp": 1.9617,
+          "message_id": "0x244",
+          "payload": "610216A34FC53589"
+        }
+      ]
+    },
+    {
+      "reference_value": 194.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x2C0",
+          "payload": "DA85281CCA1885E2"
+        },
+        {
+          "timestamp": 0.0496,
+          "message_id": "0x3A0",
+          "payload": "5F34D63E831228E0"
+        },
+        {
+          "timestamp": 0.1194,
+          "message_id": "0x244",
+          "payload": "01C84AF0FFDC270C"
+        },
+        {
+          "timestamp": 0.1921,
+          "message_id": "0x400",
+          "payload": "3BA9C12BA2E9651C"
+        },
+        {
+          "timestamp": 0.2502,
+          "message_id": "0x244",
+          "payload": "C3BF2EF4FF07FC29"
+        },
+        {
+          "timestamp": 0.3001,
+          "message_id": "0x400",
+          "payload": "01A1A1C36E47214F"
+        },
+        {
+          "timestamp": 0.3578,
+          "message_id": "0x244",
+          "payload": "740519FEFF33F726"
+        },
+        {
+          "timestamp": 0.4041,
+          "message_id": "0x3A0",
+          "payload": "A34A615A2384D5B5"
+        },
+        {
+          "timestamp": 0.4511,
+          "message_id": "0x244",
+          "payload": "43C50FF0FF29DF46"
+        },
+        {
+          "timestamp": 0.4832,
+          "message_id": "0x244",
+          "payload": "ED7515F2FFD07633"
+        },
+        {
+          "timestamp": 0.5392,
+          "message_id": "0x410",
+          "payload": "7E681634FF5511B9"
+        },
+        {
+          "timestamp": 0.5747,
+          "message_id": "0x244",
+          "payload": "E13155FFFF7EAD6A"
+        },
+        {
+          "timestamp": 0.6112,
+          "message_id": "0x244",
+          "payload": "737D6CF2FF1D46E5"
+        },
+        {
+          "timestamp": 0.6555,
+          "message_id": "0x244",
+          "payload": "6B86A4F1FF3EED5A"
+        },
+        {
+          "timestamp": 0.6915,
+          "message_id": "0x244",
+          "payload": "5572DFFFFF0D77AD"
+        },
+        {
+          "timestamp": 0.7455,
+          "message_id": "0x1A0",
+          "payload": "0D11F1DCF3EF720D"
+        },
+        {
+          "timestamp": 0.818,
+          "message_id": "0x244",
+          "payload": "9720F9FEFFE4C5BE"
+        },
+        {
+          "timestamp": 0.8782,
+          "message_id": "0x244",
+          "payload": "2CA19DF6FF1B13CB"
+        },
+        {
+          "timestamp": 0.9265,
+          "message_id": "0x244",
+          "payload": "B5264AF3FF7AB8D8"
+        },
+        {
+          "timestamp": 0.9542,
+          "message_id": "0x400",
+          "payload": "F3F9EB26E22C5923"
+        },
+        {
+          "timestamp": 0.9874,
+          "message_id": "0x244",
+          "payload": "4F4609F4FFDE0962"
+        },
+        {
+          "timestamp": 1.0135,
+          "message_id": "0x410",
+          "payload": "ADAAFEE949587FB9"
+        },
+        {
+          "timestamp": 1.077,
+          "message_id": "0x244",
+          "payload": "B9E559F5FF731A4E"
+        },
+        {
+          "timestamp": 1.115,
+          "message_id": "0x244",
+          "payload": "1AB4BEF9FFCF4EA4"
+        },
+        {
+          "timestamp": 1.1402,
+          "message_id": "0x410",
+          "payload": "A9F94EA3F14390C7"
+        },
+        {
+          "timestamp": 1.1875,
+          "message_id": "0x244",
+          "payload": "167860FEFF6FA1BC"
+        },
+        {
+          "timestamp": 1.2199,
+          "message_id": "0x300",
+          "payload": "CB09BB9E26EDE95D"
+        },
+        {
+          "timestamp": 1.2814,
+          "message_id": "0x100",
+          "payload": "469FA2C20D8D5E46"
+        },
+        {
+          "timestamp": 1.3157,
+          "message_id": "0x410",
+          "payload": "F199FE700489F39D"
+        },
+        {
+          "timestamp": 1.3496,
+          "message_id": "0x200",
+          "payload": "038F2BFD8F3B0851"
+        },
+        {
+          "timestamp": 1.3819,
+          "message_id": "0x1A0",
+          "payload": "B518BDB19926535A"
+        },
+        {
+          "timestamp": 1.4506,
+          "message_id": "0x2C0",
+          "payload": "8B3B4049BFDA5364"
+        },
+        {
+          "timestamp": 1.5007,
+          "message_id": "0x410",
+          "payload": "3DE2340FB9B4EA59"
+        },
+        {
+          "timestamp": 1.5272,
+          "message_id": "0x200",
+          "payload": "44794642D320FD16"
+        },
+        {
+          "timestamp": 1.5576,
+          "message_id": "0x410",
+          "payload": "1F38129033665B02"
+        },
+        {
+          "timestamp": 1.5898,
+          "message_id": "0x2C0",
+          "payload": "BB572306695036FB"
+        },
+        {
+          "timestamp": 1.6497,
+          "message_id": "0x244",
+          "payload": "35BCD6FDFF3E34FB"
+        },
+        {
+          "timestamp": 1.71,
+          "message_id": "0x244",
+          "payload": "2AF3C9F9FFD9D62F"
+        },
+        {
+          "timestamp": 1.7819,
+          "message_id": "0x244",
+          "payload": "F3CE23FCFF52B6A6"
+        },
+        {
+          "timestamp": 1.8367,
+          "message_id": "0x100",
+          "payload": "7DF88CBFCF84E338"
+        },
+        {
+          "timestamp": 1.8861,
+          "message_id": "0x244",
+          "payload": "40312FF5FF4932FE"
+        },
+        {
+          "timestamp": 1.9212,
+          "message_id": "0x400",
+          "payload": "8A01D3CEACEE1159"
+        },
+        {
+          "timestamp": 1.9905,
+          "message_id": "0x244",
+          "payload": "D49CF3FFFF1C8FCB"
+        }
+      ]
+    },
+    {
+      "reference_value": 71.1,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "14BB0A6365BDB177"
+        },
+        {
+          "timestamp": 0.0367,
+          "message_id": "0x100",
+          "payload": "293A50A1EDD80F0A"
+        },
+        {
+          "timestamp": 0.0806,
+          "message_id": "0x100",
+          "payload": "F36AFA59BD6F2698"
+        },
+        {
+          "timestamp": 0.108,
+          "message_id": "0x3A0",
+          "payload": "723A82FD6B299DA6"
+        },
+        {
+          "timestamp": 0.1537,
+          "message_id": "0x244",
+          "payload": "E505F668656BE474"
+        },
+        {
+          "timestamp": 0.216,
+          "message_id": "0x3A0",
+          "payload": "DA26D89587C73460"
+        },
+        {
+          "timestamp": 0.2533,
+          "message_id": "0x400",
+          "payload": "FDD1658408851F01"
+        },
+        {
+          "timestamp": 0.3213,
+          "message_id": "0x244",
+          "payload": "92DB2C67658F273A"
+        },
+        {
+          "timestamp": 0.3628,
+          "message_id": "0x3A0",
+          "payload": "7D643568ED81FB3A"
+        },
+        {
+          "timestamp": 0.415,
+          "message_id": "0x200",
+          "payload": "84BFB901178C9B37"
+        },
+        {
+          "timestamp": 0.4829,
+          "message_id": "0x3A0",
+          "payload": "8927965EAD182FFD"
+        },
+        {
+          "timestamp": 0.5542,
+          "message_id": "0x3A0",
+          "payload": "3582BDAE015E40C6"
+        },
+        {
+          "timestamp": 0.6107,
+          "message_id": "0x100",
+          "payload": "3574DAEF485A962D"
+        },
+        {
+          "timestamp": 0.654,
+          "message_id": "0x3A0",
+          "payload": "70072E6851CD842B"
+        },
+        {
+          "timestamp": 0.6876,
+          "message_id": "0x244",
+          "payload": "DEF3766865C4D669"
+        },
+        {
+          "timestamp": 0.7489,
+          "message_id": "0x244",
+          "payload": "5D40986E65E20F4A"
+        },
+        {
+          "timestamp": 0.8226,
+          "message_id": "0x200",
+          "payload": "CD82311A7FB108C9"
+        },
+        {
+          "timestamp": 0.8965,
+          "message_id": "0x1A0",
+          "payload": "1585FAE42AD483A1"
+        },
+        {
+          "timestamp": 0.9704,
+          "message_id": "0x2C0",
+          "payload": "BD988AD5AF4E1641"
+        },
+        {
+          "timestamp": 1.0069,
+          "message_id": "0x244",
+          "payload": "85ED3F6E65EF343B"
+        },
+        {
+          "timestamp": 1.0366,
+          "message_id": "0x1A0",
+          "payload": "58605D27F3A093CB"
+        },
+        {
+          "timestamp": 1.0911,
+          "message_id": "0x300",
+          "payload": "402EFE80A1EA4619"
+        },
+        {
+          "timestamp": 1.1323,
+          "message_id": "0x244",
+          "payload": "2C2C856C6565CC94"
+        },
+        {
+          "timestamp": 1.1633,
+          "message_id": "0x3A0",
+          "payload": "94B3B6FECF8D2DB5"
+        },
+        {
+          "timestamp": 1.21,
+          "message_id": "0x244",
+          "payload": "AE74F26E65F94497"
+        },
+        {
+          "timestamp": 1.2611,
+          "message_id": "0x244",
+          "payload": "1213DD6E658203E5"
+        },
+        {
+          "timestamp": 1.3255,
+          "message_id": "0x244",
+          "payload": "2D9AEE6A655283D0"
+        },
+        {
+          "timestamp": 1.3507,
+          "message_id": "0x244",
+          "payload": "5FECF96C65440630"
+        },
+        {
+          "timestamp": 1.4105,
+          "message_id": "0x244",
+          "payload": "06F47D62654FD035"
+        },
+        {
+          "timestamp": 1.4807,
+          "message_id": "0x400",
+          "payload": "FF0E769C1A03DDF9"
+        },
+        {
+          "timestamp": 1.5075,
+          "message_id": "0x410",
+          "payload": "F710DA28DF3FBED0"
+        },
+        {
+          "timestamp": 1.5406,
+          "message_id": "0x400",
+          "payload": "BE77AE49CDBF5692"
+        },
+        {
+          "timestamp": 1.5989,
+          "message_id": "0x244",
+          "payload": "65F3DF67650B8B55"
+        },
+        {
+          "timestamp": 1.6653,
+          "message_id": "0x244",
+          "payload": "2AD3736F65B18431"
+        },
+        {
+          "timestamp": 1.7367,
+          "message_id": "0x400",
+          "payload": "33313536B59EF34B"
+        },
+        {
+          "timestamp": 1.7784,
+          "message_id": "0x244",
+          "payload": "6ED07F69658BDB74"
+        },
+        {
+          "timestamp": 1.8411,
+          "message_id": "0x200",
+          "payload": "4DDDEB0E4022AAC5"
+        },
+        {
+          "timestamp": 1.8878,
+          "message_id": "0x244",
+          "payload": "419DC96B654CE6EB"
+        },
+        {
+          "timestamp": 1.9571,
+          "message_id": "0x3A0",
+          "payload": "6921AC49629A5008"
+        },
+        {
+          "timestamp": 1.9942,
+          "message_id": "0x3A0",
+          "payload": "31B8B313E90EA77B"
+        }
+      ]
+    },
+    {
+      "reference_value": 166.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x1A0",
+          "payload": "C73A6BE34DD221D4"
+        },
+        {
+          "timestamp": 0.0488,
+          "message_id": "0x300",
+          "payload": "CC8FDEFD544FE436"
+        },
+        {
+          "timestamp": 0.0966,
+          "message_id": "0x244",
+          "payload": "5B3D33F9DC3B9B99"
+        },
+        {
+          "timestamp": 0.1459,
+          "message_id": "0x1A0",
+          "payload": "D19965F03B21DF9E"
+        },
+        {
+          "timestamp": 0.2159,
+          "message_id": "0x400",
+          "payload": "44EEE4A2DC7CA1E8"
+        },
+        {
+          "timestamp": 0.2732,
+          "message_id": "0x244",
+          "payload": "932616F0DC0867E2"
+        },
+        {
+          "timestamp": 0.3385,
+          "message_id": "0x3A0",
+          "payload": "1F0AD5D0AC823359"
+        },
+        {
+          "timestamp": 0.3707,
+          "message_id": "0x244",
+          "payload": "249D51F5DC9C3A4D"
+        },
+        {
+          "timestamp": 0.4404,
+          "message_id": "0x244",
+          "payload": "31677FF3DCAED2F0"
+        },
+        {
+          "timestamp": 0.4858,
+          "message_id": "0x244",
+          "payload": "083749FEDC4B57DE"
+        },
+        {
+          "timestamp": 0.5129,
+          "message_id": "0x2C0",
+          "payload": "501F88CB6915292C"
+        },
+        {
+          "timestamp": 0.5728,
+          "message_id": "0x410",
+          "payload": "8D6AA8E87AA6EA04"
+        },
+        {
+          "timestamp": 0.6301,
+          "message_id": "0x244",
+          "payload": "F005DFF2DCE3BCBC"
+        },
+        {
+          "timestamp": 0.664,
+          "message_id": "0x244",
+          "payload": "3EB6E0F0DC62977F"
+        },
+        {
+          "timestamp": 0.7373,
+          "message_id": "0x244",
+          "payload": "F606C3FFDC524248"
+        },
+        {
+          "timestamp": 0.809,
+          "message_id": "0x410",
+          "payload": "8608E0D1ADD83EFB"
+        },
+        {
+          "timestamp": 0.8599,
+          "message_id": "0x244",
+          "payload": "718DEAFCDC207D27"
+        },
+        {
+          "timestamp": 0.8947,
+          "message_id": "0x100",
+          "payload": "30FD0A873F7A1A72"
+        },
+        {
+          "timestamp": 0.9585,
+          "message_id": "0x100",
+          "payload": "E3211CA241E19D23"
+        },
+        {
+          "timestamp": 1.0174,
+          "message_id": "0x2C0",
+          "payload": "CC3D70ECED3A0EA6"
+        },
+        {
+          "timestamp": 1.0478,
+          "message_id": "0x244",
+          "payload": "2648BDFEDC41149D"
+        },
+        {
+          "timestamp": 1.0984,
+          "message_id": "0x300",
+          "payload": "944F9A9B04171DB6"
+        },
+        {
+          "timestamp": 1.1723,
+          "message_id": "0x200",
+          "payload": "2A6FEAA9DA53E1F7"
+        },
+        {
+          "timestamp": 1.2433,
+          "message_id": "0x200",
+          "payload": "E67FAC6C50B02B03"
+        },
+        {
+          "timestamp": 1.2754,
+          "message_id": "0x300",
+          "payload": "106695785A756058"
+        },
+        {
+          "timestamp": 1.3459,
+          "message_id": "0x244",
+          "payload": "4C3A69F7DC5D2344"
+        },
+        {
+          "timestamp": 1.4106,
+          "message_id": "0x244",
+          "payload": "CBAD71F9DC7184F6"
+        },
+        {
+          "timestamp": 1.472,
+          "message_id": "0x100",
+          "payload": "5CBFE5ABFFF8C167"
+        },
+        {
+          "timestamp": 1.5418,
+          "message_id": "0x200",
+          "payload": "C69DC5B82429EB71"
+        },
+        {
+          "timestamp": 1.59,
+          "message_id": "0x3A0",
+          "payload": "EEDDBFA8C05E782B"
+        },
+        {
+          "timestamp": 1.6601,
+          "message_id": "0x244",
+          "payload": "287332F1DC6A8986"
+        },
+        {
+          "timestamp": 1.7204,
+          "message_id": "0x410",
+          "payload": "8099BCC0F4C776F7"
+        },
+        {
+          "timestamp": 1.7712,
+          "message_id": "0x400",
+          "payload": "EA2A6DD6EE0B4490"
+        },
+        {
+          "timestamp": 1.8212,
+          "message_id": "0x300",
+          "payload": "A7DDC9A0144ACC6C"
+        },
+        {
+          "timestamp": 1.8493,
+          "message_id": "0x400",
+          "payload": "3AE925351F0562C9"
+        },
+        {
+          "timestamp": 1.8846,
+          "message_id": "0x244",
+          "payload": "2E1B05FDDC34DF2C"
+        },
+        {
+          "timestamp": 1.9574,
+          "message_id": "0x1A0",
+          "payload": "69DF596E8604E2C7"
+        }
+      ]
+    },
+    {
+      "reference_value": 194.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x400",
+          "payload": "E129EB9C5D75DEC5"
+        },
+        {
+          "timestamp": 0.0599,
+          "message_id": "0x244",
+          "payload": "175892FFFFB23ADE"
+        },
+        {
+          "timestamp": 0.0932,
+          "message_id": "0x244",
+          "payload": "1E02ECFCFF10834A"
+        },
+        {
+          "timestamp": 0.1517,
+          "message_id": "0x400",
+          "payload": "227E4F85503593C5"
+        },
+        {
+          "timestamp": 0.1806,
+          "message_id": "0x2C0",
+          "payload": "4EB5616E13C9E101"
+        },
+        {
+          "timestamp": 0.2442,
+          "message_id": "0x200",
+          "payload": "B7620D00A6273551"
+        },
+        {
+          "timestamp": 0.29,
+          "message_id": "0x244",
+          "payload": "AA66CDF7FFBA50CA"
+        },
+        {
+          "timestamp": 0.3156,
+          "message_id": "0x244",
+          "payload": "728B12FDFF3583AC"
+        },
+        {
+          "timestamp": 0.3745,
+          "message_id": "0x1A0",
+          "payload": "A5AF2A0EC7070397"
+        },
+        {
+          "timestamp": 0.4364,
+          "message_id": "0x100",
+          "payload": "14BF964C617EA48A"
+        },
+        {
+          "timestamp": 0.4935,
+          "message_id": "0x410",
+          "payload": "D907AA76177CA5E0"
+        },
+        {
+          "timestamp": 0.5218,
+          "message_id": "0x200",
+          "payload": "146425672DE9567D"
+        },
+        {
+          "timestamp": 0.5556,
+          "message_id": "0x244",
+          "payload": "9E68F2FCFFFEDD4F"
+        },
+        {
+          "timestamp": 0.5816,
+          "message_id": "0x100",
+          "payload": "9458CE9E9CF2A4F6"
+        },
+        {
+          "timestamp": 0.6143,
+          "message_id": "0x244",
+          "payload": "0BFCDCFCFF2D13C5"
+        },
+        {
+          "timestamp": 0.649,
+          "message_id": "0x2C0",
+          "payload": "BFB1CD77F1B048E4"
+        },
+        {
+          "timestamp": 0.6867,
+          "message_id": "0x1A0",
+          "payload": "032CC26D5D89C9D2"
+        },
+        {
+          "timestamp": 0.7172,
+          "message_id": "0x300",
+          "payload": "486C905F032DD9D5"
+        },
+        {
+          "timestamp": 0.751,
+          "message_id": "0x244",
+          "payload": "46F53EF5FF568DE3"
+        },
+        {
+          "timestamp": 0.8194,
+          "message_id": "0x244",
+          "payload": "92C382F0FFF30180"
+        },
+        {
+          "timestamp": 0.8777,
+          "message_id": "0x244",
+          "payload": "360C8FFAFFBAA7BC"
+        },
+        {
+          "timestamp": 0.9216,
+          "message_id": "0x244",
+          "payload": "BA30ECF0FF7BEFD6"
+        },
+        {
+          "timestamp": 0.9468,
+          "message_id": "0x300",
+          "payload": "0B1AE7FC2BDF3C96"
+        },
+        {
+          "timestamp": 1.0074,
+          "message_id": "0x410",
+          "payload": "14F29E5E3F776523"
+        },
+        {
+          "timestamp": 1.0541,
+          "message_id": "0x1A0",
+          "payload": "AC878F34F2A72ACC"
+        },
+        {
+          "timestamp": 1.1118,
+          "message_id": "0x3A0",
+          "payload": "77839232A63B4AC0"
+        },
+        {
+          "timestamp": 1.1524,
+          "message_id": "0x200",
+          "payload": "CDAB473C0EA497FE"
+        },
+        {
+          "timestamp": 1.1847,
+          "message_id": "0x244",
+          "payload": "1A938FFFFF1A4671"
+        },
+        {
+          "timestamp": 1.2559,
+          "message_id": "0x400",
+          "payload": "C950CADFBCC2996C"
+        },
+        {
+          "timestamp": 1.2858,
+          "message_id": "0x244",
+          "payload": "9E54EFF4FF60B34C"
+        },
+        {
+          "timestamp": 1.3583,
+          "message_id": "0x1A0",
+          "payload": "13BF513AD4C7137C"
+        },
+        {
+          "timestamp": 1.4077,
+          "message_id": "0x1A0",
+          "payload": "C2EC8EB03323F70F"
+        },
+        {
+          "timestamp": 1.4464,
+          "message_id": "0x1A0",
+          "payload": "CFD943A25C0CF236"
+        },
+        {
+          "timestamp": 1.5197,
+          "message_id": "0x1A0",
+          "payload": "50EA31465281239B"
+        },
+        {
+          "timestamp": 1.593,
+          "message_id": "0x244",
+          "payload": "07919EFFFF631716"
+        },
+        {
+          "timestamp": 1.6251,
+          "message_id": "0x200",
+          "payload": "46B84D288C5CE28D"
+        },
+        {
+          "timestamp": 1.6971,
+          "message_id": "0x244",
+          "payload": "6286B5F4FFC07283"
+        },
+        {
+          "timestamp": 1.7487,
+          "message_id": "0x3A0",
+          "payload": "2A2BA847803C7C33"
+        },
+        {
+          "timestamp": 1.7824,
+          "message_id": "0x2C0",
+          "payload": "F3B98315AC5BCF48"
+        },
+        {
+          "timestamp": 1.8079,
+          "message_id": "0x1A0",
+          "payload": "44C81B7DE5EBE98D"
+        },
+        {
+          "timestamp": 1.859,
+          "message_id": "0x200",
+          "payload": "929DA222725129F0"
+        },
+        {
+          "timestamp": 1.9321,
+          "message_id": "0x410",
+          "payload": "4FF3C060DB71E575"
+        },
+        {
+          "timestamp": 1.9608,
+          "message_id": "0x410",
+          "payload": "B1DFC5B3A7399F98"
+        },
+        {
+          "timestamp": 1.9965,
+          "message_id": "0x3A0",
+          "payload": "691EF1B0EA9B30B5"
+        }
+      ]
+    },
+    {
+      "reference_value": 2.2,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x200",
+          "payload": "24D3F0487FCB9BD5"
+        },
+        {
+          "timestamp": 0.0518,
+          "message_id": "0x244",
+          "payload": "EE54BD4B0F6914CD"
+        },
+        {
+          "timestamp": 0.114,
+          "message_id": "0x1A0",
+          "payload": "6F83DFF4ACC43304"
+        },
+        {
+          "timestamp": 0.1468,
+          "message_id": "0x200",
+          "payload": "1AD0DF99F2D74578"
+        },
+        {
+          "timestamp": 0.2101,
+          "message_id": "0x200",
+          "payload": "D6F3564734C1864D"
+        },
+        {
+          "timestamp": 0.236,
+          "message_id": "0x244",
+          "payload": "1CD9774D0FD1938B"
+        },
+        {
+          "timestamp": 0.275,
+          "message_id": "0x3A0",
+          "payload": "7A15101A69F83D58"
+        },
+        {
+          "timestamp": 0.3475,
+          "message_id": "0x2C0",
+          "payload": "3304ABBB786C2343"
+        },
+        {
+          "timestamp": 0.3745,
+          "message_id": "0x200",
+          "payload": "6E32A9F64146D8BB"
+        },
+        {
+          "timestamp": 0.4219,
+          "message_id": "0x3A0",
+          "payload": "2FD05849116CF25E"
+        },
+        {
+          "timestamp": 0.4845,
+          "message_id": "0x3A0",
+          "payload": "C8650560E8979835"
+        },
+        {
+          "timestamp": 0.5207,
+          "message_id": "0x2C0",
+          "payload": "1484817630BBA284"
+        },
+        {
+          "timestamp": 0.5661,
+          "message_id": "0x300",
+          "payload": "10B785803C86E7A8"
+        },
+        {
+          "timestamp": 0.6013,
+          "message_id": "0x3A0",
+          "payload": "4E7DB4F2F5E556F5"
+        },
+        {
+          "timestamp": 0.6587,
+          "message_id": "0x244",
+          "payload": "55C6244D0FC3403C"
+        },
+        {
+          "timestamp": 0.7029,
+          "message_id": "0x244",
+          "payload": "014728400FA264FE"
+        },
+        {
+          "timestamp": 0.7686,
+          "message_id": "0x400",
+          "payload": "4718301393D40707"
+        },
+        {
+          "timestamp": 0.815,
+          "message_id": "0x244",
+          "payload": "97C3F5470FB2A3B2"
+        },
+        {
+          "timestamp": 0.8848,
+          "message_id": "0x1A0",
+          "payload": "DA5D499B38FB8204"
+        },
+        {
+          "timestamp": 0.9487,
+          "message_id": "0x244",
+          "payload": "4CEF23480FA45CBA"
+        },
+        {
+          "timestamp": 0.9984,
+          "message_id": "0x3A0",
+          "payload": "A47CDFF7C2D727B0"
+        },
+        {
+          "timestamp": 1.0335,
+          "message_id": "0x300",
+          "payload": "F431BB49E4D76714"
+        },
+        {
+          "timestamp": 1.0644,
+          "message_id": "0x1A0",
+          "payload": "C0DB132F504B4272"
+        },
+        {
+          "timestamp": 1.09,
+          "message_id": "0x3A0",
+          "payload": "45F49FDAE0934115"
+        },
+        {
+          "timestamp": 1.1402,
+          "message_id": "0x244",
+          "payload": "DE897D480F46C17C"
+        },
+        {
+          "timestamp": 1.1744,
+          "message_id": "0x410",
+          "payload": "2EFACC51BD68332B"
+        },
+        {
+          "timestamp": 1.2295,
+          "message_id": "0x244",
+          "payload": "795326490F17821F"
+        },
+        {
+          "timestamp": 1.2568,
+          "message_id": "0x2C0",
+          "payload": "0B9C6ACB43AD340C"
+        },
+        {
+          "timestamp": 1.3057,
+          "message_id": "0x244",
+          "payload": "954E22460FAE4A9B"
+        },
+        {
+          "timestamp": 1.3618,
+          "message_id": "0x244",
+          "payload": "C7624F400F2F3EA5"
+        },
+        {
+          "timestamp": 1.4335,
+          "message_id": "0x244",
+          "payload": "8BB225480FE43F1B"
+        },
+        {
+          "timestamp": 1.5015,
+          "message_id": "0x1A0",
+          "payload": "EBAB2DE81170439C"
+        },
+        {
+          "timestamp": 1.5344,
+          "message_id": "0x100",
+          "payload": "7CE2BEEE3253CD6C"
+        },
+        {
+          "timestamp": 1.5758,
+          "message_id": "0x400",
+          "payload": "6F38E14F46A1C1BD"
+        },
+        {
+          "timestamp": 1.6498,
+          "message_id": "0x244",
+          "payload": "60D885440FC29ED6"
+        },
+        {
+          "timestamp": 1.7082,
+          "message_id": "0x244",
+          "payload": "12DA954B0FF5DBC0"
+        },
+        {
+          "timestamp": 1.7613,
+          "message_id": "0x200",
+          "payload": "24AA04E4FA3D80E4"
+        },
+        {
+          "timestamp": 1.818,
+          "message_id": "0x100",
+          "payload": "166D5C6B660BB099"
+        },
+        {
+          "timestamp": 1.8681,
+          "message_id": "0x400",
+          "payload": "EDDBBDA35EDB55DC"
+        },
+        {
+          "timestamp": 1.9074,
+          "message_id": "0x3A0",
+          "payload": "932320D3F3E19D67"
+        },
+        {
+          "timestamp": 1.9712,
+          "message_id": "0x100",
+          "payload": "6F3BEDC0B79889D7"
+        },
+        {
+          "timestamp": 1.9964,
+          "message_id": "0x244",
+          "payload": "004BAA4D0F6C1D4C"
+        }
+      ]
+    },
+    {
+      "reference_value": 43.45,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x410",
+          "payload": "5D7343C85A6220D0"
+        },
+        {
+          "timestamp": 0.0564,
+          "message_id": "0x244",
+          "payload": "2C04EBD74267C818"
+        },
+        {
+          "timestamp": 0.0856,
+          "message_id": "0x244",
+          "payload": "033E33D94222FB6C"
+        },
+        {
+          "timestamp": 0.1156,
+          "message_id": "0x3A0",
+          "payload": "2F26DCAE5590513A"
+        },
+        {
+          "timestamp": 0.1903,
+          "message_id": "0x410",
+          "payload": "058360046B360A47"
+        },
+        {
+          "timestamp": 0.2195,
+          "message_id": "0x1A0",
+          "payload": "88F62B9EFDC68568"
+        },
+        {
+          "timestamp": 0.2926,
+          "message_id": "0x244",
+          "payload": "956FDED842CD6BB2"
+        },
+        {
+          "timestamp": 0.34,
+          "message_id": "0x410",
+          "payload": "8D9BC035AD5B726B"
+        },
+        {
+          "timestamp": 0.3836,
+          "message_id": "0x100",
+          "payload": "0A0A6EA72C966382"
+        },
+        {
+          "timestamp": 0.4373,
+          "message_id": "0x3A0",
+          "payload": "AA661FF18D33E5AC"
+        },
+        {
+          "timestamp": 0.4742,
+          "message_id": "0x244",
+          "payload": "00E94CD1422F3D98"
+        },
+        {
+          "timestamp": 0.515,
+          "message_id": "0x100",
+          "payload": "AF1C9EF3B3071043"
+        },
+        {
+          "timestamp": 0.5897,
+          "message_id": "0x3A0",
+          "payload": "7526B018131928AC"
+        },
+        {
+          "timestamp": 0.6282,
+          "message_id": "0x244",
+          "payload": "4E34A4DE42FF8AF7"
+        },
+        {
+          "timestamp": 0.6578,
+          "message_id": "0x100",
+          "payload": "B7622F1606EC6F3A"
+        },
+        {
+          "timestamp": 0.6932,
+          "message_id": "0x410",
+          "payload": "A9E4347BCE6C628D"
+        },
+        {
+          "timestamp": 0.7264,
+          "message_id": "0x100",
+          "payload": "4E3370E580FEB832"
+        },
+        {
+          "timestamp": 0.7692,
+          "message_id": "0x244",
+          "payload": "CDA1E8D342D696C5"
+        },
+        {
+          "timestamp": 0.8239,
+          "message_id": "0x400",
+          "payload": "D31737311872387C"
+        },
+        {
+          "timestamp": 0.8685,
+          "message_id": "0x244",
+          "payload": "8F656BD9425F975A"
+        },
+        {
+          "timestamp": 0.9275,
+          "message_id": "0x244",
+          "payload": "AE40FDD042250BF0"
+        },
+        {
+          "timestamp": 0.9769,
+          "message_id": "0x244",
+          "payload": "310975D342AEFB8F"
+        },
+        {
+          "timestamp": 1.0146,
+          "message_id": "0x300",
+          "payload": "9AF3804D74BF07DB"
+        },
+        {
+          "timestamp": 1.0499,
+          "message_id": "0x244",
+          "payload": "C38E58DA428961A3"
+        },
+        {
+          "timestamp": 1.0966,
+          "message_id": "0x300",
+          "payload": "930F4E4959F9290E"
+        },
+        {
+          "timestamp": 1.1237,
+          "message_id": "0x244",
+          "payload": "31F90DD0424B9428"
+        },
+        {
+          "timestamp": 1.1558,
+          "message_id": "0x3A0",
+          "payload": "2971FB7CDC38995D"
+        },
+        {
+          "timestamp": 1.2147,
+          "message_id": "0x1A0",
+          "payload": "684D69929E5CD34E"
+        },
+        {
+          "timestamp": 1.2744,
+          "message_id": "0x300",
+          "payload": "EBDEDDE00D2497B4"
+        },
+        {
+          "timestamp": 1.3305,
+          "message_id": "0x2C0",
+          "payload": "1C4C0EE12183A39F"
+        },
+        {
+          "timestamp": 1.39,
+          "message_id": "0x100",
+          "payload": "164F474990F63204"
+        },
+        {
+          "timestamp": 1.4452,
+          "message_id": "0x244",
+          "payload": "3763F0DC429CF578"
+        },
+        {
+          "timestamp": 1.5113,
+          "message_id": "0x100",
+          "payload": "D4054756FF993FB8"
+        },
+        {
+          "timestamp": 1.5558,
+          "message_id": "0x100",
+          "payload": "EDD409E3C091E1B4"
+        },
+        {
+          "timestamp": 1.6042,
+          "message_id": "0x2C0",
+          "payload": "05B6BC254BAE489C"
+        },
+        {
+          "timestamp": 1.6326,
+          "message_id": "0x400",
+          "payload": "CF584ABC2105733F"
+        },
+        {
+          "timestamp": 1.7044,
+          "message_id": "0x200",
+          "payload": "735CD218312EB05A"
+        },
+        {
+          "timestamp": 1.7347,
+          "message_id": "0x1A0",
+          "payload": "668FE9765D620361"
+        },
+        {
+          "timestamp": 1.8002,
+          "message_id": "0x300",
+          "payload": "D2A5F66FBB42EDC2"
+        },
+        {
+          "timestamp": 1.8537,
+          "message_id": "0x244",
+          "payload": "933F71D0428CB259"
+        },
+        {
+          "timestamp": 1.8824,
+          "message_id": "0x410",
+          "payload": "9C13F801AD86A146"
+        },
+        {
+          "timestamp": 1.9348,
+          "message_id": "0x244",
+          "payload": "7F21B2D2428131F7"
+        },
+        {
+          "timestamp": 1.9923,
+          "message_id": "0x2C0",
+          "payload": "70106C0F1CC4DD43"
+        }
+      ]
+    },
+    {
+      "reference_value": 194.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x300",
+          "payload": "B6AD177207D10712"
+        },
+        {
+          "timestamp": 0.0278,
+          "message_id": "0x2C0",
+          "payload": "1AB794CF32286FB7"
+        },
+        {
+          "timestamp": 0.075,
+          "message_id": "0x300",
+          "payload": "978A31BDF8264796"
+        },
+        {
+          "timestamp": 0.1061,
+          "message_id": "0x1A0",
+          "payload": "17EE30F188C9218C"
+        },
+        {
+          "timestamp": 0.1559,
+          "message_id": "0x3A0",
+          "payload": "E176C5D191B0A860"
+        },
+        {
+          "timestamp": 0.198,
+          "message_id": "0x3A0",
+          "payload": "D13C9ED85CE74088"
+        },
+        {
+          "timestamp": 0.2272,
+          "message_id": "0x244",
+          "payload": "9AC18BF8FF9A85EE"
+        },
+        {
+          "timestamp": 0.2531,
+          "message_id": "0x244",
+          "payload": "1BF6D1F8FFE5888F"
+        },
+        {
+          "timestamp": 0.2845,
+          "message_id": "0x1A0",
+          "payload": "17315EA171880B17"
+        },
+        {
+          "timestamp": 0.327,
+          "message_id": "0x244",
+          "payload": "E3276AFDFF940ABA"
+        },
+        {
+          "timestamp": 0.4007,
+          "message_id": "0x300",
+          "payload": "F905B194036AB6C1"
+        },
+        {
+          "timestamp": 0.4586,
+          "message_id": "0x244",
+          "payload": "227D31FEFF697A7B"
+        },
+        {
+          "timestamp": 0.4951,
+          "message_id": "0x100",
+          "payload": "7EDB2B2BF7ED747D"
+        },
+        {
+          "timestamp": 0.5538,
+          "message_id": "0x2C0",
+          "payload": "9AA32DD4F65E053D"
+        },
+        {
+          "timestamp": 0.592,
+          "message_id": "0x400",
+          "payload": "341D0524CDB4C793"
+        },
+        {
+          "timestamp": 0.6338,
+          "message_id": "0x300",
+          "payload": "312BEDED9F45240B"
+        },
+        {
+          "timestamp": 0.6925,
+          "message_id": "0x300",
+          "payload": "E58379FA1D9ACA54"
+        },
+        {
+          "timestamp": 0.7196,
+          "message_id": "0x200",
+          "payload": "D8A3B95398FE7598"
+        },
+        {
+          "timestamp": 0.794,
+          "message_id": "0x200",
+          "payload": "843650160F0B69DE"
+        },
+        {
+          "timestamp": 0.8451,
+          "message_id": "0x2C0",
+          "payload": "33EDF82483B272A5"
+        },
+        {
+          "timestamp": 0.8954,
+          "message_id": "0x244",
+          "payload": "2A1D3AF1FF4C768F"
+        },
+        {
+          "timestamp": 0.928,
+          "message_id": "0x400",
+          "payload": "946260D2F651D8C7"
+        },
+        {
+          "timestamp": 0.9849,
+          "message_id": "0x1A0",
+          "payload": "979FFCBF93739DEA"
+        },
+        {
+          "timestamp": 1.0223,
+          "message_id": "0x1A0",
+          "payload": "EA3BC4FFD70986D1"
+        },
+        {
+          "timestamp": 1.0754,
+          "message_id": "0x300",
+          "payload": "DCEDC818F7A19ED7"
+        },
+        {
+          "timestamp": 1.129,
+          "message_id": "0x244",
+          "payload": "63A400F2FF216B65"
+        },
+        {
+          "timestamp": 1.1959,
+          "message_id": "0x200",
+          "payload": "95BAD670103CF159"
+        },
+        {
+          "timestamp": 1.236,
+          "message_id": "0x244",
+          "payload": "7183CCF8FF2D0043"
+        },
+        {
+          "timestamp": 1.2978,
+          "message_id": "0x200",
+          "payload": "9AD098E638FC9D27"
+        },
+        {
+          "timestamp": 1.3711,
+          "message_id": "0x400",
+          "payload": "97C0FCB3E70C7EBF"
+        },
+        {
+          "timestamp": 1.4243,
+          "message_id": "0x300",
+          "payload": "42356F724CF71F8D"
+        },
+        {
+          "timestamp": 1.4649,
+          "message_id": "0x1A0",
+          "payload": "1AD086FFA7AEF23D"
+        },
+        {
+          "timestamp": 1.5248,
+          "message_id": "0x244",
+          "payload": "5356E3FDFFF4DC09"
+        },
+        {
+          "timestamp": 1.5557,
+          "message_id": "0x2C0",
+          "payload": "AB5496B8FE6A45F0"
+        },
+        {
+          "timestamp": 1.5966,
+          "message_id": "0x244",
+          "payload": "F20966FEFF1E52B7"
+        },
+        {
+          "timestamp": 1.6388,
+          "message_id": "0x244",
+          "payload": "689D9BF8FF436858"
+        },
+        {
+          "timestamp": 1.692,
+          "message_id": "0x244",
+          "payload": "CA8F65F7FF445F0A"
+        },
+        {
+          "timestamp": 1.7209,
+          "message_id": "0x1A0",
+          "payload": "EDFA937CCCFB9A26"
+        },
+        {
+          "timestamp": 1.7937,
+          "message_id": "0x2C0",
+          "payload": "4DEF83DB50BEBD66"
+        },
+        {
+          "timestamp": 1.8378,
+          "message_id": "0x244",
+          "payload": "06EB60FAFF80818F"
+        },
+        {
+          "timestamp": 1.8827,
+          "message_id": "0x2C0",
+          "payload": "810FEF5F31B04542"
+        },
+        {
+          "timestamp": 1.9287,
+          "message_id": "0x244",
+          "payload": "E1A386FAFFB0CD12"
+        },
+        {
+          "timestamp": 1.9633,
+          "message_id": "0x1A0",
+          "payload": "825E186D5098B3AE"
+        }
+      ]
+    },
+    {
+      "reference_value": 174.05,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x400",
+          "payload": "232525A0506BE279"
+        },
+        {
+          "timestamp": 0.0669,
+          "message_id": "0x200",
+          "payload": "491C9584AD768659"
+        },
+        {
+          "timestamp": 0.1048,
+          "message_id": "0x100",
+          "payload": "FBBBE51C46DB96A8"
+        },
+        {
+          "timestamp": 0.1344,
+          "message_id": "0x2C0",
+          "payload": "6E8135F4EABC1A3B"
+        },
+        {
+          "timestamp": 0.2028,
+          "message_id": "0x244",
+          "payload": "DFAA3519E650EEDC"
+        },
+        {
+          "timestamp": 0.2515,
+          "message_id": "0x244",
+          "payload": "BAFC9113E68C0559"
+        },
+        {
+          "timestamp": 0.3208,
+          "message_id": "0x410",
+          "payload": "644A1294BEC5E046"
+        },
+        {
+          "timestamp": 0.39,
+          "message_id": "0x100",
+          "payload": "576D274B0F5B3FC6"
+        },
+        {
+          "timestamp": 0.4606,
+          "message_id": "0x400",
+          "payload": "73C4A4CA9DC2BF07"
+        },
+        {
+          "timestamp": 0.5299,
+          "message_id": "0x244",
+          "payload": "7BBA0C17E66169D2"
+        },
+        {
+          "timestamp": 0.5719,
+          "message_id": "0x3A0",
+          "payload": "499CF18D55C3E2B3"
+        },
+        {
+          "timestamp": 0.6297,
+          "message_id": "0x244",
+          "payload": "5A4CE01CE69D83EB"
+        },
+        {
+          "timestamp": 0.6937,
+          "message_id": "0x410",
+          "payload": "B35DC240A86ED1E9"
+        },
+        {
+          "timestamp": 0.7207,
+          "message_id": "0x400",
+          "payload": "B1B8DA90859BD0EA"
+        },
+        {
+          "timestamp": 0.7606,
+          "message_id": "0x244",
+          "payload": "3B1C7513E6FD8BE7"
+        },
+        {
+          "timestamp": 0.8316,
+          "message_id": "0x410",
+          "payload": "E12AB143C2A9DC05"
+        },
+        {
+          "timestamp": 0.9041,
+          "message_id": "0x244",
+          "payload": "2D368911E66D8581"
+        },
+        {
+          "timestamp": 0.9593,
+          "message_id": "0x2C0",
+          "payload": "80D60D488EA3770A"
+        },
+        {
+          "timestamp": 0.9954,
+          "message_id": "0x400",
+          "payload": "DACF0AAABE4EF65C"
+        },
+        {
+          "timestamp": 1.0331,
+          "message_id": "0x244",
+          "payload": "2FB26B19E6E045BD"
+        },
+        {
+          "timestamp": 1.0789,
+          "message_id": "0x2C0",
+          "payload": "F7C4C33C663955CD"
+        },
+        {
+          "timestamp": 1.1215,
+          "message_id": "0x244",
+          "payload": "8AB3AC1CE69E55C9"
+        },
+        {
+          "timestamp": 1.1467,
+          "message_id": "0x400",
+          "payload": "53CDDD60742D0A75"
+        },
+        {
+          "timestamp": 1.2001,
+          "message_id": "0x100",
+          "payload": "B0C65EB75F6A4920"
+        },
+        {
+          "timestamp": 1.2355,
+          "message_id": "0x200",
+          "payload": "E75E3A57E201DFC2"
+        },
+        {
+          "timestamp": 1.2996,
+          "message_id": "0x410",
+          "payload": "30EF19C1BCED3348"
+        },
+        {
+          "timestamp": 1.3625,
+          "message_id": "0x100",
+          "payload": "5BDA47F683A2EF78"
+        },
+        {
+          "timestamp": 1.4047,
+          "message_id": "0x300",
+          "payload": "E88144907BB9959F"
+        },
+        {
+          "timestamp": 1.4653,
+          "message_id": "0x1A0",
+          "payload": "449C87069408BCF5"
+        },
+        {
+          "timestamp": 1.5389,
+          "message_id": "0x410",
+          "payload": "ABCF5F5FC02A7967"
+        },
+        {
+          "timestamp": 1.5714,
+          "message_id": "0x100",
+          "payload": "6BFE076B1C3A2821"
+        },
+        {
+          "timestamp": 1.6188,
+          "message_id": "0x200",
+          "payload": "8577E51882624916"
+        },
+        {
+          "timestamp": 1.6552,
+          "message_id": "0x400",
+          "payload": "E31A26F3E2F636F9"
+        },
+        {
+          "timestamp": 1.7086,
+          "message_id": "0x100",
+          "payload": "E6E08D8F5AF9987A"
+        },
+        {
+          "timestamp": 1.7474,
+          "message_id": "0x2C0",
+          "payload": "E35F0AFF552D93EA"
+        },
+        {
+          "timestamp": 1.8043,
+          "message_id": "0x1A0",
+          "payload": "637699AF3964A56C"
+        },
+        {
+          "timestamp": 1.8686,
+          "message_id": "0x1A0",
+          "payload": "AFD878F9B49ABAE9"
+        },
+        {
+          "timestamp": 1.9148,
+          "message_id": "0x3A0",
+          "payload": "0C1DB4E806689B0A"
+        },
+        {
+          "timestamp": 1.9612,
+          "message_id": "0x410",
+          "payload": "66E83275AFF1CF78"
+        }
+      ]
+    },
+    {
+      "reference_value": 146.55,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "1A8BE9BFC3AD4496"
+        },
+        {
+          "timestamp": 0.0531,
+          "message_id": "0x300",
+          "payload": "89042ABE65AE7EBA"
+        },
+        {
+          "timestamp": 0.088,
+          "message_id": "0x2C0",
+          "payload": "8043DDCF11B0D1AF"
+        },
+        {
+          "timestamp": 0.1272,
+          "message_id": "0x100",
+          "payload": "22352E62D8EE4A25"
+        },
+        {
+          "timestamp": 0.1846,
+          "message_id": "0x410",
+          "payload": "D0C90C007AD487AE"
+        },
+        {
+          "timestamp": 0.2422,
+          "message_id": "0x244",
+          "payload": "B46469B3C34B2AA7"
+        },
+        {
+          "timestamp": 0.3002,
+          "message_id": "0x244",
+          "payload": "5D876BB4C3C0E6C1"
+        },
+        {
+          "timestamp": 0.3475,
+          "message_id": "0x200",
+          "payload": "C3253563FBAD662B"
+        },
+        {
+          "timestamp": 0.3964,
+          "message_id": "0x400",
+          "payload": "00CDC3BB92D972CF"
+        },
+        {
+          "timestamp": 0.4222,
+          "message_id": "0x300",
+          "payload": "14750444F1169BD5"
+        },
+        {
+          "timestamp": 0.4681,
+          "message_id": "0x244",
+          "payload": "45B350B6C3B8A00A"
+        },
+        {
+          "timestamp": 0.4946,
+          "message_id": "0x1A0",
+          "payload": "D1C5530B72D23FED"
+        },
+        {
+          "timestamp": 0.5624,
+          "message_id": "0x1A0",
+          "payload": "09FF84AB3FF64744"
+        },
+        {
+          "timestamp": 0.5987,
+          "message_id": "0x244",
+          "payload": "3C9377B5C3E84ADB"
+        },
+        {
+          "timestamp": 0.6567,
+          "message_id": "0x244",
+          "payload": "C16504B7C3A0FFB6"
+        },
+        {
+          "timestamp": 0.7132,
+          "message_id": "0x3A0",
+          "payload": "E6E8E38AA58AFE3A"
+        },
+        {
+          "timestamp": 0.7763,
+          "message_id": "0x244",
+          "payload": "BD0437B3C34B9ED2"
+        },
+        {
+          "timestamp": 0.8496,
+          "message_id": "0x1A0",
+          "payload": "C64706B41B75B535"
+        },
+        {
+          "timestamp": 0.9064,
+          "message_id": "0x200",
+          "payload": "4D681C9CDFEA4902"
+        },
+        {
+          "timestamp": 0.9439,
+          "message_id": "0x2C0",
+          "payload": "621D44F57C5DC67B"
+        },
+        {
+          "timestamp": 0.9725,
+          "message_id": "0x2C0",
+          "payload": "4C346E48A0393F7E"
+        },
+        {
+          "timestamp": 1.0124,
+          "message_id": "0x244",
+          "payload": "E42A81B8C3D5F973"
+        },
+        {
+          "timestamp": 1.0418,
+          "message_id": "0x300",
+          "payload": "7FDD13888AD8B203"
+        },
+        {
+          "timestamp": 1.1025,
+          "message_id": "0x400",
+          "payload": "7D83FCC133337BDC"
+        },
+        {
+          "timestamp": 1.1634,
+          "message_id": "0x244",
+          "payload": "EE1CD0B5C339D0E8"
+        },
+        {
+          "timestamp": 1.2063,
+          "message_id": "0x300",
+          "payload": "78E1AE856ACB5F2A"
+        },
+        {
+          "timestamp": 1.2489,
+          "message_id": "0x200",
+          "payload": "A932CAF5C68FBAEB"
+        },
+        {
+          "timestamp": 1.3117,
+          "message_id": "0x300",
+          "payload": "036995C2622C84AB"
+        },
+        {
+          "timestamp": 1.3565,
+          "message_id": "0x100",
+          "payload": "92A7E17480F7777E"
+        },
+        {
+          "timestamp": 1.4139,
+          "message_id": "0x244",
+          "payload": "0970FEB6C3CC8B8D"
+        },
+        {
+          "timestamp": 1.4574,
+          "message_id": "0x200",
+          "payload": "AB24A743FA37B7E8"
+        },
+        {
+          "timestamp": 1.5111,
+          "message_id": "0x244",
+          "payload": "EFD250B1C342B288"
+        },
+        {
+          "timestamp": 1.5835,
+          "message_id": "0x400",
+          "payload": "D4C6E99A7D4A01B3"
+        },
+        {
+          "timestamp": 1.6472,
+          "message_id": "0x244",
+          "payload": "2D5675B0C3A23CCD"
+        },
+        {
+          "timestamp": 1.6913,
+          "message_id": "0x300",
+          "payload": "539B5D8F258C67B2"
+        },
+        {
+          "timestamp": 1.7333,
+          "message_id": "0x410",
+          "payload": "8011B35000AC90B2"
+        },
+        {
+          "timestamp": 1.8061,
+          "message_id": "0x244",
+          "payload": "F56B34B5C34E0139"
+        },
+        {
+          "timestamp": 1.8778,
+          "message_id": "0x244",
+          "payload": "553F64BEC332A7B4"
+        },
+        {
+          "timestamp": 1.9148,
+          "message_id": "0x200",
+          "payload": "C1B1F32AC69A4E69"
+        },
+        {
+          "timestamp": 1.987,
+          "message_id": "0x3A0",
+          "payload": "C2F0F3AFC9F91162"
+        }
+      ]
+    },
+    {
+      "reference_value": 146.85,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x410",
+          "payload": "5A1019C6B1D5B163"
+        },
+        {
+          "timestamp": 0.0479,
+          "message_id": "0x244",
+          "payload": "7A26F611C43907A5"
+        },
+        {
+          "timestamp": 0.1222,
+          "message_id": "0x300",
+          "payload": "C14478D968D0DDC8"
+        },
+        {
+          "timestamp": 0.1893,
+          "message_id": "0x244",
+          "payload": "F80C1E17C435F25A"
+        },
+        {
+          "timestamp": 0.2227,
+          "message_id": "0x3A0",
+          "payload": "999833C62F641FF3"
+        },
+        {
+          "timestamp": 0.2533,
+          "message_id": "0x244",
+          "payload": "C5227D1EC4166A10"
+        },
+        {
+          "timestamp": 0.3257,
+          "message_id": "0x2C0",
+          "payload": "5BE61CC492756AE0"
+        },
+        {
+          "timestamp": 0.3943,
+          "message_id": "0x244",
+          "payload": "7954A112C45AB143"
+        },
+        {
+          "timestamp": 0.4535,
+          "message_id": "0x244",
+          "payload": "01C37110C49CE7F8"
+        },
+        {
+          "timestamp": 0.4958,
+          "message_id": "0x400",
+          "payload": "F4EB7495C85B0D94"
+        },
+        {
+          "timestamp": 0.5229,
+          "message_id": "0x410",
+          "payload": "7C4B6CDDEEECEBAA"
+        },
+        {
+          "timestamp": 0.5812,
+          "message_id": "0x244",
+          "payload": "67666B1DC46C4F3E"
+        },
+        {
+          "timestamp": 0.6212,
+          "message_id": "0x3A0",
+          "payload": "166A5CD5E06C584C"
+        },
+        {
+          "timestamp": 0.6749,
+          "message_id": "0x1A0",
+          "payload": "DAE74FA1322001A2"
+        },
+        {
+          "timestamp": 0.7156,
+          "message_id": "0x200",
+          "payload": "4692BAEFA5993545"
+        },
+        {
+          "timestamp": 0.7613,
+          "message_id": "0x3A0",
+          "payload": "5F8734E314CFCF50"
+        },
+        {
+          "timestamp": 0.8157,
+          "message_id": "0x300",
+          "payload": "E5E0FBA2B2549C43"
+        },
+        {
+          "timestamp": 0.8903,
+          "message_id": "0x200",
+          "payload": "A92BF0D5B8680FA5"
+        },
+        {
+          "timestamp": 0.9179,
+          "message_id": "0x244",
+          "payload": "98EDA11EC414009C"
+        },
+        {
+          "timestamp": 0.9529,
+          "message_id": "0x3A0",
+          "payload": "18CABDDA4B86F982"
+        },
+        {
+          "timestamp": 1.0235,
+          "message_id": "0x100",
+          "payload": "A3043725B2472200"
+        },
+        {
+          "timestamp": 1.0854,
+          "message_id": "0x100",
+          "payload": "4EA3314625220D76"
+        },
+        {
+          "timestamp": 1.1129,
+          "message_id": "0x244",
+          "payload": "A6F6F519C4502568"
+        },
+        {
+          "timestamp": 1.1451,
+          "message_id": "0x200",
+          "payload": "3265A75C9D96D8B7"
+        },
+        {
+          "timestamp": 1.1966,
+          "message_id": "0x2C0",
+          "payload": "95212FB1D2E02AB2"
+        },
+        {
+          "timestamp": 1.2501,
+          "message_id": "0x300",
+          "payload": "EBFBF9FA6751BDEE"
+        },
+        {
+          "timestamp": 1.2913,
+          "message_id": "0x3A0",
+          "payload": "EEE44CD04AC4CB0D"
+        },
+        {
+          "timestamp": 1.3558,
+          "message_id": "0x1A0",
+          "payload": "45630CF48A60FC59"
+        },
+        {
+          "timestamp": 1.4223,
+          "message_id": "0x2C0",
+          "payload": "76FFDD5F1B32AF94"
+        },
+        {
+          "timestamp": 1.4591,
+          "message_id": "0x200",
+          "payload": "DF095A9D349AB4BF"
+        },
+        {
+          "timestamp": 1.4872,
+          "message_id": "0x3A0",
+          "payload": "76A7AF8AA64A777F"
+        },
+        {
+          "timestamp": 1.5404,
+          "message_id": "0x300",
+          "payload": "3C4A2FE82EC684B1"
+        },
+        {
+          "timestamp": 1.5891,
+          "message_id": "0x244",
+          "payload": "0ABF481FC4639169"
+        },
+        {
+          "timestamp": 1.6265,
+          "message_id": "0x244",
+          "payload": "9864901DC4E4EC5E"
+        },
+        {
+          "timestamp": 1.6894,
+          "message_id": "0x244",
+          "payload": "8E86E914C431AFB4"
+        },
+        {
+          "timestamp": 1.7302,
+          "message_id": "0x410",
+          "payload": "0DAC5A19A114F224"
+        },
+        {
+          "timestamp": 1.7628,
+          "message_id": "0x200",
+          "payload": "2BBA2DA2FC1DC426"
+        },
+        {
+          "timestamp": 1.8102,
+          "message_id": "0x244",
+          "payload": "8771011FC47744AA"
+        },
+        {
+          "timestamp": 1.8546,
+          "message_id": "0x3A0",
+          "payload": "09F0D216167F0B2B"
+        },
+        {
+          "timestamp": 1.905,
+          "message_id": "0x3A0",
+          "payload": "64098BC568A6A8C3"
+        },
+        {
+          "timestamp": 1.9626,
+          "message_id": "0x400",
+          "payload": "C6531C366969BE17"
+        }
+      ]
+    },
+    {
+      "reference_value": 194.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "09065AFFFFEC5FF9"
+        },
+        {
+          "timestamp": 0.0648,
+          "message_id": "0x200",
+          "payload": "230010809EC531B6"
+        },
+        {
+          "timestamp": 0.122,
+          "message_id": "0x300",
+          "payload": "28D0913948E630F5"
+        },
+        {
+          "timestamp": 0.1478,
+          "message_id": "0x244",
+          "payload": "7E880FF4FFCC01FD"
+        },
+        {
+          "timestamp": 0.2143,
+          "message_id": "0x244",
+          "payload": "1289F6F0FF7E01DF"
+        },
+        {
+          "timestamp": 0.2789,
+          "message_id": "0x244",
+          "payload": "9B2BEFFBFFABD5CB"
+        },
+        {
+          "timestamp": 0.3273,
+          "message_id": "0x2C0",
+          "payload": "4FDBD284ABEE51A4"
+        },
+        {
+          "timestamp": 0.3822,
+          "message_id": "0x1A0",
+          "payload": "46C2D3130857AF3A"
+        },
+        {
+          "timestamp": 0.4438,
+          "message_id": "0x410",
+          "payload": "CC7BD37E4603F429"
+        },
+        {
+          "timestamp": 0.4809,
+          "message_id": "0x200",
+          "payload": "360009365228E3DB"
+        },
+        {
+          "timestamp": 0.539,
+          "message_id": "0x244",
+          "payload": "9ACB69FFFF1FAB08"
+        },
+        {
+          "timestamp": 0.599,
+          "message_id": "0x3A0",
+          "payload": "3DBF0C1F2F82273E"
+        },
+        {
+          "timestamp": 0.643,
+          "message_id": "0x400",
+          "payload": "1A9E6D3040E25E8C"
+        },
+        {
+          "timestamp": 0.708,
+          "message_id": "0x244",
+          "payload": "83F5E9F1FFD3426F"
+        },
+        {
+          "timestamp": 0.7574,
+          "message_id": "0x244",
+          "payload": "5C1957FFFF335440"
+        },
+        {
+          "timestamp": 0.8043,
+          "message_id": "0x3A0",
+          "payload": "0B3DF18DD2228BFC"
+        },
+        {
+          "timestamp": 0.8546,
+          "message_id": "0x244",
+          "payload": "430525FEFFF25D31"
+        },
+        {
+          "timestamp": 0.8912,
+          "message_id": "0x244",
+          "payload": "4C0B10F8FF4A7F66"
+        },
+        {
+          "timestamp": 0.9494,
+          "message_id": "0x200",
+          "payload": "35C24442F257DB78"
+        },
+        {
+          "timestamp": 0.9948,
+          "message_id": "0x244",
+          "payload": "AC06BCF7FFD579F2"
+        },
+        {
+          "timestamp": 1.0414,
+          "message_id": "0x244",
+          "payload": "2241B8F8FF9A9FFC"
+        },
+        {
+          "timestamp": 1.1043,
+          "message_id": "0x410",
+          "payload": "4FA2FA288897AA76"
+        },
+        {
+          "timestamp": 1.1467,
+          "message_id": "0x300",
+          "payload": "D88D6496BA6E5397"
+        },
+        {
+          "timestamp": 1.182,
+          "message_id": "0x300",
+          "payload": "5FB7CF8EA48283CC"
+        },
+        {
+          "timestamp": 1.2071,
+          "message_id": "0x244",
+          "payload": "8FE8D6F1FF3FDCA3"
+        },
+        {
+          "timestamp": 1.2391,
+          "message_id": "0x244",
+          "payload": "112838F3FF1103A8"
+        },
+        {
+          "timestamp": 1.2783,
+          "message_id": "0x244",
+          "payload": "78B740F7FF60528F"
+        },
+        {
+          "timestamp": 1.3096,
+          "message_id": "0x244",
+          "payload": "D77E55F8FF79DCE6"
+        },
+        {
+          "timestamp": 1.3462,
+          "message_id": "0x3A0",
+          "payload": "EE4CC086FDAA0FCE"
+        },
+        {
+          "timestamp": 1.4015,
+          "message_id": "0x100",
+          "payload": "C5C66ABC8797CF07"
+        },
+        {
+          "timestamp": 1.4588,
+          "message_id": "0x244",
+          "payload": "0CBBC0FDFF2D8B78"
+        },
+        {
+          "timestamp": 1.5021,
+          "message_id": "0x400",
+          "payload": "55761CB172521828"
+        },
+        {
+          "timestamp": 1.5498,
+          "message_id": "0x244",
+          "payload": "D857D9F2FF159FD5"
+        },
+        {
+          "timestamp": 1.5866,
+          "message_id": "0x200",
+          "payload": "223853EB54570A58"
+        },
+        {
+          "timestamp": 1.6372,
+          "message_id": "0x244",
+          "payload": "1C451FF4FF8E7E53"
+        },
+        {
+          "timestamp": 1.6979,
+          "message_id": "0x244",
+          "payload": "12C409FFFFEBC8D5"
+        },
+        {
+          "timestamp": 1.7481,
+          "message_id": "0x244",
+          "payload": "62B93DFCFF0AF606"
+        },
+        {
+          "timestamp": 1.7948,
+          "message_id": "0x1A0",
+          "payload": "E49C7407E8FCEEB6"
+        },
+        {
+          "timestamp": 1.843,
+          "message_id": "0x244",
+          "payload": "7439B1FEFF29BF1F"
+        },
+        {
+          "timestamp": 1.8714,
+          "message_id": "0x2C0",
+          "payload": "50348106B0ECAEBA"
+        },
+        {
+          "timestamp": 1.9106,
+          "message_id": "0x244",
+          "payload": "3EFD12FCFF84462C"
+        },
+        {
+          "timestamp": 1.9494,
+          "message_id": "0x244",
+          "payload": "19046DFDFF860251"
+        },
+        {
+          "timestamp": 1.9877,
+          "message_id": "0x100",
+          "payload": "7E5F32EABF8AA487"
+        }
+      ]
+    },
+    {
+      "reference_value": 5.55,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x300",
+          "payload": "9FC19834777E43BD"
+        },
+        {
+          "timestamp": 0.0621,
+          "message_id": "0x300",
+          "payload": "9275F2A1DCD4DF0A"
+        },
+        {
+          "timestamp": 0.134,
+          "message_id": "0x244",
+          "payload": "7FFC6C77135A5AC2"
+        },
+        {
+          "timestamp": 0.164,
+          "message_id": "0x244",
+          "payload": "04DF247013149BB2"
+        },
+        {
+          "timestamp": 0.1911,
+          "message_id": "0x300",
+          "payload": "3121065CF3892942"
+        },
+        {
+          "timestamp": 0.2392,
+          "message_id": "0x1A0",
+          "payload": "3F791CA5FEB99CD7"
+        },
+        {
+          "timestamp": 0.3039,
+          "message_id": "0x300",
+          "payload": "67E44121343E4429"
+        },
+        {
+          "timestamp": 0.3674,
+          "message_id": "0x200",
+          "payload": "FDD396F1B5C6B211"
+        },
+        {
+          "timestamp": 0.4345,
+          "message_id": "0x3A0",
+          "payload": "5FECAE4ADA5058D2"
+        },
+        {
+          "timestamp": 0.4838,
+          "message_id": "0x1A0",
+          "payload": "147F865D10BABA03"
+        },
+        {
+          "timestamp": 0.5329,
+          "message_id": "0x410",
+          "payload": "664A8C6D1E9E19A0"
+        },
+        {
+          "timestamp": 0.5783,
+          "message_id": "0x100",
+          "payload": "FDE7A7E89178C807"
+        },
+        {
+          "timestamp": 0.6053,
+          "message_id": "0x400",
+          "payload": "7C0D128D091F6937"
+        },
+        {
+          "timestamp": 0.6766,
+          "message_id": "0x300",
+          "payload": "560D2A7F0348598D"
+        },
+        {
+          "timestamp": 0.7097,
+          "message_id": "0x1A0",
+          "payload": "B3992243072853EA"
+        },
+        {
+          "timestamp": 0.7408,
+          "message_id": "0x410",
+          "payload": "E3F82B2B5C680225"
+        },
+        {
+          "timestamp": 0.7731,
+          "message_id": "0x244",
+          "payload": "6FB0AC731356F27F"
+        },
+        {
+          "timestamp": 0.826,
+          "message_id": "0x300",
+          "payload": "B611E60B0BAD0AE2"
+        },
+        {
+          "timestamp": 0.8577,
+          "message_id": "0x244",
+          "payload": "34FFA37A13D91319"
+        },
+        {
+          "timestamp": 0.9159,
+          "message_id": "0x2C0",
+          "payload": "C48AD2B2F99D009A"
+        },
+        {
+          "timestamp": 0.9501,
+          "message_id": "0x244",
+          "payload": "43B3387A13627189"
+        },
+        {
+          "timestamp": 1.0172,
+          "message_id": "0x410",
+          "payload": "2993C19D2A814230"
+        },
+        {
+          "timestamp": 1.0476,
+          "message_id": "0x400",
+          "payload": "BC38572A5530F645"
+        },
+        {
+          "timestamp": 1.1094,
+          "message_id": "0x410",
+          "payload": "7D086F71D6C69B4C"
+        },
+        {
+          "timestamp": 1.1831,
+          "message_id": "0x2C0",
+          "payload": "873D8F03C6845374"
+        },
+        {
+          "timestamp": 1.2437,
+          "message_id": "0x244",
+          "payload": "712C46731330D3A6"
+        },
+        {
+          "timestamp": 1.291,
+          "message_id": "0x244",
+          "payload": "3BADC87613CB67FF"
+        },
+        {
+          "timestamp": 1.3635,
+          "message_id": "0x2C0",
+          "payload": "0DE511E96D394985"
+        },
+        {
+          "timestamp": 1.4098,
+          "message_id": "0x244",
+          "payload": "2EB97E781385F7E4"
+        },
+        {
+          "timestamp": 1.4357,
+          "message_id": "0x244",
+          "payload": "FC743878139C0237"
+        },
+        {
+          "timestamp": 1.5056,
+          "message_id": "0x244",
+          "payload": "75F0407D13F6539D"
+        },
+        {
+          "timestamp": 1.5432,
+          "message_id": "0x200",
+          "payload": "CB3CF67A1ABF7AF7"
+        },
+        {
+          "timestamp": 1.5897,
+          "message_id": "0x100",
+          "payload": "347D16ED23E4766B"
+        },
+        {
+          "timestamp": 1.6195,
+          "message_id": "0x244",
+          "payload": "D38E627713871F85"
+        },
+        {
+          "timestamp": 1.6774,
+          "message_id": "0x244",
+          "payload": "F6DA327813BBE503"
+        },
+        {
+          "timestamp": 1.7514,
+          "message_id": "0x2C0",
+          "payload": "65571566649E1E74"
+        },
+        {
+          "timestamp": 1.778,
+          "message_id": "0x200",
+          "payload": "B9D425FC05B15D32"
+        },
+        {
+          "timestamp": 1.8412,
+          "message_id": "0x244",
+          "payload": "4D3D757A136ED5E8"
+        },
+        {
+          "timestamp": 1.882,
+          "message_id": "0x244",
+          "payload": "6C9CE274133FC415"
+        },
+        {
+          "timestamp": 1.934,
+          "message_id": "0x244",
+          "payload": "4712727213A451DF"
+        }
+      ]
+    },
+    {
+      "reference_value": 51.35,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x200",
+          "payload": "24E2D2AE58A01000"
+        },
+        {
+          "timestamp": 0.0681,
+          "message_id": "0x100",
+          "payload": "A5226F3EB104BAC3"
+        },
+        {
+          "timestamp": 0.1329,
+          "message_id": "0x2C0",
+          "payload": "98524F9F24591ACF"
+        },
+        {
+          "timestamp": 0.1599,
+          "message_id": "0x244",
+          "payload": "11087CBA4C84CC37"
+        },
+        {
+          "timestamp": 0.2055,
+          "message_id": "0x410",
+          "payload": "7AB1B95C11F1D67D"
+        },
+        {
+          "timestamp": 0.2607,
+          "message_id": "0x400",
+          "payload": "B05421813C830885"
+        },
+        {
+          "timestamp": 0.313,
+          "message_id": "0x200",
+          "payload": "6C62C87424C959D9"
+        },
+        {
+          "timestamp": 0.346,
+          "message_id": "0x244",
+          "payload": "D4BD63B84C1C9C5B"
+        },
+        {
+          "timestamp": 0.4183,
+          "message_id": "0x2C0",
+          "payload": "15C7BA59602FC9D8"
+        },
+        {
+          "timestamp": 0.4864,
+          "message_id": "0x410",
+          "payload": "073B758A4E1A1919"
+        },
+        {
+          "timestamp": 0.5234,
+          "message_id": "0x200",
+          "payload": "B68A3C74323EE316"
+        },
+        {
+          "timestamp": 0.5604,
+          "message_id": "0x244",
+          "payload": "6F64CAB14C22FAC3"
+        },
+        {
+          "timestamp": 0.6085,
+          "message_id": "0x3A0",
+          "payload": "0056003AD3407CAF"
+        },
+        {
+          "timestamp": 0.6653,
+          "message_id": "0x2C0",
+          "payload": "3D06CBB412923939"
+        },
+        {
+          "timestamp": 0.7016,
+          "message_id": "0x400",
+          "payload": "A04D6556427E8AAD"
+        },
+        {
+          "timestamp": 0.7305,
+          "message_id": "0x244",
+          "payload": "194D1BBA4CCDD133"
+        },
+        {
+          "timestamp": 0.7928,
+          "message_id": "0x244",
+          "payload": "1616BCB24C4E2A63"
+        },
+        {
+          "timestamp": 0.8654,
+          "message_id": "0x2C0",
+          "payload": "AB1D5D3FFD468913"
+        },
+        {
+          "timestamp": 0.9025,
+          "message_id": "0x244",
+          "payload": "E6A97FBD4C7B313B"
+        },
+        {
+          "timestamp": 0.9501,
+          "message_id": "0x244",
+          "payload": "B29950B84CDC9E29"
+        },
+        {
+          "timestamp": 0.9824,
+          "message_id": "0x3A0",
+          "payload": "74A390965635794D"
+        },
+        {
+          "timestamp": 1.0276,
+          "message_id": "0x244",
+          "payload": "D0F4C3BD4C56977A"
+        },
+        {
+          "timestamp": 1.0861,
+          "message_id": "0x300",
+          "payload": "74090BD34DA04CB4"
+        },
+        {
+          "timestamp": 1.1328,
+          "message_id": "0x244",
+          "payload": "CCBD26BF4C46AA38"
+        },
+        {
+          "timestamp": 1.2,
+          "message_id": "0x3A0",
+          "payload": "4798105F700DCC21"
+        },
+        {
+          "timestamp": 1.2308,
+          "message_id": "0x3A0",
+          "payload": "6226A012C18292A1"
+        },
+        {
+          "timestamp": 1.2785,
+          "message_id": "0x410",
+          "payload": "6ED41B7880FEE9C5"
+        },
+        {
+          "timestamp": 1.3064,
+          "message_id": "0x1A0",
+          "payload": "CD44B02FFC15280C"
+        },
+        {
+          "timestamp": 1.3782,
+          "message_id": "0x2C0",
+          "payload": "2666E724AB56BC3E"
+        },
+        {
+          "timestamp": 1.4304,
+          "message_id": "0x244",
+          "payload": "065325BC4CD7A4EF"
+        },
+        {
+          "timestamp": 1.4827,
+          "message_id": "0x3A0",
+          "payload": "366E299815A14C91"
+        },
+        {
+          "timestamp": 1.5564,
+          "message_id": "0x244",
+          "payload": "8917E6B34C34EF55"
+        },
+        {
+          "timestamp": 1.5851,
+          "message_id": "0x100",
+          "payload": "F5368D5AFE7D7735"
+        },
+        {
+          "timestamp": 1.6373,
+          "message_id": "0x3A0",
+          "payload": "0A7E0FDC3EF1CF7C"
+        },
+        {
+          "timestamp": 1.6882,
+          "message_id": "0x244",
+          "payload": "B0C425B74C52CB0A"
+        },
+        {
+          "timestamp": 1.7402,
+          "message_id": "0x100",
+          "payload": "8C42524ACE187D90"
+        },
+        {
+          "timestamp": 1.8128,
+          "message_id": "0x244",
+          "payload": "1A17D8B44C229BEE"
+        },
+        {
+          "timestamp": 1.886,
+          "message_id": "0x244",
+          "payload": "E2B57CBC4C50E8C2"
+        },
+        {
+          "timestamp": 1.9591,
+          "message_id": "0x244",
+          "payload": "EFFC4DB44C6F1A0C"
+        }
+      ]
+    },
+    {
+      "reference_value": 170.6,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x300",
+          "payload": "180BCCAE103585AB"
+        },
+        {
+          "timestamp": 0.0384,
+          "message_id": "0x244",
+          "payload": "CEC64BC5E18C763A"
+        },
+        {
+          "timestamp": 0.0837,
+          "message_id": "0x244",
+          "payload": "A5AF5AC5E177AB37"
+        },
+        {
+          "timestamp": 0.1517,
+          "message_id": "0x100",
+          "payload": "CBB0F8CA0AF98706"
+        },
+        {
+          "timestamp": 0.192,
+          "message_id": "0x410",
+          "payload": "23FF516A7812B6C9"
+        },
+        {
+          "timestamp": 0.2214,
+          "message_id": "0x244",
+          "payload": "3AA636CBE1F37DEA"
+        },
+        {
+          "timestamp": 0.2487,
+          "message_id": "0x2C0",
+          "payload": "43921B5EC3F14F08"
+        },
+        {
+          "timestamp": 0.2918,
+          "message_id": "0x244",
+          "payload": "BC54ADC1E1EE8954"
+        },
+        {
+          "timestamp": 0.3414,
+          "message_id": "0x300",
+          "payload": "8ADBA954932DA040"
+        },
+        {
+          "timestamp": 0.4105,
+          "message_id": "0x244",
+          "payload": "9B7727C3E1260AAF"
+        },
+        {
+          "timestamp": 0.4372,
+          "message_id": "0x244",
+          "payload": "D53999CCE1F7DEE9"
+        },
+        {
+          "timestamp": 0.4944,
+          "message_id": "0x244",
+          "payload": "04B5B9C2E1346246"
+        },
+        {
+          "timestamp": 0.5497,
+          "message_id": "0x244",
+          "payload": "921C02CDE156EB05"
+        },
+        {
+          "timestamp": 0.613,
+          "message_id": "0x100",
+          "payload": "E55BFEA8B8F4C41A"
+        },
+        {
+          "timestamp": 0.6452,
+          "message_id": "0x244",
+          "payload": "EC73C1CEE152E66E"
+        },
+        {
+          "timestamp": 0.7095,
+          "message_id": "0x1A0",
+          "payload": "0A5546D53DA29747"
+        },
+        {
+          "timestamp": 0.7794,
+          "message_id": "0x300",
+          "payload": "76A98D3FEF75C970"
+        },
+        {
+          "timestamp": 0.8329,
+          "message_id": "0x244",
+          "payload": "8F35EEC5E1251A7E"
+        },
+        {
+          "timestamp": 0.8959,
+          "message_id": "0x100",
+          "payload": "6FA4744034BC1651"
+        },
+        {
+          "timestamp": 0.9651,
+          "message_id": "0x244",
+          "payload": "FEEB6BC5E1116089"
+        },
+        {
+          "timestamp": 1.0019,
+          "message_id": "0x100",
+          "payload": "A3E2B562045B0296"
+        },
+        {
+          "timestamp": 1.0508,
+          "message_id": "0x410",
+          "payload": "6160DF26F234C144"
+        },
+        {
+          "timestamp": 1.0816,
+          "message_id": "0x244",
+          "payload": "EDE413C3E1C34513"
+        },
+        {
+          "timestamp": 1.1374,
+          "message_id": "0x244",
+          "payload": "4AE766C9E1CA605E"
+        },
+        {
+          "timestamp": 1.195,
+          "message_id": "0x2C0",
+          "payload": "34953290C4A0A449"
+        },
+        {
+          "timestamp": 1.2387,
+          "message_id": "0x244",
+          "payload": "6BBC20CBE1037E34"
+        },
+        {
+          "timestamp": 1.2775,
+          "message_id": "0x300",
+          "payload": "ABC946082404F1D3"
+        },
+        {
+          "timestamp": 1.3206,
+          "message_id": "0x244",
+          "payload": "7F8151C2E10D7449"
+        },
+        {
+          "timestamp": 1.3722,
+          "message_id": "0x100",
+          "payload": "AA8507917130BCFE"
+        },
+        {
+          "timestamp": 1.4156,
+          "message_id": "0x2C0",
+          "payload": "2BEBB9D578F348ED"
+        },
+        {
+          "timestamp": 1.4407,
+          "message_id": "0x244",
+          "payload": "133160C7E1C82F5D"
+        },
+        {
+          "timestamp": 1.4915,
+          "message_id": "0x410",
+          "payload": "3BE3403A1E261DE3"
+        },
+        {
+          "timestamp": 1.5289,
+          "message_id": "0x200",
+          "payload": "A219B8F96C53600D"
+        },
+        {
+          "timestamp": 1.563,
+          "message_id": "0x410",
+          "payload": "BEDD8F0630A66C5E"
+        },
+        {
+          "timestamp": 1.6341,
+          "message_id": "0x3A0",
+          "payload": "D42B274F0118CDD3"
+        },
+        {
+          "timestamp": 1.6746,
+          "message_id": "0x244",
+          "payload": "231EFEC8E187280A"
+        },
+        {
+          "timestamp": 1.712,
+          "message_id": "0x100",
+          "payload": "A51819FCF726EE3D"
+        },
+        {
+          "timestamp": 1.7562,
+          "message_id": "0x2C0",
+          "payload": "3DC346F91FF8775A"
+        },
+        {
+          "timestamp": 1.803,
+          "message_id": "0x244",
+          "payload": "93E028CDE16E1E53"
+        },
+        {
+          "timestamp": 1.8325,
+          "message_id": "0x244",
+          "payload": "508327CEE12E0902"
+        },
+        {
+          "timestamp": 1.906,
+          "message_id": "0x2C0",
+          "payload": "9453EB7EBE051081"
+        },
+        {
+          "timestamp": 1.9519,
+          "message_id": "0x100",
+          "payload": "56C29C225F85D4EC"
+        }
+      ]
+    },
+    {
+      "reference_value": 194.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x400",
+          "payload": "181B7382D3BD1F75"
+        },
+        {
+          "timestamp": 0.0494,
+          "message_id": "0x410",
+          "payload": "7ACB3EC591D9CC78"
+        },
+        {
+          "timestamp": 0.1212,
+          "message_id": "0x2C0",
+          "payload": "E942E04A3C45B7D8"
+        },
+        {
+          "timestamp": 0.1733,
+          "message_id": "0x244",
+          "payload": "78C71DF8FF4E2D02"
+        },
+        {
+          "timestamp": 0.2027,
+          "message_id": "0x244",
+          "payload": "37B56DF7FFD0A571"
+        },
+        {
+          "timestamp": 0.2737,
+          "message_id": "0x410",
+          "payload": "3CA05B89F4833DA1"
+        },
+        {
+          "timestamp": 0.3423,
+          "message_id": "0x2C0",
+          "payload": "0DC2FF24810CE438"
+        },
+        {
+          "timestamp": 0.3713,
+          "message_id": "0x244",
+          "payload": "37A5CCFDFFE9C92A"
+        },
+        {
+          "timestamp": 0.4133,
+          "message_id": "0x244",
+          "payload": "A13345FFFFC1B32F"
+        },
+        {
+          "timestamp": 0.4422,
+          "message_id": "0x244",
+          "payload": "7C6DA7F4FFAB1CF0"
+        },
+        {
+          "timestamp": 0.4697,
+          "message_id": "0x2C0",
+          "payload": "498519CC8DDFD1AD"
+        },
+        {
+          "timestamp": 0.5078,
+          "message_id": "0x244",
+          "payload": "9ADBFEF0FFA760D4"
+        },
+        {
+          "timestamp": 0.5449,
+          "message_id": "0x2C0",
+          "payload": "CC45DA913CAB710D"
+        },
+        {
+          "timestamp": 0.5779,
+          "message_id": "0x244",
+          "payload": "5495EDFFFF4A2C03"
+        },
+        {
+          "timestamp": 0.6069,
+          "message_id": "0x244",
+          "payload": "32B8C1F0FFCFF462"
+        },
+        {
+          "timestamp": 0.6405,
+          "message_id": "0x300",
+          "payload": "E08E4D85D2435168"
+        },
+        {
+          "timestamp": 0.677,
+          "message_id": "0x400",
+          "payload": "A7DBC1EB5B859437"
+        },
+        {
+          "timestamp": 0.7272,
+          "message_id": "0x300",
+          "payload": "811D89B9EA462346"
+        },
+        {
+          "timestamp": 0.7599,
+          "message_id": "0x400",
+          "payload": "9F2EEC6795F506C5"
+        },
+        {
+          "timestamp": 0.8258,
+          "message_id": "0x300",
+          "payload": "012C718A61C7A487"
+        },
+        {
+          "timestamp": 0.8674,
+          "message_id": "0x244",
+          "payload": "90132CFFFFDB5888"
+        },
+        {
+          "timestamp": 0.9382,
+          "message_id": "0x2C0",
+          "payload": "8D16B2F6E30A734E"
+        },
+        {
+          "timestamp": 1.0113,
+          "message_id": "0x2C0",
+          "payload": "CD419AF4F38E48C7"
+        },
+        {
+          "timestamp": 1.0381,
+          "message_id": "0x244",
+          "payload": "C85846FEFF7343F0"
+        },
+        {
+          "timestamp": 1.0827,
+          "message_id": "0x200",
+          "payload": "516543130575002C"
+        },
+        {
+          "timestamp": 1.1307,
+          "message_id": "0x244",
+          "payload": "0FC302F6FF29179A"
+        },
+        {
+          "timestamp": 1.1882,
+          "message_id": "0x100",
+          "payload": "1F8D46A9DA31060E"
+        },
+        {
+          "timestamp": 1.255,
+          "message_id": "0x1A0",
+          "payload": "0B8ACE2A01DDCD82"
+        },
+        {
+          "timestamp": 1.2837,
+          "message_id": "0x3A0",
+          "payload": "B922790EA3C8F10B"
+        },
+        {
+          "timestamp": 1.3473,
+          "message_id": "0x3A0",
+          "payload": "D694CC5CE07D3FF2"
+        },
+        {
+          "timestamp": 1.3905,
+          "message_id": "0x3A0",
+          "payload": "5BE2EC074024DBE5"
+        },
+        {
+          "timestamp": 1.4345,
+          "message_id": "0x100",
+          "payload": "0B42EBAA3EFE924F"
+        },
+        {
+          "timestamp": 1.4744,
+          "message_id": "0x100",
+          "payload": "3482C4D8554FA2E1"
+        },
+        {
+          "timestamp": 1.5399,
+          "message_id": "0x2C0",
+          "payload": "B843B9BF1AD4044B"
+        },
+        {
+          "timestamp": 1.5898,
+          "message_id": "0x244",
+          "payload": "012C7AF8FF5648F5"
+        },
+        {
+          "timestamp": 1.6399,
+          "message_id": "0x300",
+          "payload": "8012F558E724D2CB"
+        },
+        {
+          "timestamp": 1.6653,
+          "message_id": "0x244",
+          "payload": "B123B0FEFFA5D21B"
+        },
+        {
+          "timestamp": 1.7016,
+          "message_id": "0x400",
+          "payload": "14611E2DA00F829A"
+        },
+        {
+          "timestamp": 1.7616,
+          "message_id": "0x244",
+          "payload": "4ED6DBF8FF3D24F6"
+        },
+        {
+          "timestamp": 1.8268,
+          "message_id": "0x100",
+          "payload": "6218A14BC752E96B"
+        },
+        {
+          "timestamp": 1.8737,
+          "message_id": "0x200",
+          "payload": "A4D1C8D1DE678969"
+        },
+        {
+          "timestamp": 1.9471,
+          "message_id": "0x200",
+          "payload": "C9C41AA1EE81CBEA"
+        },
+        {
+          "timestamp": 1.9897,
+          "message_id": "0x3A0",
+          "payload": "56501AA31F903732"
+        }
+      ]
+    },
+    {
+      "reference_value": 115.65,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x3A0",
+          "payload": "304A9EC1550CB7A8"
+        },
+        {
+          "timestamp": 0.0599,
+          "message_id": "0x244",
+          "payload": "50245E1B9D5D12A3"
+        },
+        {
+          "timestamp": 0.1018,
+          "message_id": "0x1A0",
+          "payload": "B8EA1E91F3E64E1B"
+        },
+        {
+          "timestamp": 0.1622,
+          "message_id": "0x300",
+          "payload": "07210C96906308B4"
+        },
+        {
+          "timestamp": 0.2341,
+          "message_id": "0x3A0",
+          "payload": "1922937A5BB7BA41"
+        },
+        {
+          "timestamp": 0.2772,
+          "message_id": "0x244",
+          "payload": "1DF00C119DEF817F"
+        },
+        {
+          "timestamp": 0.3272,
+          "message_id": "0x1A0",
+          "payload": "6699B700CFEC5AA0"
+        },
+        {
+          "timestamp": 0.3631,
+          "message_id": "0x244",
+          "payload": "2F6CA81C9D3E8515"
+        },
+        {
+          "timestamp": 0.4212,
+          "message_id": "0x1A0",
+          "payload": "779A32011D1B70D8"
+        },
+        {
+          "timestamp": 0.4583,
+          "message_id": "0x244",
+          "payload": "32CCE7109DEAEA52"
+        },
+        {
+          "timestamp": 0.4919,
+          "message_id": "0x3A0",
+          "payload": "95C177D504EBB528"
+        },
+        {
+          "timestamp": 0.54,
+          "message_id": "0x244",
+          "payload": "40E32B179D6D5352"
+        },
+        {
+          "timestamp": 0.5826,
+          "message_id": "0x100",
+          "payload": "F0B3D33D6BA2AEF5"
+        },
+        {
+          "timestamp": 0.6428,
+          "message_id": "0x244",
+          "payload": "11A7F61C9D58A913"
+        },
+        {
+          "timestamp": 0.7176,
+          "message_id": "0x244",
+          "payload": "F50156149D418288"
+        },
+        {
+          "timestamp": 0.7669,
+          "message_id": "0x244",
+          "payload": "6432DB109D416184"
+        },
+        {
+          "timestamp": 0.8029,
+          "message_id": "0x244",
+          "payload": "EFB437169D2DA1D8"
+        },
+        {
+          "timestamp": 0.8477,
+          "message_id": "0x244",
+          "payload": "1B7EEE1C9D42052D"
+        },
+        {
+          "timestamp": 0.9068,
+          "message_id": "0x100",
+          "payload": "F9C156308782CC54"
+        },
+        {
+          "timestamp": 0.9602,
+          "message_id": "0x200",
+          "payload": "3DF01BCBDCE1C7C4"
+        },
+        {
+          "timestamp": 0.9894,
+          "message_id": "0x3A0",
+          "payload": "BB199891EDC6967D"
+        },
+        {
+          "timestamp": 1.0316,
+          "message_id": "0x3A0",
+          "payload": "5E645C4D329486D4"
+        },
+        {
+          "timestamp": 1.1026,
+          "message_id": "0x410",
+          "payload": "A8431F3D4792C876"
+        },
+        {
+          "timestamp": 1.1556,
+          "message_id": "0x1A0",
+          "payload": "9E5B1B777861722B"
+        },
+        {
+          "timestamp": 1.223,
+          "message_id": "0x3A0",
+          "payload": "0B8BEC8FAEC8A6B7"
+        },
+        {
+          "timestamp": 1.2698,
+          "message_id": "0x2C0",
+          "payload": "CCC2D68425A9B00A"
+        },
+        {
+          "timestamp": 1.3411,
+          "message_id": "0x2C0",
+          "payload": "2A5C4ABCC9E5370E"
+        },
+        {
+          "timestamp": 1.4096,
+          "message_id": "0x244",
+          "payload": "7B385C199D675D39"
+        },
+        {
+          "timestamp": 1.4734,
+          "message_id": "0x200",
+          "payload": "1ED7E73003FB5432"
+        },
+        {
+          "timestamp": 1.5168,
+          "message_id": "0x100",
+          "payload": "8A56B85DE88F13F6"
+        },
+        {
+          "timestamp": 1.574,
+          "message_id": "0x244",
+          "payload": "0DA47E1E9DCAD66E"
+        },
+        {
+          "timestamp": 1.5991,
+          "message_id": "0x244",
+          "payload": "11B4E21B9D104F54"
+        },
+        {
+          "timestamp": 1.6274,
+          "message_id": "0x244",
+          "payload": "E63D09139D2F5163"
+        },
+        {
+          "timestamp": 1.6623,
+          "message_id": "0x300",
+          "payload": "4C505F7B4BB67454"
+        },
+        {
+          "timestamp": 1.7193,
+          "message_id": "0x400",
+          "payload": "76509BF7B747DD2B"
+        },
+        {
+          "timestamp": 1.7929,
+          "message_id": "0x100",
+          "payload": "1E15CF356C130F34"
+        },
+        {
+          "timestamp": 1.8377,
+          "message_id": "0x410",
+          "payload": "752FD88CF6AE8446"
+        },
+        {
+          "timestamp": 1.9117,
+          "message_id": "0x1A0",
+          "payload": "4503984B455BC1C5"
+        },
+        {
+          "timestamp": 1.9778,
+          "message_id": "0x300",
+          "payload": "6B1C7F72318CF837"
+        }
+      ]
+    },
+    {
+      "reference_value": 167.25,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "93A4029CDD19C7FB"
+        },
+        {
+          "timestamp": 0.0443,
+          "message_id": "0x2C0",
+          "payload": "F1BA8252B2D822AA"
+        },
+        {
+          "timestamp": 0.0907,
+          "message_id": "0x244",
+          "payload": "2C6AEF95DD04085D"
+        },
+        {
+          "timestamp": 0.1645,
+          "message_id": "0x100",
+          "payload": "F34249267DCEEC1F"
+        },
+        {
+          "timestamp": 0.2003,
+          "message_id": "0x244",
+          "payload": "FF72549CDDAFDB76"
+        },
+        {
+          "timestamp": 0.2724,
+          "message_id": "0x2C0",
+          "payload": "632CA960A5734153"
+        },
+        {
+          "timestamp": 0.3267,
+          "message_id": "0x244",
+          "payload": "BFC89E9FDD04DEC9"
+        },
+        {
+          "timestamp": 0.3671,
+          "message_id": "0x3A0",
+          "payload": "FC9EE92D6CBD18A1"
+        },
+        {
+          "timestamp": 0.3933,
+          "message_id": "0x244",
+          "payload": "A7F61C9DDDE23B4C"
+        },
+        {
+          "timestamp": 0.4294,
+          "message_id": "0x244",
+          "payload": "BE05BB95DDD6D972"
+        },
+        {
+          "timestamp": 0.4971,
+          "message_id": "0x410",
+          "payload": "ACB9DD79A8979829"
+        },
+        {
+          "timestamp": 0.5527,
+          "message_id": "0x200",
+          "payload": "788E978D805471AD"
+        },
+        {
+          "timestamp": 0.5841,
+          "message_id": "0x200",
+          "payload": "837530E4153F1FA9"
+        },
+        {
+          "timestamp": 0.6541,
+          "message_id": "0x200",
+          "payload": "9DBAF44170198D9C"
+        },
+        {
+          "timestamp": 0.7255,
+          "message_id": "0x244",
+          "payload": "7104B393DDACBC6A"
+        },
+        {
+          "timestamp": 0.7796,
+          "message_id": "0x400",
+          "payload": "0D2628B968ACC722"
+        },
+        {
+          "timestamp": 0.8158,
+          "message_id": "0x300",
+          "payload": "16956D541769E958"
+        },
+        {
+          "timestamp": 0.8611,
+          "message_id": "0x244",
+          "payload": "97EDC09ADDC142FE"
+        },
+        {
+          "timestamp": 0.9305,
+          "message_id": "0x244",
+          "payload": "86196A94DD1558DC"
+        },
+        {
+          "timestamp": 0.9725,
+          "message_id": "0x300",
+          "payload": "5664470404AC3660"
+        },
+        {
+          "timestamp": 1.009,
+          "message_id": "0x244",
+          "payload": "8DEE239EDDED4FBA"
+        },
+        {
+          "timestamp": 1.0464,
+          "message_id": "0x1A0",
+          "payload": "8B612578F5706841"
+        },
+        {
+          "timestamp": 1.0778,
+          "message_id": "0x244",
+          "payload": "202E5599DD1ED8E3"
+        },
+        {
+          "timestamp": 1.1443,
+          "message_id": "0x400",
+          "payload": "A8D3581CB7E4F4A2"
+        },
+        {
+          "timestamp": 1.1783,
+          "message_id": "0x244",
+          "payload": "ACC9849FDDE25342"
+        },
+        {
+          "timestamp": 1.2076,
+          "message_id": "0x244",
+          "payload": "E17BD19EDD9174B3"
+        },
+        {
+          "timestamp": 1.262,
+          "message_id": "0x2C0",
+          "payload": "B5A3F3554FC877E5"
+        },
+        {
+          "timestamp": 1.2952,
+          "message_id": "0x2C0",
+          "payload": "443C5CA8C6606699"
+        },
+        {
+          "timestamp": 1.3353,
+          "message_id": "0x244",
+          "payload": "9FA08E95DDCB2A6E"
+        },
+        {
+          "timestamp": 1.3851,
+          "message_id": "0x1A0",
+          "payload": "CD65AD785EFFA55B"
+        },
+        {
+          "timestamp": 1.4385,
+          "message_id": "0x244",
+          "payload": "2CB2449BDD932AD6"
+        },
+        {
+          "timestamp": 1.4656,
+          "message_id": "0x300",
+          "payload": "C7D7E4D5951DC2A8"
+        },
+        {
+          "timestamp": 1.5218,
+          "message_id": "0x244",
+          "payload": "A3663791DD522543"
+        },
+        {
+          "timestamp": 1.5943,
+          "message_id": "0x244",
+          "payload": "2B93B49DDD9033A8"
+        },
+        {
+          "timestamp": 1.6471,
+          "message_id": "0x244",
+          "payload": "99401C9FDD7AACC9"
+        },
+        {
+          "timestamp": 1.7194,
+          "message_id": "0x2C0",
+          "payload": "3D469534D4526509"
+        },
+        {
+          "timestamp": 1.7789,
+          "message_id": "0x244",
+          "payload": "58639F92DD4D8356"
+        },
+        {
+          "timestamp": 1.8094,
+          "message_id": "0x244",
+          "payload": "7DDD0591DD65A6C6"
+        },
+        {
+          "timestamp": 1.8781,
+          "message_id": "0x244",
+          "payload": "1A58779BDD511ECD"
+        },
+        {
+          "timestamp": 1.9113,
+          "message_id": "0x3A0",
+          "payload": "7756C66FD2A3C5CE"
+        },
+        {
+          "timestamp": 1.9415,
+          "message_id": "0x2C0",
+          "payload": "30264567437B5E2F"
+        },
+        {
+          "timestamp": 1.9828,
+          "message_id": "0x244",
+          "payload": "CFFC319BDD38724E"
+        }
+      ]
+    },
+    {
+      "reference_value": 194.75,
+      "messages": [
+        {
+          "timestamp": 0.0,
+          "message_id": "0x244",
+          "payload": "3BD79BF5FFCCBCC5"
+        },
+        {
+          "timestamp": 0.0556,
+          "message_id": "0x100",
+          "payload": "4AE695AA78D0E940"
+        },
+        {
+          "timestamp": 0.1028,
+          "message_id": "0x1A0",
+          "payload": "DD92ECF00E9F8B9C"
+        },
+        {
+          "timestamp": 0.1416,
+          "message_id": "0x200",
+          "payload": "93DE79EA6C3C9089"
+        },
+        {
+          "timestamp": 0.1824,
+          "message_id": "0x1A0",
+          "payload": "C0A5315C4E1CC910"
+        },
+        {
+          "timestamp": 0.2494,
+          "message_id": "0x244",
+          "payload": "8B3706FAFF7F83BD"
+        },
+        {
+          "timestamp": 0.3236,
+          "message_id": "0x244",
+          "payload": "4EB010F1FFC3B60B"
+        },
+        {
+          "timestamp": 0.368,
+          "message_id": "0x244",
+          "payload": "86E9DEFFFFF5D103"
+        },
+        {
+          "timestamp": 0.4246,
+          "message_id": "0x244",
+          "payload": "B31789F8FFCF8ADC"
+        },
+        {
+          "timestamp": 0.4905,
+          "message_id": "0x2C0",
+          "payload": "1C443ABDF4AD5553"
+        },
+        {
+          "timestamp": 0.5459,
+          "message_id": "0x200",
+          "payload": "9E08F9FC99AB7DA5"
+        },
+        {
+          "timestamp": 0.5757,
+          "message_id": "0x200",
+          "payload": "7A0F249AB635107C"
+        },
+        {
+          "timestamp": 0.6071,
+          "message_id": "0x244",
+          "payload": "22F74EF5FF7BAAA5"
+        },
+        {
+          "timestamp": 0.6412,
+          "message_id": "0x1A0",
+          "payload": "B4A3C3AFB2E21A11"
+        },
+        {
+          "timestamp": 0.6843,
+          "message_id": "0x2C0",
+          "payload": "EE98F7B6B49E93E3"
+        },
+        {
+          "timestamp": 0.7272,
+          "message_id": "0x400",
+          "payload": "68961A7F07636D22"
+        },
+        {
+          "timestamp": 0.7866,
+          "message_id": "0x244",
+          "payload": "5D1F52F5FF609D5A"
+        },
+        {
+          "timestamp": 0.8458,
+          "message_id": "0x100",
+          "payload": "E9DA6A7F133BDF69"
+        },
+        {
+          "timestamp": 0.8848,
+          "message_id": "0x100",
+          "payload": "FEC5C2976C48CD8A"
+        },
+        {
+          "timestamp": 0.9124,
+          "message_id": "0x244",
+          "payload": "131AF7F7FF32D995"
+        },
+        {
+          "timestamp": 0.9699,
+          "message_id": "0x410",
+          "payload": "9EBE5BFAB431542E"
+        },
+        {
+          "timestamp": 1.0322,
+          "message_id": "0x410",
+          "payload": "2496E2E0A98A386D"
+        },
+        {
+          "timestamp": 1.082,
+          "message_id": "0x410",
+          "payload": "C325606AD327F28A"
+        },
+        {
+          "timestamp": 1.1358,
+          "message_id": "0x244",
+          "payload": "53EE1BF4FF67B2A0"
+        },
+        {
+          "timestamp": 1.1985,
+          "message_id": "0x244",
+          "payload": "A64C03F7FF74F94A"
+        },
+        {
+          "timestamp": 1.241,
+          "message_id": "0x244",
+          "payload": "D11A33F9FF496E6C"
+        },
+        {
+          "timestamp": 1.2695,
+          "message_id": "0x410",
+          "payload": "F6CC4E26BC76B710"
+        },
+        {
+          "timestamp": 1.3258,
+          "message_id": "0x3A0",
+          "payload": "2B9E72ACC7F5BB33"
+        },
+        {
+          "timestamp": 1.3698,
+          "message_id": "0x244",
+          "payload": "147FF5F0FFCD0A79"
+        },
+        {
+          "timestamp": 1.4037,
+          "message_id": "0x244",
+          "payload": "882D21FEFFA9D81B"
+        },
+        {
+          "timestamp": 1.4769,
+          "message_id": "0x244",
+          "payload": "04F608FFFFD43888"
+        },
+        {
+          "timestamp": 1.5245,
+          "message_id": "0x200",
+          "payload": "A60D1DFC80558E8A"
+        },
+        {
+          "timestamp": 1.5872,
+          "message_id": "0x200",
+          "payload": "AE4F3E860D33C816"
+        },
+        {
+          "timestamp": 1.6275,
+          "message_id": "0x244",
+          "payload": "2F6FEBF7FF9FE083"
+        },
+        {
+          "timestamp": 1.6641,
+          "message_id": "0x244",
+          "payload": "03B6D0F4FFB85182"
+        },
+        {
+          "timestamp": 1.7219,
+          "message_id": "0x244",
+          "payload": "721BEEF0FF201F83"
+        },
+        {
+          "timestamp": 1.7751,
+          "message_id": "0x244",
+          "payload": "B721F9F4FFE0F4C8"
+        },
+        {
+          "timestamp": 1.8434,
+          "message_id": "0x200",
+          "payload": "55B2F94590865D33"
+        },
+        {
+          "timestamp": 1.8951,
+          "message_id": "0x244",
+          "payload": "69CD3CF1FF4CE514"
+        },
+        {
+          "timestamp": 1.959,
+          "message_id": "0x244",
+          "payload": "A7CD42F6FF0AEFA0"
+        },
+        {
+          "timestamp": 1.987,
+          "message_id": "0x1A0",
+          "payload": "A00E6E261E55236C"
+        }
+      ]
+    }
+  ]
+}

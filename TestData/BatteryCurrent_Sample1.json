@@ -1,0 +1,205 @@
+{
+  "dataset_info": {
+    "signal_name": "HV Battery Current",
+    "unit": "Amps",
+    "protocol_type": "CAN - High Complexity",
+    "recording_window_seconds": 5.0,
+    "total_trials": 20
+  },
+  "ground_truth": {
+    "target_message_id": "0x3B5",
+    "location": {
+      "start_bit_index": 12,
+      "length_bits": 14,
+      "byte_order": "big_endian",
+      "alignment_note": "Spans Byte 1 (lower nibble), Byte 2 (full), Byte 3 (top 2 bits)"
+    },
+    "transformation": {
+      "scale_factor": 0.1,
+      "offset": 0.0,
+      "data_type": "signed_twos_complement"
+    }
+  },
+  "trials": [
+    {
+      "trial_id": 1,
+      "reference_value": 25.0,
+      "messages": [
+        { "id": "0x110", "payload": "FFFFFFFFFFFFFFFF", "timestamp": 0.200 },
+        { "id": "0x3B5", "payload": "A10FA039CCCCCCCC", "timestamp": 1.540 },
+        { "id": "0x400", "payload": "123456789ABC0000", "timestamp": 3.100 }
+      ]
+    },
+    {
+      "trial_id": 2,
+      "reference_value": -40.5,
+      "messages": [
+        { "id": "0x400", "payload": "0000000000000000", "timestamp": 0.100 },
+        { "id": "0x3B5", "payload": "B2E6B012AAAAAAAA", "timestamp": 2.250 },
+        { "id": "0x110", "payload": "ABCDEF1234567890", "timestamp": 4.800 }
+      ]
+    },
+    {
+      "trial_id": 3,
+      "reference_value": 0.0,
+      "messages": [
+        { "id": "0x3B5", "payload": "FF00000511111111", "timestamp": 0.850 },
+        { "id": "0x110", "payload": "1111222233334444", "timestamp": 1.900 },
+        { "id": "0x400", "payload": "5555666677778888", "timestamp": 3.500 }
+      ]
+    },
+    {
+      "trial_id": 4,
+      "reference_value": -100.2,
+      "messages": [
+        { "id": "0x400", "payload": "9999888877776666", "timestamp": 0.500 },
+        { "id": "0x3B5", "payload": "C5C16157BBBBBBBB", "timestamp": 3.120 },
+        { "id": "0x110", "payload": "0F0F0F0F0F0F0F0F", "timestamp": 4.200 }
+      ]
+    },
+    {
+      "trial_id": 5,
+      "reference_value": 150.5,
+      "messages": [
+        { "id": "0x110", "payload": "E0E0E0E0E0E0E0E0", "timestamp": 0.300 },
+        { "id": "0x3B5", "payload": "8805E15133333333", "timestamp": 1.150 },
+        { "id": "0x400", "payload": "DADADADADADADADA", "timestamp": 2.900 }
+      ]
+    },
+    {
+      "trial_id": 6,
+      "reference_value": -5.5,
+      "messages": [
+        { "id": "0x400", "payload": "AABBCCDDEEFF0011", "timestamp": 0.600 },
+        { "id": "0x110", "payload": "1212121212121212", "timestamp": 1.400 },
+        { "id": "0x3B5", "payload": "99FFC92044444444", "timestamp": 4.100 }
+      ]
+    },
+    {
+      "trial_id": 7,
+      "reference_value": 300.0,
+      "messages": [
+        { "id": "0x3B5", "payload": "AA0BB81555555555", "timestamp": 0.950 },
+        { "id": "0x400", "payload": "0102030405060708", "timestamp": 2.500 },
+        { "id": "0x110", "payload": "F0F0F0F0F0F0F0F0", "timestamp": 3.800 }
+      ]
+    },
+    {
+      "trial_id": 8,
+      "reference_value": -300.0,
+      "messages": [
+        { "id": "0x110", "payload": "0011223344556677", "timestamp": 1.200 },
+        { "id": "0x3B5", "payload": "BBF4483966666666", "timestamp": 3.350 },
+        { "id": "0x400", "payload": "8899AABBCCDDEEFF", "timestamp": 4.500 }
+      ]
+    },
+    {
+      "trial_id": 9,
+      "reference_value": 12.3,
+      "messages": [
+        { "id": "0x400", "payload": "FEDCBA9876543210", "timestamp": 0.250 },
+        { "id": "0x3B5", "payload": "00007B0477777777", "timestamp": 1.750 },
+        { "id": "0x110", "payload": "FFFF0000FFFF0000", "timestamp": 2.800 }
+      ]
+    },
+    {
+      "trial_id": 10,
+      "reference_value": -12.3,
+      "messages": [
+        { "id": "0x110", "payload": "0000FFFF0000FFFF", "timestamp": 0.700 },
+        { "id": "0x3B5", "payload": "11FF853088888888", "timestamp": 2.100 },
+        { "id": "0x400", "payload": "1020304050607080", "timestamp": 4.900 }
+      ]
+    },
+    {
+      "trial_id": 11,
+      "reference_value": 85.0,
+      "messages": [
+        { "id": "0x3B5", "payload": "7703522699999999", "timestamp": 0.400 },
+        { "id": "0x400", "payload": "0908070605040302", "timestamp": 1.800 },
+        { "id": "0x110", "payload": "AAAA5555AAAA5555", "timestamp": 3.200 }
+      ]
+    },
+    {
+      "trial_id": 12,
+      "reference_value": -85.0,
+      "messages": [
+        { "id": "0x110", "payload": "5555AAAA5555AAAA", "timestamp": 0.300 },
+        { "id": "0x400", "payload": "0123456789ABCDEF", "timestamp": 1.600 },
+        { "id": "0x3B5", "payload": "33FCAE1800000000", "timestamp": 4.600 }
+      ]
+    },
+    {
+      "trial_id": 13,
+      "reference_value": 450.0,
+      "messages": [
+        { "id": "0x400", "payload": "CAFEBABECAFEBABE", "timestamp": 1.100 },
+        { "id": "0x3B5", "payload": "4411940111111111", "timestamp": 2.900 },
+        { "id": "0x110", "payload": "DEADBEEFDEADBEEF", "timestamp": 4.000 }
+      ]
+    },
+    {
+      "trial_id": 14,
+      "reference_value": -450.0,
+      "messages": [
+        { "id": "0x3B5", "payload": "55EE6C2522222222", "timestamp": 1.300 },
+        { "id": "0x110", "payload": "BEEFDEADBEEFDEAD", "timestamp": 2.400 },
+        { "id": "0x400", "payload": "BABECAFEBABECAFE", "timestamp": 3.700 }
+      ]
+    },
+    {
+      "trial_id": 15,
+      "reference_value": 2.5,
+      "messages": [
+        { "id": "0x110", "payload": "ABABABABABABABAB", "timestamp": 0.150 },
+        { "id": "0x400", "payload": "CDCDCDCDCDCDCDCD", "timestamp": 1.550 },
+        { "id": "0x3B5", "payload": "6600191733333333", "timestamp": 3.900 }
+      ]
+    },
+    {
+      "trial_id": 16,
+      "reference_value": -2.5,
+      "messages": [
+        { "id": "0x400", "payload": "EFEFEFEFEFEFEFEF", "timestamp": 0.800 },
+        { "id": "0x3B5", "payload": "77FFE73144444444", "timestamp": 2.200 },
+        { "id": "0x110", "payload": "1234432112344321", "timestamp": 4.300 }
+      ]
+    },
+    {
+      "trial_id": 17,
+      "reference_value": 60.0,
+      "messages": [
+        { "id": "0x3B5", "payload": "8802580555555555", "timestamp": 1.000 },
+        { "id": "0x110", "payload": "9876543210FEDCBA", "timestamp": 2.300 },
+        { "id": "0x400", "payload": "55AA55AA55AA55AA", "timestamp": 3.600 }
+      ]
+    },
+    {
+      "trial_id": 18,
+      "reference_value": -60.0,
+      "messages": [
+        { "id": "0x110", "payload": "AA55AA55AA55AA55", "timestamp": 0.500 },
+        { "id": "0x3B5", "payload": "99FDA82966666666", "timestamp": 2.700 },
+        { "id": "0x400", "payload": "1122112211221122", "timestamp": 4.400 }
+      ]
+    },
+    {
+      "trial_id": 19,
+      "reference_value": 77.7,
+      "messages": [
+        { "id": "0x400", "payload": "3344334433443344", "timestamp": 1.250 },
+        { "id": "0x3B5", "payload": "AA03091377777777", "timestamp": 3.050 },
+        { "id": "0x110", "payload": "5566556655665566", "timestamp": 4.150 }
+      ]
+    },
+    {
+      "trial_id": 20,
+      "reference_value": -77.7,
+      "messages": [
+        { "id": "0x3B5", "payload": "BBFCF73288888888", "timestamp": 0.650 },
+        { "id": "0x110", "payload": "7788778877887788", "timestamp": 2.000 },
+        { "id": "0x400", "payload": "9900990099009900", "timestamp": 3.400 }
+      ]
+    }
+  ]
+}

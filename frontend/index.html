@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommDecode - Communication Payload Decoder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">CommDecode</h1>
+            <p class="tagline">Bit Group Detection in Communication Payloads</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Left Panel: Input -->
+        <section class="panel input-panel">
+            <h2 class="panel-title">Input Data</h2>
+
+            <!-- Mode Selector -->
+            <div class="input-group">
+                <label>Decoding Mode</label>
+                <div class="mode-toggle">
+                    <button id="mode-simple" class="mode-btn active" title="One payload per reference value">
+                        Simple (1:1)
+                    </button>
+                    <button id="mode-window" class="mode-btn" title="Multiple messages per capture window">
+                        Window (1:N)
+                    </button>
+                </div>
+                <p class="mode-description" id="mode-description">
+                    Simple mode: One payload per reference value
+                </p>
+            </div>
+
+            <!-- Example Selector -->
+            <div class="input-group">
+                <label for="example-select">Load Example</label>
+                <select id="example-select">
+                    <option value="">-- Select an example --</option>
+                    <optgroup label="Automotive">
+                        <!-- Populated by JS -->
+                    </optgroup>
+                    <optgroup label="Industrial">
+                    </optgroup>
+                    <optgroup label="IoT">
+                    </optgroup>
+                </select>
+                <p class="example-description" id="example-description"></p>
+            </div>
+
+            <div class="divider">
+                <span>or enter custom data</span>
+            </div>
+
+            <!-- Input Format Toggle -->
+            <div class="input-group">
+                <label>Input Format</label>
+                <div class="format-toggle">
+                    <button id="format-pairs" class="format-btn active" title="Simple paired input">
+                        Pairs
+                    </button>
+                    <button id="format-json" class="format-btn" title="JSON format">
+                        JSON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pairs Input (Simple mode) -->
+            <div id="pairs-input-simple">
+                <div class="pairs-container">
+                    <div class="input-group pairs-column">
+                        <label for="reference-values">
+                            Reference Values
+                            <span class="info-icon" title="Known measurement values (one per line)">?</span>
+                        </label>
+                        <textarea id="reference-values" rows="8"
+                            placeholder="25.5&#10;30.2&#10;28.8&#10;35.1&#10;22.0"></textarea>
+                    </div>
+                    <div class="input-group pairs-column">
+                        <label for="payloads">
+                            Payloads (hex)
+                            <span class="info-icon" title="Hex payloads (one per line, matching reference values)">?</span>
+                        </label>
+                        <textarea id="payloads" rows="8"
+                            placeholder="A1B2C3D4E5F6&#10;A1B3C4D5E6F7&#10;A1B2C3D4E5F8&#10;A1B4C5D6E7F8&#10;A1B1C2D3E4F5"></textarea>
+                    </div>
+                </div>
+                <p class="input-help">Enter one value per line. Reference values and payloads must have the same number of lines.</p>
+            </div>
+
+            <!-- Pairs Input (Window mode) -->
+            <div id="pairs-input-window" class="hidden">
+                <div class="input-group">
+                    <label for="window-trials">
+                        Trials (CSV format)
+                        <span class="info-icon" title="One row per message: reference_value, timestamp, message_id, payload">?</span>
+                    </label>
+                    <textarea id="window-trials" rows="12"
+                        placeholder="# reference_value, timestamp, message_id, payload&#10;# Empty line separates trials&#10;25.5, 0.001, 0x123, A1B2C3D4&#10;25.5, 0.015, 0x456, FF00EE11&#10;&#10;30.2, 0.002, 0x123, B2C3D4E5&#10;30.2, 0.018, 0x456, EE11FF00"></textarea>
+                </div>
+                <p class="input-help">Each line: reference_value, timestamp, message_id, payload. Empty lines separate trials.</p>
+            </div>
+
+            <!-- JSON Input -->
+            <div id="json-input" class="hidden">
+                <div class="input-group">
+                    <label for="input-data">
+                        Trial Data (JSON)
+                        <span class="info-icon" title="JSON format with trials array">?</span>
+                    </label>
+                    <textarea id="input-data" rows="14"
+                        placeholder='{"trials": [&#10;  {"reference_value": 25.5, "payload": "A1B2C3D4E5F6"},&#10;  {"reference_value": 30.2, "payload": "A1B3C4D5E6F7"},&#10;  {"reference_value": 28.8, "payload": "A1B2C3D4E5F8"}&#10;]}'></textarea>
+                    <p class="input-help" id="input-help">
+                        Each trial contains a reference_value and a payload (hex format).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Settings (Collapsible) -->
+            <details class="settings-panel">
+                <summary>Advanced Settings</summary>
+                <div class="settings-content">
+                    <div class="input-group">
+                        <label for="correlation-threshold">
+                            Correlation Threshold
+                            <span class="info-icon" title="Minimum |r| to consider (0.0-1.0)">?</span>
+                        </label>
+                        <input type="number" id="correlation-threshold" value="0.8" min="0" max="1" step="0.05">
+                    </div>
+                    <div class="input-group">
+                        <label for="mape-threshold">
+                            MAPE Threshold (%)
+                            <span class="info-icon" title="Maximum Mean Absolute Percentage Error">?</span>
+                        </label>
+                        <input type="number" id="mape-threshold" value="5" min="0.1" max="50" step="0.5">
+                    </div>
+                    <div class="input-group">
+                        <label for="top-n">
+                            Max Results
+                            <span class="info-icon" title="Maximum number of candidates to show">?</span>
+                        </label>
+                        <input type="number" id="top-n" value="10" min="1" max="50" step="1">
+                    </div>
+                </div>
+            </details>
+
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <button id="validate-btn" class="btn btn-secondary">Validate</button>
+                <button id="decode-btn" class="btn btn-primary">Decode</button>
+            </div>
+
+            <!-- Validation Messages -->
+            <div id="validation-messages" class="validation-messages hidden"></div>
+        </section>
+
+        <!-- Right Panel: Results -->
+        <section class="panel results-panel">
+            <h2 class="panel-title">Results</h2>
+
+            <!-- Status -->
+            <div id="status" class="status">
+                <p class="status-text">Enter data and click "Decode" to find bit group locations.</p>
+            </div>
+
+            <!-- Summary -->
+            <div id="summary" class="summary hidden">
+                <div class="summary-item">
+                    <span class="summary-label">Trials</span>
+                    <span class="summary-value" id="summary-trials">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Payload Size</span>
+                    <span class="summary-value" id="summary-bits">-</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Candidates Found</span>
+                    <span class="summary-value" id="summary-candidates">-</span>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div id="results-container" class="results-container hidden">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Location</th>
+                            <th>Encoding</th>
+                            <th>Correlation</th>
+                            <th>Error</th>
+                            <th>Formula</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Correlation Chart -->
+            <div id="chart-container" class="chart-container hidden">
+                <h3>Correlation Plot</h3>
+                <div class="chart-controls">
+                    <label for="candidate-select">Select Candidate:</label>
+                    <select id="candidate-select"></select>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="correlation-chart"></canvas>
+                </div>
+                <div class="chart-info" id="chart-info"></div>
+            </div>
+
+            <!-- Payload Visualization -->
+            <div id="visualization" class="visualization hidden">
+                <h3>Payload Structure</h3>
+                <div id="payload-viz" class="payload-viz"></div>
+                <div class="viz-legend">
+                    <span class="legend-item"><span class="legend-color match"></span> Best Match</span>
+                    <span class="legend-item"><span class="legend-color candidate"></span> Other Candidates</span>
+                    <span class="legend-item"><span class="legend-color unknown"></span> Unmatched</span>
+                </div>
+            </div>
+
+            <!-- Ground Truth (for examples) -->
+            <div id="ground-truth" class="ground-truth hidden">
+                <h3>Ground Truth (Example Data)</h3>
+                <div id="ground-truth-content"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>CommDecode - Communication Payload Bit Group Decoder</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/visualization.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
