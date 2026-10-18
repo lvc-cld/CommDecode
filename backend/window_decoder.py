@@ -10,13 +10,20 @@ Algorithm:
 3. Use iterative best-match to find which message instance per trial
    corresponds to the reference value
 4. Calculate correlation and rank candidates
+5. Keep only candidates that pass a shuffle test, because the per-trial
+   selection in step 3 can make random bits fit any reference series
 """
 
 import numpy as np
-from scipy import stats
 from dataclasses import dataclass, field
 from typing import List, Dict, Tuple, Optional
 from collections import defaultdict
+
+from bitfield import (
+    BIT_LENGTHS, ENDIANNESS_OPTIONS, SIGNEDNESS_OPTIONS,
+    Payload, PayloadArray, linear_fit, correlation_p_value, calculate_error_pct,
+    calculate_confidence_score, rank_candidates,
+)
 
 
 @dataclass
@@ -44,7 +51,7 @@ class WindowDecodingCandidate:
     signed: bool
     correlation: float
     p_value: float
-    mape: float
+    error_pct: float
     gain: float
     offset: float
     r_squared: float
@@ -54,6 +61,8 @@ class WindowDecodingCandidate:
     selected_timestamps: List[float] = field(default_factory=list)
     extracted_values: List[float] = field(default_factory=list)
     predicted_values: List[float] = field(default_factory=list)
+    # Fraction of shuffled-reference runs that fit at least as well (set by the shuffle test)
+    shuffle_p_value: Optional[float] = None
 
     def to_dict(self, include_values: bool = True) -> dict:
         result = {
@@ -64,7 +73,8 @@ class WindowDecodingCandidate:
             'signed': self.signed,
             'correlation': round(self.correlation, 6),
             'p_value': round(self.p_value, 8),
-            'mape': round(self.mape, 4),
+            'shuffle_p_value': None if self.shuffle_p_value is None else round(self.shuffle_p_value, 4),
+            'error_pct': round(self.error_pct, 4),
             'gain': round(self.gain, 6),
             'offset': round(self.offset, 6),
             'r_squared': round(self.r_squared, 6),
@@ -79,99 +89,95 @@ class WindowDecodingCandidate:
         return result
 
 
+def row_medians(values: np.ndarray) -> np.ndarray:
+    """Median of each row, ignoring NaN (faster than np.nanmedian for small rows)."""
+    ordered = np.sort(values, axis=1)  # NaN sorts last
+    counts = np.count_nonzero(~np.isnan(values), axis=1)
+    rows = np.arange(len(values))
+    return (ordered[rows, (counts - 1) // 2] + ordered[rows, counts // 2]) / 2
+
+
+class MessageGroup:
+    """
+    All messages with one message_id, laid out as a (trials x messages)
+    matrix so a field can be extracted from every message in one step.
+    """
+
+    def __init__(self, messages_per_trial: List[List[CapturedMessage]]):
+        self.messages = messages_per_trial
+        n_trials = len(messages_per_trial)
+        self.width = max(1, max(len(msgs) for msgs in messages_per_trial))
+
+        flat = [Payload.from_hex(m.payload) for msgs in messages_per_trial for m in msgs]
+        self.max_bits = max((p.n_bits for p in flat), default=0)
+        self.payloads = PayloadArray(flat) if flat else None
+
+        # Position of each flat payload in the matrix
+        self.rows = np.array([t for t, msgs in enumerate(messages_per_trial) for _ in msgs], dtype=np.int64)
+        self.cols = np.array([i for msgs in messages_per_trial for i in range(len(msgs))], dtype=np.int64)
+        self.shape = (n_trials, self.width)
+
+    def extract(self, bit_offset: int, bit_length: int, endianness: str, signed: bool) -> np.ndarray:
+        """Matrix of extracted values, NaN where there is no message or no fit."""
+        matrix = np.full(self.shape, np.nan)
+        if self.payloads is not None:
+            matrix[self.rows, self.cols] = self.payloads.extract(bit_offset, bit_length, endianness, signed)
+        return matrix
+
+
 class WindowPayloadDecoder:
     """
     Decoder for finding bit group locations when multiple messages
     are captured per reference value.
-    """
 
-    BIT_LENGTHS = [4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
-    ENDIANNESS_OPTIONS = ['big', 'little']
-    SIGNEDNESS_OPTIONS = [False, True]
+    Because the decoder chooses one message per trial, it can make random
+    bits fit almost any reference series. Every reported candidate must
+    therefore pass a shuffle test: the same fit, run with the reference
+    values shuffled across trials, must be far worse.
+    """
 
     def __init__(self,
                  correlation_threshold: float = 0.8,
                  p_value_threshold: float = 0.05,
-                 mape_threshold: float = 5.0,
+                 error_threshold: float = 5.0,
                  min_variance: float = 1e-10,
                  min_trial_coverage: float = 0.8,
-                 max_iterations: int = 10):
+                 max_iterations: int = 10,
+                 max_shuffle_checks: int = 200,
+                 shuffle_margin: float = 100.0,
+                 random_seed: int = 0):
         """
         Initialize the window decoder.
 
         Args:
             correlation_threshold: Minimum |r| to consider a candidate
-            p_value_threshold: Maximum p-value for statistical significance
-            mape_threshold: Maximum Mean Absolute Percentage Error (%)
+            p_value_threshold: Maximum p-value, used for Pearson and for the shuffle test
+            error_threshold: Maximum mean absolute error, as % of the reference range
             min_variance: Minimum variance to avoid constant value issues
             min_trial_coverage: Minimum fraction of trials that must have the message_id
             max_iterations: Maximum iterations for best-match refinement
+            max_shuffle_checks: Maximum number of candidates sent to the shuffle test
+            shuffle_margin: A shuffle fits "as well" when its unexplained variance is
+                less than this many times that of the real order
+            random_seed: Seed for the shuffles, so results are repeatable
         """
         self.correlation_threshold = correlation_threshold
         self.p_value_threshold = p_value_threshold
-        self.mape_threshold = mape_threshold
+        self.error_threshold = error_threshold
         self.min_variance = min_variance
         self.min_trial_coverage = min_trial_coverage
         self.max_iterations = max_iterations
+        self.max_shuffle_checks = max_shuffle_checks
+        self.shuffle_margin = shuffle_margin
+        self.random_seed = random_seed
 
-    def hex_to_bits(self, hex_string: str) -> str:
-        """Convert hex string to binary string."""
-        hex_clean = hex_string.replace(' ', '').replace('0x', '').replace('0X', '')
-        return ''.join(format(int(c, 16), '04b') for c in hex_clean)
-
-    def extract_bits(self, bits: str, offset: int, length: int) -> Optional[str]:
-        """Extract a substring of bits from the given offset."""
-        if offset + length > len(bits):
-            return None
-        return bits[offset:offset + length]
-
-    def bits_to_int(self, bits: str, endianness: str, signed: bool) -> Optional[int]:
-        """Convert a bit string to an integer."""
-        if not bits:
-            return None
-
-        bit_length = len(bits)
-
-        if bit_length % 8 != 0:
-            if endianness == 'big':
-                padded = bits.zfill((bit_length + 7) // 8 * 8)
-            else:
-                padded = bits + '0' * ((8 - bit_length % 8) % 8)
-            value = int(padded, 2)
-        else:
-            num_bytes = bit_length // 8
-            bytes_list = [int(bits[i*8:(i+1)*8], 2) for i in range(num_bytes)]
-
-            if endianness == 'little':
-                bytes_list = bytes_list[::-1]
-
-            value = 0
-            for b in bytes_list:
-                value = (value << 8) | b
-
-        if signed:
-            max_val = 1 << bit_length
-            if value >= (max_val >> 1):
-                value -= max_val
-
-        return value
-
-    def extract_value(self, payload_hex: str, bit_offset: int, bit_length: int,
-                      endianness: str, signed: bool) -> Optional[float]:
-        """Extract a value from a hex payload."""
-        bits = self.hex_to_bits(payload_hex)
-        bit_str = self.extract_bits(bits, bit_offset, bit_length)
-        if bit_str is None:
-            return None
-        value = self.bits_to_int(bit_str, endianness, signed)
-        return float(value) if value is not None else None
-
-    def group_messages_by_id(self, windows: List[CaptureWindow]) -> Dict[str, List[List[CapturedMessage]]]:
+    def group_messages_by_id(self, windows: List[CaptureWindow]) -> Dict[str, 'MessageGroup']:
         """
-        Group messages by message_id across all capture windows.
+        Group messages by message_id across all capture windows, parsing
+        each payload once.
 
         Returns:
-            Dict mapping message_id to list of message lists (one per trial)
+            Dict mapping message_id to a MessageGroup
         """
         grouped = defaultdict(lambda: [[] for _ in range(len(windows))])
 
@@ -179,213 +185,165 @@ class WindowPayloadDecoder:
             for msg in window.messages:
                 grouped[msg.message_id][trial_idx].append(msg)
 
-        return dict(grouped)
-
-    def calculate_mape(self, actual: np.ndarray, predicted: np.ndarray) -> float:
-        """Calculate Mean Absolute Percentage Error."""
-        mask = np.abs(actual) > 1e-10
-        if not np.any(mask):
-            return np.mean(np.abs(actual - predicted)) * 100
-        mape = np.mean(np.abs((actual[mask] - predicted[mask]) / actual[mask])) * 100
-        return mape
-
-    def calculate_confidence_score(self, correlation: float, p_value: float,
-                                   mape: float, r_squared: float) -> float:
-        """Calculate composite confidence score."""
-        corr_score = abs(correlation)
-        pval_score = 1.0 - min(p_value, 1.0)
-        mape_score = max(0, 1.0 - mape / 10.0)
-
-        score = (
-            0.4 * corr_score +
-            0.2 * pval_score +
-            0.2 * mape_score +
-            0.2 * r_squared
-        )
-        return score
+        return {message_id: MessageGroup(per_trial) for message_id, per_trial in grouped.items()}
 
     def find_best_match_iterative(self,
                                   reference_values: np.ndarray,
-                                  all_extracted: List[List[float]]) -> Tuple[List[int], np.ndarray]:
+                                  values: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         """
         Find the best matching message index per trial using iterative refinement.
 
         Args:
             reference_values: Array of reference values (one per trial)
-            all_extracted: List of lists - for each trial, all extracted values from messages
+            values: Matrix (trials x messages) of extracted values, NaN where
+                there is no message or the field does not fit
 
         Returns:
             Tuple of (selected_indices, selected_values)
         """
-        n_trials = len(reference_values)
+        rows = np.arange(len(values))
 
-        # Initial selection: for each trial, pick the median extracted value
-        selected_indices = []
-        selected_values = []
-
-        for trial_idx in range(n_trials):
-            values = all_extracted[trial_idx]
-            if not values:
-                return None, None
-            # Start with median
-            median_val = np.median(values)
-            best_idx = np.argmin([abs(v - median_val) for v in values])
-            selected_indices.append(best_idx)
-            selected_values.append(values[best_idx])
-
-        selected_values = np.array(selected_values)
+        # Initial selection: for each trial, pick the value closest to its median
+        medians = row_medians(values)
+        selected_indices = np.nanargmin(np.abs(values - medians[:, None]), axis=1)
+        selected_values = values[rows, selected_indices]
 
         # Iterative refinement
-        for iteration in range(self.max_iterations):
-            # Fit linear model with current selection
+        for _ in range(self.max_iterations):
             if np.var(selected_values) < self.min_variance:
                 break
 
-            try:
-                slope, intercept, _, _, _ = stats.linregress(selected_values, reference_values)
-            except Exception:
-                break
+            slope, intercept, _ = linear_fit(selected_values, reference_values)
 
-            # For each trial, find the value that best fits the model
-            new_indices = []
-            new_values = []
-            changed = False
+            # For each trial, pick the value closest to (ref - intercept) / slope
+            if abs(slope) > 1e-10:
+                targets = (reference_values - intercept) / slope
+            else:
+                targets = reference_values
 
-            for trial_idx in range(n_trials):
-                values = all_extracted[trial_idx]
-                ref = reference_values[trial_idx]
-
-                # Find value that minimizes |ref - (slope * value + intercept)|
-                # Equivalently, find value closest to (ref - intercept) / slope
-                if abs(slope) > 1e-10:
-                    target = (ref - intercept) / slope
-                else:
-                    target = ref
-
-                best_idx = np.argmin([abs(v - target) for v in values])
-
-                if best_idx != selected_indices[trial_idx]:
-                    changed = True
-
-                new_indices.append(best_idx)
-                new_values.append(values[best_idx])
+            new_indices = np.nanargmin(np.abs(values - targets[:, None]), axis=1)
+            changed = not np.array_equal(new_indices, selected_indices)
 
             selected_indices = new_indices
-            selected_values = np.array(new_values)
+            selected_values = values[rows, selected_indices]
 
             if not changed:
                 break
 
         return selected_indices, selected_values
 
+    def fit_r_squared(self, reference_values: np.ndarray, values: np.ndarray) -> float:
+        """R² of the best-match fit for the given reference values."""
+        _, selected = self.find_best_match_iterative(reference_values, values)
+        if np.var(selected) < self.min_variance:
+            return 0.0
+        _, _, r = linear_fit(selected, reference_values)
+        return r ** 2
+
+    def shuffle_test(self, reference_values: np.ndarray, values: np.ndarray,
+                     observed_r_squared: float, rng: np.random.Generator) -> float:
+        """
+        Test whether the fit depends on which reference value goes with which trial.
+
+        A shuffle "fits as well" when its unexplained variance (1 - R²) is
+        less than shuffle_margin times that of the real order. Random bits fit
+        shuffled values almost as well as the real ones (often within 10x);
+        a real signal fits them far worse.
+
+        Returns the p-value (1 + n_as_good) / (1 + n_shuffles). It stops early
+        once the candidate cannot reach p <= p_value_threshold.
+        """
+        n_shuffles = self.n_shuffles()
+        limit = self.shuffle_margin * (1.0 - observed_r_squared)
+        max_as_good = self.p_value_threshold * (n_shuffles + 1) - 1
+        n_as_good = 0
+        for _ in range(n_shuffles):
+            shuffled = rng.permutation(reference_values)
+            if 1.0 - self.fit_r_squared(shuffled, values) <= limit:
+                n_as_good += 1
+                if n_as_good > max_as_good:
+                    break
+        return (1 + n_as_good) / (1 + n_shuffles)
+
+    def n_shuffles(self) -> int:
+        """Smallest number of shuffles that can reach p <= p_value_threshold (at least 19)."""
+        return max(19, int(np.ceil(1.0 / self.p_value_threshold)) - 1)
+
     def analyze_message_group(self,
                               message_id: str,
-                              messages_per_trial: List[List[CapturedMessage]],
+                              group: 'MessageGroup',
                               reference_values: np.ndarray,
                               bit_offset: int,
                               bit_length: int,
                               endianness: str,
-                              signed: bool) -> Optional[WindowDecodingCandidate]:
+                              signed: bool) -> Optional[Tuple[WindowDecodingCandidate, np.ndarray]]:
         """
         Analyze a specific message group and bit location combination.
 
-        Returns a candidate if it meets the thresholds, None otherwise.
+        Returns (candidate, values matrix) if it meets the thresholds, None otherwise.
         """
-        n_trials = len(reference_values)
+        values = group.extract(bit_offset, bit_length, endianness, signed)
 
-        # Extract all values for each trial
-        all_extracted = []
-        for trial_idx in range(n_trials):
-            trial_messages = messages_per_trial[trial_idx]
-            if not trial_messages:
-                return None  # Message type missing in this trial
-
-            values = []
-            for msg in trial_messages:
-                val = self.extract_value(msg.payload, bit_offset, bit_length, endianness, signed)
-                if val is not None:
-                    values.append(val)
-
-            if not values:
-                return None  # Could not extract from any message in this trial
-
-            all_extracted.append(values)
-
-        # Find best matching selection
-        selected_indices, selected_values = self.find_best_match_iterative(
-            reference_values, all_extracted
-        )
-
-        if selected_indices is None or selected_values is None:
+        # Every trial needs at least one message the field fits in
+        if np.isnan(values).all(axis=1).any():
             return None
 
-        # Check variance
+        selected, selected_values = self.find_best_match_iterative(reference_values, values)
+
         if np.var(selected_values) < self.min_variance:
             return None
 
-        # Calculate correlation
-        try:
-            correlation, p_value = stats.pearsonr(reference_values, selected_values)
-        except Exception:
-            return None
-
+        slope, intercept, correlation = linear_fit(selected_values, reference_values)
         if abs(correlation) < self.correlation_threshold:
             return None
 
+        p_value = correlation_p_value(correlation, len(reference_values))
         if p_value > self.p_value_threshold:
             return None
 
-        # Fit linear regression
-        try:
-            slope, intercept, r_value, _, _ = stats.linregress(selected_values, reference_values)
-        except Exception:
-            return None
+        r_squared = correlation ** 2
 
-        r_squared = r_value ** 2
-
-        # Calculate predicted values and MAPE
         predicted = slope * selected_values + intercept
-        mape = self.calculate_mape(reference_values, predicted)
+        error_pct = calculate_error_pct(reference_values, predicted)
 
-        if mape > self.mape_threshold:
+        if error_pct > self.error_threshold:
             return None
 
-        # Calculate confidence score
-        confidence = self.calculate_confidence_score(correlation, p_value, mape, r_squared)
+        message_indices = [int(i) for i in selected]
+        selected_timestamps = [group.messages[t][m].timestamp for t, m in enumerate(message_indices)]
 
-        # Get selected timestamps
-        selected_timestamps = []
-        for trial_idx, msg_idx in enumerate(selected_indices):
-            selected_timestamps.append(messages_per_trial[trial_idx][msg_idx].timestamp)
-
-        return WindowDecodingCandidate(
+        candidate = WindowDecodingCandidate(
             message_id=message_id,
             bit_offset=bit_offset,
             bit_length=bit_length,
             endianness=endianness,
             signed=signed,
-            correlation=correlation,
-            p_value=p_value,
-            mape=mape,
-            gain=slope,
-            offset=intercept,
-            r_squared=r_squared,
-            confidence_score=confidence,
-            selected_indices=selected_indices,
+            correlation=float(correlation),
+            p_value=float(p_value),
+            error_pct=error_pct,
+            gain=float(slope),
+            offset=float(intercept),
+            r_squared=float(r_squared),
+            confidence_score=calculate_confidence_score(r_squared, error_pct),
+            selected_indices=message_indices,
             selected_timestamps=selected_timestamps,
             extracted_values=selected_values.tolist(),
             predicted_values=predicted.tolist()
         )
+        return candidate, values
 
-    def find_candidates(self, windows: List[CaptureWindow]) -> List[WindowDecodingCandidate]:
+    def find_candidates(self, windows: List[CaptureWindow], top_n: int = 10) -> dict:
         """
-        Find all candidate bit group locations across all message types.
+        Find candidate bit group locations across all message types.
 
         Args:
             windows: List of CaptureWindow objects (one per trial)
+            top_n: Stop once this many candidates have passed the shuffle test
 
         Returns:
-            List of WindowDecodingCandidate objects, sorted by confidence
+            Dict with 'accepted' (candidates that passed, best first),
+            'n_screened' (candidates that passed the thresholds) and
+            'n_rejected' (candidates that failed the shuffle test)
         """
         n_trials = len(windows)
         if n_trials < 3:
@@ -396,55 +354,55 @@ class WindowPayloadDecoder:
         if np.var(reference_values) < self.min_variance:
             raise ValueError("Reference values have insufficient variance")
 
-        # Group messages by ID
         grouped = self.group_messages_by_id(windows)
 
-        candidates = []
+        screened = []
+        values_by_candidate = {}
 
-        # Analyze each message group
-        for message_id, messages_per_trial in grouped.items():
-            # Check trial coverage
-            trials_with_messages = sum(1 for msgs in messages_per_trial if msgs)
+        for message_id, group in grouped.items():
+            # Check trial coverage. Trials without the message cannot be
+            # matched, so analyze_message_group rejects the group anyway.
+            trials_with_messages = sum(1 for msgs in group.messages if msgs)
             if trials_with_messages / n_trials < self.min_trial_coverage:
                 continue
 
-            # Determine payload length from first available message
-            payload_length_bits = None
-            for msgs in messages_per_trial:
-                if msgs:
-                    payload_length_bits = len(self.hex_to_bits(msgs[0].payload))
-                    break
+            payload_length_bits = group.max_bits
 
-            if payload_length_bits is None:
-                continue
-
-            # Try all bit location combinations
-            for bit_length in self.BIT_LENGTHS:
+            for bit_length in BIT_LENGTHS:
                 if bit_length > payload_length_bits:
                     continue
 
-                max_offset = payload_length_bits - bit_length
-
-                for bit_offset in range(max_offset + 1):
-                    for endianness in self.ENDIANNESS_OPTIONS:
-                        for signed in self.SIGNEDNESS_OPTIONS:
-                            candidate = self.analyze_message_group(
-                                message_id,
-                                messages_per_trial,
-                                reference_values,
-                                bit_offset,
-                                bit_length,
-                                endianness,
-                                signed
+                for bit_offset in range(payload_length_bits - bit_length + 1):
+                    for endianness in ENDIANNESS_OPTIONS:
+                        for signed in SIGNEDNESS_OPTIONS:
+                            result = self.analyze_message_group(
+                                message_id, group, reference_values,
+                                bit_offset, bit_length, endianness, signed
                             )
+                            if result is not None:
+                                candidate, values = result
+                                screened.append(candidate)
+                                values_by_candidate[id(candidate)] = values
 
-                            if candidate is not None:
-                                candidates.append(candidate)
+        ranked = rank_candidates(screened, reference_values, group_key=lambda c: (c.message_id,))
 
-        # Sort by confidence score
-        candidates.sort(key=lambda c: c.confidence_score, reverse=True)
+        # Shuffle test, best candidates first
+        rng = np.random.default_rng(self.random_seed)
+        accepted = []
+        n_rejected = 0
+        for candidate in ranked[:self.max_shuffle_checks]:
+            candidate.shuffle_p_value = self.shuffle_test(
+                reference_values, values_by_candidate[id(candidate)],
+                candidate.r_squared, rng
+            )
+            if candidate.shuffle_p_value <= self.p_value_threshold:
+                accepted.append(candidate)
+                if len(accepted) >= top_n:
+                    break
+            else:
+                n_rejected += 1
 
-        return candidates
+        return {'accepted': accepted, 'n_screened': len(ranked), 'n_rejected': n_rejected}
 
     def decode(self, windows: List[CaptureWindow], top_n: int = 10) -> dict:
         """
@@ -458,15 +416,10 @@ class WindowPayloadDecoder:
             Dictionary with analysis results
         """
         try:
-            candidates = self.find_candidates(windows)
+            found = self.find_candidates(windows, top_n=top_n)
+            candidates = found['accepted']
 
-            # Count unique message IDs
-            all_message_ids = set()
-            for window in windows:
-                for msg in window.messages:
-                    all_message_ids.add(msg.message_id)
-
-            # Get reference values for the response
+            all_message_ids = set(msg.message_id for w in windows for msg in w.messages)
             reference_values = [w.reference_value for w in windows]
 
             return {
@@ -474,13 +427,16 @@ class WindowPayloadDecoder:
                 'n_trials': len(windows),
                 'n_message_types': len(all_message_ids),
                 'total_messages': sum(len(w.messages) for w in windows),
+                # Candidates that passed the shuffle test (at most top_n)
                 'n_candidates': len(candidates),
+                'n_screened': found['n_screened'],
+                'n_rejected_by_shuffle_test': found['n_rejected'],
                 'reference_values': [round(v, 4) for v in reference_values],
-                'candidates': [c.to_dict() for c in candidates[:top_n]],
+                'candidates': [c.to_dict() for c in candidates],
                 'thresholds': {
                     'correlation': self.correlation_threshold,
                     'p_value': self.p_value_threshold,
-                    'mape': self.mape_threshold
+                    'error_pct': self.error_threshold
                 }
             }
         except Exception as e:
@@ -515,7 +471,8 @@ def parse_capture_data(data: dict) -> List[CaptureWindow]:
         for msg in trial.get('messages', []):
             messages.append(CapturedMessage(
                 timestamp=msg.get('timestamp', 0.0),
-                message_id=msg.get('message_id', ''),
+                # 'id' is accepted as an alias (used by the TestData files)
+                message_id=str(msg.get('message_id', msg.get('id', ''))),
                 payload=msg.get('payload', '')
             ))
 
@@ -605,7 +562,7 @@ if __name__ == '__main__':
             print(f"{i+1}. Message {candidate['message_id']}")
             print(f"   Offset={candidate['bit_offset']}, Length={candidate['bit_length']}")
             print(f"   Endian={candidate['endianness']}, Signed={candidate['signed']}")
-            print(f"   Correlation={candidate['correlation']:.4f}, MAPE={candidate['mape']:.2f}%")
+            print(f"   Correlation={candidate['correlation']:.4f}, Error={candidate['error_pct']:.2f}%")
             print(f"   Formula: {candidate['formula']}")
             print()
     else:

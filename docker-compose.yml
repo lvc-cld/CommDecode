@@ -6,12 +6,12 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "5001:5001"
+      # Bound to localhost only: the browser reaches the API through nginx (/api)
+      - "127.0.0.1:5001:5001"
     volumes:
       - ./backend:/app
     environment:
-      - FLASK_ENV=development
-      - FLASK_DEBUG=1
+      - FLASK_DEBUG=0
     restart: unless-stopped
 
   frontend:

@@ -232,7 +232,7 @@ def main():
         name='Flow Rate',
         domain='industrial',
         description='Bidirectional flow meter for liquids. '
-                    '16-bit signed, range -500 to +500 L/min.',
+                    '16-bit unsigned, range 50 to 450 L/min.',
         unit='L/min',
         value_range=(50, 450),  # Use positive range for cleaner MAPE
         n_samples=20,
@@ -281,7 +281,7 @@ def main():
         payload_length_bits=40,
         gain=0.0625,
         offset=0,
-        endianness='little',
+        endianness='big',  # 'little' only applies to byte-aligned fields here
         signed=True
     )
 

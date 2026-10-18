@@ -6,7 +6,6 @@
     "scale_factor": 100,
     "target_id": "0x1B0"
   },
-  {
   "ground_truth": {
     "message_id": "0x1B0",
     "location": {
@@ -19,8 +18,7 @@
       "scale": 0.01,
       "offset": 0
     }
-  }
-},
+  },
   "trials": [
     {
       "messages": [

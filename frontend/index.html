@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CommDecode - Communication Payload Decoder</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -132,11 +132,11 @@
                         <input type="number" id="correlation-threshold" value="0.8" min="0" max="1" step="0.05">
                     </div>
                     <div class="input-group">
-                        <label for="mape-threshold">
-                            MAPE Threshold (%)
-                            <span class="info-icon" title="Maximum Mean Absolute Percentage Error">?</span>
+                        <label for="error-threshold">
+                            Error Threshold (%)
+                            <span class="info-icon" title="Maximum mean absolute error, as a percentage of the reference value range">?</span>
                         </label>
-                        <input type="number" id="mape-threshold" value="5" min="0.1" max="50" step="0.5">
+                        <input type="number" id="error-threshold" value="5" min="0" max="50" step="0.5">
                     </div>
                     <div class="input-group">
                         <label for="top-n">

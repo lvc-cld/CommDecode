@@ -196,7 +196,7 @@
   "industrial_flow": {
     "name": "Flow Rate",
     "domain": "industrial",
-    "description": "Bidirectional flow meter for liquids. 16-bit signed, range -500 to +500 L/min.",
+    "description": "Bidirectional flow meter for liquids. 16-bit unsigned, range 50 to 450 L/min.",
     "unit": "L/min",
     "reference_values": [
       90.9775,
@@ -342,7 +342,7 @@
     "ground_truth": {
       "bit_offset": 8,
       "bit_length": 12,
-      "endianness": "little",
+      "endianness": "big",
       "signed": true,
       "gain": 0.0625,
       "offset": 0,

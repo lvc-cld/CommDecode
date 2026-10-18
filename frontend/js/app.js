@@ -475,7 +475,7 @@ const App = {
             }
 
             if (result.success) {
-                this.displayResults(result);
+                this.displayResults(result, data);
             } else {
                 this.showValidation([result.error], 'error');
                 this.showStatus('Decoding failed. Check your input data.', 'error');
@@ -493,17 +493,22 @@ const App = {
      * Get settings from form
      */
     getSettings() {
+        // Fall back to the default only when the field is empty or not a number (0 is valid)
+        const read = (id, parse, fallback) => {
+            const value = parse(document.getElementById(id).value);
+            return Number.isFinite(value) ? value : fallback;
+        };
         return {
-            correlation_threshold: parseFloat(document.getElementById('correlation-threshold').value) || 0.8,
-            mape_threshold: parseFloat(document.getElementById('mape-threshold').value) || 5.0,
-            top_n: parseInt(document.getElementById('top-n').value) || 10
+            correlation_threshold: read('correlation-threshold', parseFloat, 0.8),
+            error_threshold: read('error-threshold', parseFloat, 5.0),
+            top_n: read('top-n', v => parseInt(v, 10), 10)
         };
     },
 
     /**
      * Display decoding results
      */
-    displayResults(result) {
+    displayResults(result, inputData) {
         const isWindowMode = this.mode === 'window';
 
         // Update summary
@@ -534,7 +539,8 @@ const App = {
             Visualization.renderPayloadVisualization(
                 result.payload_length_bits,
                 result.candidates,
-                document.getElementById('payload-viz')
+                document.getElementById('payload-viz'),
+                inputData.trials[0].payload
             );
             document.getElementById('visualization').classList.remove('hidden');
         }
@@ -554,6 +560,12 @@ const App = {
             }
             statusMsg += `Bit ${best.bit_offset}, ${best.bit_length} bits (r=${best.correlation.toFixed(3)})`;
             this.showStatus(statusMsg, 'success');
+        } else if (isWindowMode && result.n_rejected_by_shuffle_test > 0) {
+            this.showStatus(
+                `No reliable match. ${result.n_rejected_by_shuffle_test} candidate(s) fit the reference values, ` +
+                'but fit shuffled reference values just as well, so the fit is likely chance.',
+                'warning'
+            );
         } else {
             this.showStatus(
                 'No matching bit groups found. Try adjusting the thresholds.',
@@ -735,9 +747,9 @@ const App = {
         container.className = `validation-messages ${type}`;
 
         if (messages.length === 1) {
-            container.innerHTML = `<p>${messages[0]}</p>`;
+            container.innerHTML = `<p>${escapeHtml(messages[0])}</p>`;
         } else {
-            container.innerHTML = `<ul>${messages.map(m => `<li>${m}</li>`).join('')}</ul>`;
+            container.innerHTML = `<ul>${messages.map(m => `<li>${escapeHtml(m)}</li>`).join('')}</ul>`;
         }
 
         container.classList.remove('hidden');
@@ -768,7 +780,7 @@ const App = {
     showStatus(message, type = 'info') {
         const status = document.getElementById('status');
         status.className = `status ${type}`;
-        status.innerHTML = `<p class="status-text">${message}</p>`;
+        status.innerHTML = `<p class="status-text">${escapeHtml(message)}</p>`;
     },
 
     /**

@@ -4,8 +4,11 @@
  */
 
 const API = {
-    // Base URL - change this for production
-    BASE_URL: 'http://localhost:5001/api',
+    // Same origin when served by nginx (Docker), which proxies /api to the backend.
+    // The manual setup serves the frontend on port 8000 and the API on 5001.
+    BASE_URL: (location.protocol === 'file:' || location.port === '8000')
+        ? 'http://localhost:5001/api'
+        : '/api',
 
     /**
      * Health check
@@ -58,21 +61,6 @@ const API = {
         if (!response.ok) {
             throw new Error(`Failed to fetch window example: ${exampleId}`);
         }
-        return response.json();
-    },
-
-    /**
-     * Validate input data before decoding
-     * @param {Object} data - { reference_values, payloads, payload_format }
-     */
-    async validate(data) {
-        const response = await fetch(`${this.BASE_URL}/validate`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
         return response.json();
     },
 

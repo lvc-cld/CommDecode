@@ -6,16 +6,80 @@ Provides REST endpoints for the bit-group detection algorithm.
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from werkzeug.exceptions import HTTPException
 import json
+import math
 import os
+from bitfield import Payload
 from decoder import PayloadDecoder
 from window_decoder import WindowPayloadDecoder, parse_capture_data
 
-app = Flask(__name__)
-CORS(app)
+# Request size limits. The search time grows with
+# payload length x number of messages, so both are capped.
+MAX_CONTENT_LENGTH = 8 * 1024 * 1024  # bytes
+MAX_TRIALS = 1000
+MAX_TOTAL_MESSAGES = 20000
+MAX_PAYLOAD_BITS = 512  # CAN FD maximum (64 bytes)
+MAX_TOP_N = 100
 
-# Initialize decoder with default settings
-decoder = PayloadDecoder()
+app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
+
+# Browsers may call the API directly only from these origins (comma-separated).
+# Through nginx the frontend and API share an origin, so CORS is not needed there.
+CORS_ORIGINS = os.environ.get(
+    'CORS_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000'
+).split(',')
+CORS(app, origins=[o.strip() for o in CORS_ORIGINS if o.strip()])
+
+
+class InputError(ValueError):
+    """Invalid request data; reported to the client as HTTP 400."""
+
+
+def parse_settings(settings) -> dict:
+    """Validate the settings object and fill in defaults."""
+    if not isinstance(settings, dict):
+        raise InputError('settings must be an object')
+
+    def number(name, default, low, high):
+        value = settings.get(name, default)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            raise InputError(f'{name} must be a number')
+        if not low <= value <= high:
+            raise InputError(f'{name} must be between {low} and {high}')
+        return float(value)
+
+    # 'mape_threshold' is the old name of 'error_threshold'
+    error_default = settings.get('mape_threshold', 5.0)
+    top_n = settings.get('top_n', 10)
+    if isinstance(top_n, bool) or not isinstance(top_n, int) or not 1 <= top_n <= MAX_TOP_N:
+        raise InputError(f'top_n must be an integer between 1 and {MAX_TOP_N}')
+
+    return {
+        'correlation_threshold': number('correlation_threshold', 0.8, 0.0, 1.0),
+        'p_value_threshold': number('p_value_threshold', 0.05, 0.001, 1.0),
+        'error_threshold': number('error_threshold', error_default, 0.0, 100.0),
+        'top_n': top_n,
+    }
+
+
+def check_reference_value(value, label: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+        raise InputError(f'{label}: reference_value must be a finite number')
+    return float(value)
+
+
+def check_payload(payload, label: str) -> str:
+    if not isinstance(payload, str):
+        raise InputError(f'{label}: payload must be a hex string')
+    try:
+        n_bits = Payload.from_hex(payload).n_bits
+    except ValueError:
+        raise InputError(f'{label}: payload is not valid hex')
+    if n_bits > MAX_PAYLOAD_BITS:
+        raise InputError(f'{label}: payload longer than {MAX_PAYLOAD_BITS} bits')
+    return payload
 
 # Load examples from JSON files
 EXAMPLES_FILE = os.path.join(os.path.dirname(__file__), 'examples', 'examples.json')
@@ -57,9 +121,10 @@ def decode():
         ],
         "settings": {
             "correlation_threshold": float (default 0.8),
-            "p_value_threshold": float (default 0.05),
-            "mape_threshold": float (default 5.0),
-            "top_n": int (default 10)
+            "p_value_threshold": float (default 0.05, minimum 0.001),
+            "error_threshold": float (default 5.0; % of reference range,
+                                      old name "mape_threshold" also accepted),
+            "top_n": int (default 10, maximum 100)
         }
     }
 
@@ -77,7 +142,7 @@ def decode():
                 "signed": bool,
                 "correlation": float,
                 "p_value": float,
-                "mape": float,
+                "error_pct": float,
                 "gain": float,
                 "offset": float,
                 "r_squared": float,
@@ -89,24 +154,28 @@ def decode():
     }
     """
     try:
-        data = request.get_json()
+        data = request.get_json(silent=True)
 
-        if not data:
+        if not isinstance(data, dict):
             return jsonify({'success': False, 'error': 'No data provided'}), 400
 
-        settings = data.get('settings', {})
+        settings = parse_settings(data.get('settings', {}))
 
         # Handle unified trials format
         trials = data.get('trials', [])
+        if not isinstance(trials, list):
+            raise InputError('trials must be a list')
         if trials:
+            if not all(isinstance(t, dict) for t in trials):
+                raise InputError('each trial must be an object')
             reference_values = [t.get('reference_value') for t in trials]
             payloads = [t.get('payload', '') for t in trials]
         else:
             # Fallback to legacy format for backwards compatibility
             reference_values = data.get('reference_values', [])
             payloads = data.get('payloads', [])
-
-        payload_format = 'hex'  # Always hex in unified format
+            if not isinstance(reference_values, list) or not isinstance(payloads, list):
+                raise InputError('reference_values and payloads must be lists')
 
         # Validate inputs
         if not reference_values:
@@ -121,21 +190,24 @@ def decode():
                 'error': f'Mismatch: {len(reference_values)} reference values, {len(payloads)} payloads'
             }), 400
 
-        # Create decoder with custom settings if provided
+        if len(reference_values) > MAX_TRIALS:
+            raise InputError(f'At most {MAX_TRIALS} trials allowed')
+
+        reference_values = [check_reference_value(v, f'Trial {i + 1}') for i, v in enumerate(reference_values)]
+        payloads = [check_payload(p, f'Trial {i + 1}') for i, p in enumerate(payloads)]
+
         custom_decoder = PayloadDecoder(
-            correlation_threshold=settings.get('correlation_threshold', 0.8),
-            p_value_threshold=settings.get('p_value_threshold', 0.05),
-            mape_threshold=settings.get('mape_threshold', 5.0)
+            correlation_threshold=settings['correlation_threshold'],
+            p_value_threshold=settings['p_value_threshold'],
+            error_threshold=settings['error_threshold']
         )
 
-        top_n = settings.get('top_n', 10)
-
-        # Run decoding
+        # Always hex in unified format
         result = custom_decoder.decode(
             reference_values=reference_values,
             payloads=payloads,
-            payload_format=payload_format,
-            top_n=top_n
+            payload_format='hex',
+            top_n=settings['top_n']
         )
 
         if result['success']:
@@ -143,8 +215,13 @@ def decode():
         else:
             return jsonify(result), 400
 
-    except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
+    except InputError as e:
+        return jsonify({'success': False, 'error': str(e)}), 400
+    except HTTPException:
+        raise
+    except Exception:
+        app.logger.exception('decode failed')
+        return jsonify({'success': False, 'error': 'Internal error while decoding'}), 500
 
 
 @app.route('/api/decode-window', methods=['POST'])
@@ -173,9 +250,10 @@ def decode_window():
         ],
         "settings": {
             "correlation_threshold": float (default 0.8),
-            "p_value_threshold": float (default 0.05),
-            "mape_threshold": float (default 5.0),
-            "top_n": int (default 10)
+            "p_value_threshold": float (default 0.05, minimum 0.001),
+            "error_threshold": float (default 5.0; % of reference range,
+                                      old name "mape_threshold" also accepted),
+            "top_n": int (default 10, maximum 100)
         }
     }
 
@@ -185,7 +263,9 @@ def decode_window():
         "n_trials": int,
         "n_message_types": int,
         "total_messages": int,
-        "n_candidates": int,
+        "n_candidates": int (candidates that passed the shuffle test, at most top_n),
+        "n_screened": int (candidates that passed the thresholds),
+        "n_rejected_by_shuffle_test": int,
         "reference_values": [float, ...],
         "candidates": [
             {
@@ -196,7 +276,7 @@ def decode_window():
                 "signed": bool,
                 "correlation": float,
                 "p_value": float,
-                "mape": float,
+                "error_pct": float,
                 "gain": float,
                 "offset": float,
                 "r_squared": float,
@@ -212,42 +292,64 @@ def decode_window():
     }
     """
     try:
-        data = request.get_json()
+        data = request.get_json(silent=True)
 
-        if not data:
+        if not isinstance(data, dict):
             return jsonify({'success': False, 'error': 'No data provided'}), 400
 
         trials = data.get('trials', [])
-        settings = data.get('settings', {})
+        settings = parse_settings(data.get('settings', {}))
 
         if not trials:
             return jsonify({'success': False, 'error': 'No trials provided'}), 400
 
+        if not isinstance(trials, list) or not all(isinstance(t, dict) for t in trials):
+            raise InputError('trials must be a list of objects')
+
         if len(trials) < 3:
             return jsonify({'success': False, 'error': 'At least 3 trials required'}), 400
+
+        if len(trials) > MAX_TRIALS:
+            raise InputError(f'At most {MAX_TRIALS} trials allowed')
+
+        total_messages = 0
+        for i, trial in enumerate(trials):
+            check_reference_value(trial.get('reference_value'), f'Trial {i + 1}')
+            messages = trial.get('messages', [])
+            if not isinstance(messages, list) or not all(isinstance(m, dict) for m in messages):
+                raise InputError(f'Trial {i + 1}: messages must be a list of objects')
+            total_messages += len(messages)
+            if total_messages > MAX_TOTAL_MESSAGES:
+                raise InputError(f'At most {MAX_TOTAL_MESSAGES} messages allowed in total')
+            for j, msg in enumerate(messages):
+                check_payload(msg.get('payload'), f'Trial {i + 1}, message {j + 1}')
+                timestamp = msg.get('timestamp', 0.0)
+                if isinstance(timestamp, bool) or not isinstance(timestamp, (int, float)):
+                    raise InputError(f'Trial {i + 1}, message {j + 1}: timestamp must be a number')
 
         # Parse capture data
         windows = parse_capture_data(data)
 
-        # Create decoder with custom settings
         window_decoder = WindowPayloadDecoder(
-            correlation_threshold=settings.get('correlation_threshold', 0.8),
-            p_value_threshold=settings.get('p_value_threshold', 0.05),
-            mape_threshold=settings.get('mape_threshold', 5.0)
+            correlation_threshold=settings['correlation_threshold'],
+            p_value_threshold=settings['p_value_threshold'],
+            error_threshold=settings['error_threshold']
         )
 
-        top_n = settings.get('top_n', 10)
-
-        # Run decoding
-        result = window_decoder.decode(windows, top_n=top_n)
+        result = window_decoder.decode(windows, top_n=settings['top_n'])
 
         if result['success']:
             return jsonify(result)
         else:
             return jsonify(result), 400
 
-    except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
+    except InputError as e:
+        return jsonify({'success': False, 'error': str(e)}), 400
+    except HTTPException:
+        raise
+    except Exception:
+        app.logger.exception('decode-window failed')
+        return jsonify({'success': False, 'error': 'Internal error while decoding'}), 500
 
 
 @app.route('/api/examples', methods=['GET'])
@@ -417,14 +519,17 @@ def validate_input():
     }
     """
     try:
-        data = request.get_json()
+        data = request.get_json(silent=True)
 
-        if not data:
+        if not isinstance(data, dict):
             return jsonify({'valid': False, 'errors': ['No data provided']}), 400
 
         reference_values = data.get('reference_values', [])
         payloads = data.get('payloads', [])
         payload_format = data.get('payload_format', 'hex')
+
+        if not isinstance(reference_values, list) or not isinstance(payloads, list):
+            return jsonify({'valid': False, 'errors': ['reference_values and payloads must be lists']}), 400
 
         warnings = []
         errors = []
@@ -439,10 +544,12 @@ def validate_input():
 
         # Check for variance in reference values
         if reference_values:
-            import numpy as np
-            ref_array = np.array(reference_values, dtype=np.float64)
-            if np.var(ref_array) < 1e-10:
-                errors.append('Reference values have no variance (all same value)')
+            try:
+                numbers = [check_reference_value(v, f'Value {i + 1}') for i, v in enumerate(reference_values)]
+                if max(numbers) - min(numbers) <= 0:
+                    errors.append('Reference values have no variance (all same value)')
+            except InputError as e:
+                errors.append(str(e))
 
         # Check payloads
         if not payloads:
@@ -453,41 +560,26 @@ def validate_input():
         # Validate payload format
         payload_length_bits = 0
         if payloads:
-            try:
-                if payload_format == 'hex':
-                    # Validate hex format
-                    for i, p in enumerate(payloads):
-                        clean = p.replace(' ', '').replace('0x', '').replace('0X', '')
-                        if not all(c in '0123456789ABCDEFabcdef' for c in clean):
-                            errors.append(f'Payload {i+1} contains invalid hex characters')
-                            break
-                    # Calculate bit length from first payload
-                    clean = payloads[0].replace(' ', '').replace('0x', '').replace('0X', '')
-                    payload_length_bits = len(clean) * 4
-                else:
-                    # Validate binary format
-                    for i, p in enumerate(payloads):
-                        if not all(c in '01' for c in p):
-                            errors.append(f'Payload {i+1} contains invalid binary characters')
-                            break
-                    payload_length_bits = len(payloads[0])
+            lengths = set()
+            for i, p in enumerate(payloads):
+                try:
+                    if not isinstance(p, str):
+                        raise ValueError
+                    parsed = Payload.from_hex(p) if payload_format == 'hex' else Payload.from_bits(p)
+                except ValueError:
+                    errors.append(f'Payload {i+1} contains invalid {payload_format} characters')
+                    break
+                lengths.add(parsed.n_bits)
+                if i == 0:
+                    payload_length_bits = parsed.n_bits
 
-                # Check payload length consistency
-                lengths = set()
-                for p in payloads:
-                    if payload_format == 'hex':
-                        lengths.add(len(p.replace(' ', '').replace('0x', '').replace('0X', '')))
-                    else:
-                        lengths.add(len(p))
+            if len(lengths) > 1:
+                errors.append('Payloads have inconsistent lengths')
 
-                if len(lengths) > 1:
-                    errors.append(f'Payloads have inconsistent lengths')
-
-                if payload_length_bits < 4:
-                    errors.append('Payload too short (minimum 4 bits)')
-
-            except Exception as e:
-                errors.append(f'Error parsing payloads: {str(e)}')
+            if payload_length_bits > MAX_PAYLOAD_BITS:
+                errors.append(f'Payload too long (maximum {MAX_PAYLOAD_BITS} bits)')
+            elif lengths and payload_length_bits < 4:
+                errors.append('Payload too short (minimum 4 bits)')
 
         return jsonify({
             'valid': len(errors) == 0,
@@ -497,9 +589,24 @@ def validate_input():
             'errors': errors
         })
 
-    except Exception as e:
-        return jsonify({'valid': False, 'errors': [str(e)]}), 500
+    except HTTPException:
+        raise
+    except Exception:
+        app.logger.exception('validate failed')
+        return jsonify({'valid': False, 'errors': ['Internal error while validating']}), 500
+
+
+@app.errorhandler(413)
+def payload_too_large(_error):
+    return jsonify({'success': False, 'error': f'Request larger than {MAX_CONTENT_LENGTH // (1024 * 1024)} MB'}), 413
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    # Debug mode lets anyone who can reach the port run code on the server,
+    # so it is off unless FLASK_DEBUG=1. HOST defaults to all interfaces
+    # because Docker needs it; set HOST=127.0.0.1 for a local-only server.
+    app.run(
+        host=os.environ.get('HOST', '0.0.0.0'),
+        port=int(os.environ.get('PORT', '5001')),
+        debug=os.environ.get('FLASK_DEBUG') == '1'
+    )

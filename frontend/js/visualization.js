@@ -3,6 +3,31 @@
  * Handles visual rendering of results
  */
 
+/**
+ * Escape text for safe insertion into HTML
+ * @param {*} value - Any value; converted to string
+ */
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+/**
+ * Payload bit positions (MSB-first, 0 = MSB of byte 0) covered by a field.
+ * Little-endian (Intel) offsets name the field's LSB, with bit k in byte k/8.
+ */
+function fieldBitPositions(bitOffset, bitLength, endianness) {
+    const positions = [];
+    for (let k = bitOffset; k < bitOffset + bitLength; k++) {
+        positions.push(endianness === 'little' ? Math.floor(k / 8) * 8 + (7 - k % 8) : k);
+    }
+    return positions;
+}
+
 const Visualization = {
     // Store the chart instance
     correlationChart: null,
@@ -41,10 +66,9 @@ const Visualization = {
         }
 
         if (!candidates || candidates.length === 0) {
-            const colspan = windowMode ? 7 : 7;
             container.innerHTML = `
                 <tr>
-                    <td colspan="${colspan}" style="text-align: center; color: var(--color-text-muted);">
+                    <td colspan="7" style="text-align: center; color: var(--color-text-muted);">
                         No matching bit groups found. Try adjusting the thresholds.
                     </td>
                 </tr>
@@ -70,7 +94,7 @@ const Visualization = {
                 row.innerHTML = `
                     <td class="rank">#${index + 1}</td>
                     <td class="message-id">
-                        <code>${candidate.message_id}</code>
+                        <code>${escapeHtml(candidate.message_id)}</code>
                     </td>
                     <td class="location">
                         Bit ${candidate.bit_offset}<br>
@@ -84,7 +108,7 @@ const Visualization = {
                         ${candidate.correlation.toFixed(4)}
                     </td>
                     <td class="error">
-                        MAPE: ${candidate.mape.toFixed(2)}%
+                        ${candidate.error_pct.toFixed(2)}%
                     </td>
                     <td class="confidence">
                         <div class="confidence-bar">
@@ -108,10 +132,10 @@ const Visualization = {
                         ${candidate.correlation.toFixed(4)}
                     </td>
                     <td class="error">
-                        MAPE: ${candidate.mape.toFixed(2)}%
+                        ${candidate.error_pct.toFixed(2)}%
                     </td>
                     <td class="formula">
-                        ${candidate.formula}
+                        ${escapeHtml(candidate.formula)}
                     </td>
                     <td class="confidence">
                         <div class="confidence-bar">
@@ -131,34 +155,29 @@ const Visualization = {
      * @param {number} payloadLengthBits - Total payload length in bits
      * @param {Array} candidates - Array of candidate objects
      * @param {HTMLElement} container - Container element
+     * @param {string} samplePayload - Hex payload whose digits are shown
      */
-    renderPayloadVisualization(payloadLengthBits, candidates, container) {
+    renderPayloadVisualization(payloadLengthBits, candidates, container, samplePayload = '') {
         container.innerHTML = '';
 
         if (!payloadLengthBits || payloadLengthBits <= 0) {
             return;
         }
 
+        const digits = samplePayload.replace(/\s+/g, '').replace(/0x/gi, '').toUpperCase();
+
         // Create a map of bit positions to their match status
         const bitStatus = new Array(payloadLengthBits).fill('unknown');
+        const mark = (candidate, status) => {
+            fieldBitPositions(candidate.bit_offset, candidate.bit_length, candidate.endianness)
+                .filter(bit => bit < payloadLengthBits)
+                .forEach(bit => { bitStatus[bit] = status; });
+        };
 
-        // Mark candidate ranges (lower priority first)
-        if (candidates && candidates.length > 1) {
-            // Mark other candidates (reverse order so best match gets priority)
-            for (let i = candidates.length - 1; i > 0; i--) {
-                const c = candidates[i];
-                for (let bit = c.bit_offset; bit < c.bit_offset + c.bit_length && bit < payloadLengthBits; bit++) {
-                    bitStatus[bit] = 'candidate';
-                }
-            }
-        }
-
-        // Mark best match (highest priority)
+        // Mark other candidates first, then the best match on top
         if (candidates && candidates.length > 0) {
-            const best = candidates[0];
-            for (let bit = best.bit_offset; bit < best.bit_offset + best.bit_length && bit < payloadLengthBits; bit++) {
-                bitStatus[bit] = 'match';
-            }
+            candidates.slice(1).forEach(c => mark(c, 'candidate'));
+            mark(candidates[0], 'match');
         }
 
         // Group bits into nibbles (4 bits) for display
@@ -174,7 +193,7 @@ const Visualization = {
                 if (bitStatus[bit] === 'match') {
                     nibbleStatus = 'match';
                     break;
-                } else if (bitStatus[bit] === 'candidate' && nibbleStatus !== 'match') {
+                } else if (bitStatus[bit] === 'candidate') {
                     nibbleStatus = 'candidate';
                 }
             }
@@ -182,10 +201,10 @@ const Visualization = {
             const group = document.createElement('div');
             group.className = `bit-group ${nibbleStatus}`;
             group.innerHTML = `
-                <span class="bit-value">${nibble.toString(16).toUpperCase()}</span>
+                <span class="bit-value">${escapeHtml(digits[nibble] || '·')}</span>
                 <span class="bit-offset">${startBit}</span>
             `;
-            group.title = `Bits ${startBit}-${endBit - 1}`;
+            group.title = `Bits ${startBit}-${endBit - 1} (MSB-first, first trial's payload)`;
 
             container.appendChild(group);
 
@@ -211,15 +230,16 @@ const Visualization = {
 
         container.innerHTML = `
             <p>
-                <strong>Location:</strong> Bit offset <code>${groundTruth.bit_offset}</code>,
-                Length: <code>${groundTruth.bit_length}</code> bits
+                ${groundTruth.message_id !== undefined ? `<strong>Message:</strong> <code>${escapeHtml(groundTruth.message_id)}</code>,` : ''}
+                <strong>Location:</strong> Bit offset <code>${escapeHtml(groundTruth.bit_offset)}</code>,
+                Length: <code>${escapeHtml(groundTruth.bit_length)}</code> bits
             </p>
             <p>
-                <strong>Encoding:</strong> <code>${groundTruth.endianness.toUpperCase()}</code> endian,
+                <strong>Encoding:</strong> <code>${escapeHtml(String(groundTruth.endianness).toUpperCase())}</code> endian,
                 <code>${groundTruth.signed ? 'Signed' : 'Unsigned'}</code>
             </p>
             <p>
-                <strong>Formula:</strong> <code>${groundTruth.formula}</code>
+                <strong>Formula:</strong> <code>${escapeHtml(groundTruth.formula)}</code>
             </p>
         `;
     },
@@ -255,7 +275,8 @@ const Visualization = {
         result.candidates.forEach((candidate, index) => {
             const option = document.createElement('option');
             option.value = index;
-            option.textContent = `#${index + 1}: Bit ${candidate.bit_offset}, ${candidate.bit_length} bits (r=${candidate.correlation.toFixed(3)})`;
+            const message = candidate.message_id !== undefined ? `${candidate.message_id}, ` : '';
+            option.textContent = `#${index + 1}: ${message}Bit ${candidate.bit_offset}, ${candidate.bit_length} bits (r=${candidate.correlation.toFixed(3)})`;
             select.appendChild(option);
         });
 
@@ -385,13 +406,14 @@ const Visualization = {
                 <code>${candidate.signed ? 'Signed' : 'Unsigned'}</code>
             </p>
             <p>
-                <strong>Decoding Formula:</strong> <code>${candidate.formula}</code>
+                <strong>Decoding Formula:</strong> <code>${escapeHtml(candidate.formula)}</code>
             </p>
             <p>
                 <strong>Statistics:</strong>
                 Correlation r = <code>${candidate.correlation.toFixed(4)}</code>,
                 R² = <code>${candidate.r_squared.toFixed(4)}</code>,
-                MAPE = <code>${candidate.mape.toFixed(2)}%</code>
+                Error = <code>${candidate.error_pct.toFixed(2)}%</code> of range${candidate.shuffle_p_value != null ? `,
+                shuffle test p = <code>${candidate.shuffle_p_value.toFixed(3)}</code>` : ''}
             </p>
         `;
     },
@@ -428,3 +450,4 @@ const Visualization = {
 
 // Export for use in other modules
 window.Visualization = Visualization;
+window.escapeHtml = escapeHtml;
